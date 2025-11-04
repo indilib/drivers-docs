@@ -1,0 +1,66 @@
+---
+import yaml from 'js-yaml';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
+
+const currentPath = Astro.url.pathname;
+let driverInfo = {};
+let driverId = '';
+let yamlPath = '';
+
+// Extract driverId from the current URL path
+// Example: /drivers/general/driver-a/ -> drivers/general/driver-a
+if (currentPath.startsWith('/drivers/')) {
+  // Remove '/drivers/' prefix and trailing slash
+  driverId = currentPath.substring('/drivers/'.length).replace(/\/$/, '');
+  // Prepend 'drivers/' to match the content collection ID structure
+  driverId = `drivers/${driverId}`;
+
+  const yamlFileName = `${driverId}-info.yaml`;
+  // Construct the absolute path to the YAML file relative to the project root
+  // Assuming content/docs is at src/content/docs
+  yamlPath = path.resolve(process.cwd(), `src/content/docs/${yamlFileName}`);
+
+  if (existsSync(yamlPath)) {
+    try {
+      const fileContents = readFileSync(yamlPath, 'utf8');
+      driverInfo = yaml.load(fileContents);
+    } catch (e) {
+      console.error(`Error loading driver info YAML for ${driverId}:`, e);
+    }
+  }
+}
+---
+
+<aside class="starlight-right-sidebar">
+  <h2 class="starlight-right-sidebar-title">Driver Information</h2>
+  {Object.entries(driverInfo).length > 0 ? (
+    <ul>
+      {Object.entries(driverInfo).map(([key, value]) => (
+        <li><strong>{key}:</strong> {value}</li>
+      ))}
+    </ul>
+  ) : (
+    <p>No driver information available.</p>
+  )}
+</aside>
+
+<style>
+  .starlight-right-sidebar {
+    padding: 1rem;
+    border-left: 1px solid var(--sl-color-gray-5);
+    margin-left: 1.5rem;
+  }
+  .starlight-right-sidebar-title {
+    font-size: 1.2em;
+    margin-bottom: 1rem;
+  }
+  .starlight-right-sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  .starlight-right-sidebar li {
+    margin-bottom: 0.5rem;
+  }
+</style>

@@ -19,6 +19,9 @@ export default defineConfig({
           autogenerate: { directory: 'drivers' },
         },
       ],
+      components: {
+        PageSidebar: './src/components/StarlightRightSidebar.astro',
+      },
     }),
   ],
 });
