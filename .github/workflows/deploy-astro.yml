@@ -29,6 +29,6 @@ jobs:
           switches: -azv --delete
           path: dist/
           remote_path: public_html/
-          remote_host: ${{ secrets.REMOTE_PRIVATE_KEY }}
-          remote_user: ${{ secrets.REMOTE_PRIVATE_KEY }}
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_user: ${{ secrets.REMOTE_USER }}
           remote_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
