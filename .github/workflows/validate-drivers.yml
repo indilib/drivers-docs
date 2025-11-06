@@ -97,7 +97,7 @@ jobs:
             thumbnail=$(grep "thumbnail:" "$md_file" | awk -F': ' '{print $2}' | tr -d '\r')
             title=$(grep "title:" "$md_file" | awk -F': ' '{print $2}' | tr -d '\r')
             if [ -n "$thumbnail" ]; then
-              thumbnail_image="public${thumbnail}.webp"
+              thumbnail_image="public${thumbnail}"
               if [ ! -f "$thumbnail_image" ]; then
                 echo "::error file=$md_file::Thumbnail image for '$title' not found at '$thumbnail_image'."
                 exit 1
