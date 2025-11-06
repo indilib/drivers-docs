@@ -6,7 +6,7 @@ manufacturer_name: Sky Watcher
 # Additional Metadata
 website: www.indlib.org
 executable: indi_eqmod_telescope
-family: Telescopes
+family: Mounts
 platforms: Linux, BSD, OSX
-author: Jean-Luc Levaire
-version: 1.0
+author: Jean-Luc Levaire, Jasem Mutlaq
+version: 1.3

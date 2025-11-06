@@ -21,7 +21,7 @@ export default defineConfig({
         Sidebar: './src/components/Sidebar.astro',
         PageSidebar: './src/components/StarlightRightSidebar.astro',
       },
-      customCss: ['./src/styles/alerts.css'],
+      customCss: ['./src/styles/alerts.css', './src/styles/custom-layout.css'],
     }),
   ],
 });

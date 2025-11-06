@@ -1,0 +1,43 @@
+/* Override Starlight's default content width constraints */
+
+/* Make the main content area wider */
+.main-frame {
+    max-width: none !important;
+}
+
+/* Adjust the content wrapper to use more space */
+.sl-container {
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Make the main content area take up more horizontal space */
+main.main-pane {
+    max-width: none !important;
+    flex: 1 1 auto;
+}
+
+/* Adjust the content width */
+.content-panel {
+    max-width: none !important;
+}
+
+/* Make markdown content wider */
+.sl-markdown-content {
+    max-width: 90rem !important;
+}
+
+/* Fix right sidebar width - override Starlight's width: 100% */
+.right-sidebar-container,
+.right-sidebar {
+    right: 10px;
+    width: fit-content;
+}
+
+/* Center all images in markdown content */
+.sl-markdown-content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

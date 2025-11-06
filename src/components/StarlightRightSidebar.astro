@@ -62,13 +62,13 @@ if (currentPath.startsWith("/")) {
 ---
 
 <aside class="starlight-right-sidebar">
-  <h2 class="starlight__on-this-page">Driver Information</h2>
   {
     Object.entries(driverInfo).length > 0 ? (
-      <ul>
-        <li>
-          <strong>Manufacturer:</strong> {driverManufacturerDisplay}
-        </li>
+      <div class="driver-info-container">
+        <div class="info-row">
+          <div class="info-label">Manufacturer</div>
+          <div class="info-value">{driverManufacturerDisplay}</div>
+        </div>
         {Object.entries(driverInfo)
           .filter(
             ([key]) =>
@@ -78,13 +78,19 @@ if (currentPath.startsWith("/")) {
               key.toLowerCase() !== "driver_name",
           )
           .map(([key, value]) => (
-            <li>
-              <strong>{key}:</strong> {String(value)}
-            </li>
+            <div class="info-row">
+              <div class="info-label">
+                {key
+                  .split("_")
+                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .join(" ")}
+              </div>
+              <div class="info-value">{String(value)}</div>
+            </div>
           ))}
-      </ul>
+      </div>
     ) : (
-      <p>No driver information available.</p>
+      <p class="no-info">No driver information available.</p>
     )
   }
 
@@ -95,19 +101,77 @@ if (currentPath.startsWith("/")) {
 
 <style>
   .starlight-right-sidebar {
+    display: flex;
+    flex-direction: column;
     padding: 1rem;
     border-left: 1px solid var(--sl-color-gray-5);
     margin-left: 1.5rem;
+    width: max-content;
   }
-  .starlight-right-sidebar-title {
-    font-size: 1.2em;
-    margin-bottom: 1rem;
+
+  .driver-info-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #383c4a;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: #23262d;
+    max-width: 20rem;
   }
-  .starlight-right-sidebar ul {
-    list-style: none;
-    padding: 0;
+
+  .info-row {
+    display: flex;
+    border-bottom: 1px solid #383c4a;
   }
-  .starlight-right-sidebar li {
-    margin-bottom: 0.5rem;
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-row:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  .info-row:hover {
+    background-color: rgba(136, 58, 234, 0.15);
+    transition: background-color 0.2s ease;
+  }
+
+  .info-label {
+    flex-shrink: 0;
+    width: 120px;
+    padding: 0.875rem 1rem;
+    font-weight: 700;
+    color: #e1e4e8;
+    font-size: 0.875rem;
+    border-right: 2px solid #383c4a;
+    background-color: rgba(255, 255, 255, 0.02);
+  }
+
+  .info-value {
+    flex: 1;
+    padding: 0.875rem 1rem;
+    color: #c9d1d9;
+    font-size: 0.875rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    font-weight: 400;
+    min-width: 0;
+  }
+
+  .no-info {
+    color: var(--sl-color-gray-3);
+    font-style: italic;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .starlight-sidebar-separator {
+    border: none;
+    border-top: 1px solid var(--sl-color-gray-5);
+    margin: 1.5rem 0;
   }
 </style>

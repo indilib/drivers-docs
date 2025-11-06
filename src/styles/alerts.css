@@ -1,142 +1,146 @@
 /* GitHub-style alert styling for remark-github-blockquote-alert */
 
 .markdown-alert {
-    padding: 0.75rem 1rem;
-    margin: 1rem 0;
-    border-left: 4px solid;
-    border-radius: 0.375rem;
-    font-size: 0.95rem;
-  }
-  
-  .markdown-alert > :first-child {
-    margin-top: 0;
-  }
-  
-  .markdown-alert > :last-child {
-    margin-bottom: 0;
-  }
-  
-  .markdown-alert-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
-  }
-  
-  /* Note/Info Alert - Blue */
-  .markdown-alert-note {
-    background-color: #dbeafe;
-    border-color: #3b82f6;
-    color: #1e3a8a;
-  }
-  
-  .markdown-alert-note .markdown-alert-title {
-    color: #1e40af;
-  }
-  
-  /* Tip Alert - Green */
-  .markdown-alert-tip {
-    background-color: #d1fae5;
-    border-color: #10b981;
-    color: #064e3b;
-  }
-  
-  .markdown-alert-tip .markdown-alert-title {
-    color: #065f46;
-  }
-  
-  /* Important Alert - Purple */
-  .markdown-alert-important {
-    background-color: #e0e7ff;
-    border-color: #6366f1;
-    color: #312e81;
-  }
-  
-  .markdown-alert-important .markdown-alert-title {
-    color: #3730a3;
-  }
-  
-  /* Warning Alert - Yellow/Orange */
-  .markdown-alert-warning {
-    background-color: #fef3c7;
-    border-color: #f59e0b;
-    color: #78350f;
-  }
-  
-  .markdown-alert-warning .markdown-alert-title {
-    color: #92400e;
-  }
-  
-  /* Caution/Danger Alert - Red */
-  .markdown-alert-caution {
-    background-color: #fee2e2;
-    border-color: #ef4444;
-    color: #7f1d1d;
-  }
-  
-  .markdown-alert-caution .markdown-alert-title {
-    color: #991b1b;
-  }
-  
-  /* Dark mode support */
-  :root[data-theme='dark'] .markdown-alert-note {
-    background-color: #1e3a8a;
-    border-color: #60a5fa;
-    color: #dbeafe;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-note .markdown-alert-title {
-    color: #93c5fd;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-tip {
-    background-color: #064e3b;
-    border-color: #34d399;
-    color: #d1fae5;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-tip .markdown-alert-title {
-    color: #6ee7b7;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-important {
-    background-color: #312e81;
-    border-color: #818cf8;
-    color: #e0e7ff;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-important .markdown-alert-title {
-    color: #a5b4fc;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-warning {
-    background-color: #78350f;
-    border-color: #fbbf24;
-    color: #fef3c7;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-warning .markdown-alert-title {
-    color: #fcd34d;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-caution {
-    background-color: #7f1d1d;
-    border-color: #f87171;
-    color: #fee2e2;
-  }
-  
-  
-  :root[data-theme='dark'] .markdown-alert-caution .markdown-alert-title {
-    color: #fca5a5;
-  }
-  
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid;
+  border-radius: 0.375rem;
+  font-size: 0.95rem;
+}
+
+.markdown-alert> :first-child {
+  margin-top: 0;
+}
+
+.markdown-alert> :last-child {
+  margin-bottom: 0;
+}
+
+.markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Note/Info Alert - Blue */
+.markdown-alert-note {
+  background-color: #dbeafe;
+  border-color: #3b82f6;
+  color: #1e3a8a;
+}
+
+.markdown-alert-note .markdown-alert-title {
+  color: #1e40af;
+}
+
+/* Tip Alert - Green */
+.markdown-alert-tip {
+  background-color: #d1fae5;
+  border-color: #10b981;
+  color: #064e3b;
+}
+
+.markdown-alert-tip .markdown-alert-title {
+  color: #065f46;
+}
+
+/* Important Alert - Purple */
+.markdown-alert-important {
+  background-color: #e0e7ff;
+  border-color: #6366f1;
+  color: #312e81;
+}
+
+.markdown-alert-important .markdown-alert-title {
+  color: #3730a3;
+}
+
+/* Warning Alert - Yellow/Orange */
+.markdown-alert-warning {
+  background-color: #fef3c7;
+  border-color: #f59e0b;
+  color: #78350f;
+}
+
+.markdown-alert-warning .markdown-alert-title {
+  color: #92400e;
+}
+
+/* Caution/Danger Alert - Red */
+.markdown-alert-caution {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #7f1d1d;
+}
+
+.markdown-alert-caution .markdown-alert-title {
+  color: #991b1b;
+}
+
+/* Dark mode support */
+:root[data-theme='dark'] .markdown-alert-note {
+  background-color: #1e3a8a;
+  border-color: #60a5fa;
+  color: #dbeafe;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-note .markdown-alert-title {
+  color: #93c5fd;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-tip {
+  background-color: #064e3b;
+  border-color: #34d399;
+  color: #d1fae5;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-tip .markdown-alert-title {
+  color: #6ee7b7;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-important {
+  background-color: #312e81;
+  border-color: #818cf8;
+  color: #e0e7ff;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-important .markdown-alert-title {
+  color: #a5b4fc;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-warning {
+  background-color: rgba(245, 158, 11, 0.15);
+  border-color: #f59e0b;
+  color: #fbbf24;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-warning .markdown-alert-title {
+  color: #fbbf24;
+}
+
+:root[data-theme='dark'] .markdown-alert-warning .markdown-alert-title svg {
+  fill: #fbbf24;
+  color: #fbbf24;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-caution {
+  background-color: #7f1d1d;
+  border-color: #f87171;
+  color: #fee2e2;
+}
+
+
+:root[data-theme='dark'] .markdown-alert-caution .markdown-alert-title {
+  color: #fca5a5;
+}
