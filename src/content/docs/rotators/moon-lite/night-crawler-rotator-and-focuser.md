@@ -2,14 +2,14 @@
 title: Nightcrawler
 category: rotator
 description: Nightcrawler
-thumbnail: /images/rotator/night-rotator-and-focuser/night-rotator-and-focuser.webp
+thumbnail: /images/rotators/night-crawler-rotator-and-focuser/night-crawler-rotator-and-focuser.webp
 ---
 
 ## Features
 
 MoonLite’s NiteCrawler models are a fully electronic focuser that uses fly by wire control technology for very accurate positioning in both focus and rotation. The patented design is intended for remote automation of large heavy imaging instruments providing extreme position accuracy that is repeatable down to .26 Microns. You can control the focuser absolute & relative position, in addition to the rotator position and angle and auxiliary focuser, if one is attached. All motors are fully controllable from within the driver.
 
-![features](/images/rotator/night-rotator-and-focuser/features.webp)
+![features](/images/rotators/night-crawler-rotator-and-focuser/features.webp)
 
 ### Main Control Tab
 
@@ -30,7 +30,7 @@ You may set pre-defined presets for common focuser positions in the Presets tab.
 
 The INDI NightCrawer driver provides complete functionality for all the features supported by MoonLite including relative and absolute positioning, temperature readout, rotator control, auxiliary control, preset and configuration parameters.
 
-![NightCrawler Rotator](/images/rotator/night-rotator-and-focuser/rotator.webp)
+![NightCrawler Rotator](/images/rotators/night-crawler-rotator-and-focuser/rotator.webp)
 
 ### Rotator Control
 The rotator position can be controlled via either setting the absolute ticks count or angle. To change the current absolute position to a new position without moving the rotator, use Sync to set the new desired position. Once Sync is set, the current absolute position shall report the synced ticks. Depending on your specific NightCrawler model, each has specific maximum steps (ticks):
@@ -39,7 +39,7 @@ The rotator position can be controlled via either setting the absolute ticks cou
 - WR30 444,080 steps per revolution
 - WR35 505,960 steps per revolution
 
-![NightCrawler Settings](/images/rotator/night-rotator-and-focuser/settings.webp)
+![NightCrawler Settings](/images/rotators/night-crawler-rotator-and-focuser/settings.webp)
 
 ### Limit Switches
 
