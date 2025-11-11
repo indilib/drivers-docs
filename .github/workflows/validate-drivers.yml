@@ -26,7 +26,7 @@ jobs:
       - name: Validate driver documentation structure
         run: |
           # Check for one .md and one .yaml file per driver
-          find src/content/docs/drivers -mindepth 2 -maxdepth 2 -type d | while read -r category_dir; do
+          find src/content/docs -mindepth 2 -maxdepth 2 -type d | while read -r category_dir; do
             category_name=$(basename "$category_dir")
             find "$category_dir" -mindepth 1 -maxdepth 1 -type d | while read -r driver_dir; do
               driver_name=$(basename "$driver_dir")
@@ -47,7 +47,7 @@ jobs:
       - name: Validate image formats
         run: |
           # Check driver thumbnails
-          find public/images/drivers -type f ! -name "*.webp" -print0 | while IFS= read -r -d $'\0' file; do
+          find src/content/docs -type f ! -name "*.webp" -print0 | while IFS= read -r -d $'\0' file; do
             echo "::error file=$file::Driver thumbnail '$file' must be in .webp format."
             exit 1
           done
@@ -64,7 +64,7 @@ jobs:
 
       - name: Validate images exist
         run: |
-          find src/content/docs/drivers -name "*.yaml" | while read -r yaml_file; do
+          find src/content/docs -name "*.yaml" | while read -r yaml_file; do
             manufacturer=$(grep "Manufacturer:" "$yaml_file" | awk -F': ' '{print $2}' | tr -d '\r')
 
             if [ -n "$manufacturer" ]; then
@@ -80,7 +80,7 @@ jobs:
             fi
           done
 
-          find src/content/docs/drivers -name "*.md" | while read -r md_file; do
+          find src/content/docs -name "*.md" | while read -r md_file; do
             category=$(grep "category:" "$md_file" | awk -F': ' '{print $2}' | tr -d '\r')
             if [ -n "$category" ]; then
               category_slug=$(echo "$category" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9-]/-/g' | sed 's/--/-/g' | sed 's/^-//' | sed 's/-$//')
