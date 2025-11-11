@@ -1,6 +1,6 @@
 ---
 title: Arduino Demo
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Arduino Demo.
 thumbnail: ./arduino-demo.webp
 ---

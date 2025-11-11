@@ -1,6 +1,6 @@
 ---
 title: Sky Quality Meter
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Sky Quality Meter
 thumbnail: ./sky-quality-meter.webp
 ---

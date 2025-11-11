@@ -1,6 +1,6 @@
 ---
 title: Arduino MeteoStation SQM
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Arduino MeteoStation SQM
 thumbnail: ./arduino-meteo-station-sqm.webp
 ---

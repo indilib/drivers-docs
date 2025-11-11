@@ -1,10 +1,10 @@
 # Display Names (Human-Friendly - Required)
-driver_name: Arduino Demo
+driver_name: Arduino Digital Inputs
 manufacturer_name: DIY
 
 # Categories (Required - can be multiple)
 categories:
-  - auxiliary
+  - auxiliaries
 
 # Additional Metadata (Optional)
 executable: indi_duino

@@ -1,6 +1,6 @@
 ---
 title: Arduino Digital Inputs
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Arduino Digital Inputs.
 thumbnail: ./arduino-digital-inputs.webp
 ---

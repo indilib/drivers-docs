@@ -1,11 +1,12 @@
 # Display Names (Human-Friendly - Required)
-driver_name: Arduino Cosmos
+driver_name: Arduino Demo
 manufacturer_name: DIY
 
 # Categories (Required - can be multiple)
 categories:
-  - auxiliary
+  - auxiliaries
 
 # Additional Metadata (Optional)
 executable: indi_duino
 version: 0.6
+---
