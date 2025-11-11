@@ -295,7 +295,8 @@ src/content/docs/mounts/sky-watcher/eqmod/
 - **Format**: Must be `.webp`
 - **Thumbnail**: Named same as driver (e.g., `eqmod.webp`) at root of driver directory
 - **Additional Images**: All other images must be in the `images/` subdirectory
-- **Recommended Size**: 200x200 pixels for thumbnails, larger for screenshots
+- **Required Resolution**: 300x300 pixels for thumbnails (resize and crop as necessary to get this exact size). For images used inside the documentation, do not use larger than 1200 pixels for width.
+- **Required Format**: The thumbnail must be in WebP format. Screenshots can be either WebP, PNG, or JPG.
 - **References**: Use relative paths in markdown:
   - Thumbnail: `./eqmod.webp`
   - Other images: `./images/features.webp`
