@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: ASI ST4
+manufacturer_name: ZWO
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliary
+
+# Additional Metadata (Optional)
+executable: indi_asi_st4
+version: 2.3
