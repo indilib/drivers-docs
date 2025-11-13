@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Astromechanics LPM
+manufacturer_name: Astromechanics
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+executable: indi_astromech_lpm
+version: 0.1
+

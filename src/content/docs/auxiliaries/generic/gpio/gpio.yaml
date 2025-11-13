@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: GPIO
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+executable: indi_gpio
+version: 0.1
+
+
+
