@@ -4,7 +4,7 @@ manufacturer_name: Unihedron
 
 # Categories (Required - can be multiple)
 categories:
-  - auxiliary
+  - auxiliaries
 
 # Additional Metadata (Optional)
 executable: indi_sqm_weather

@@ -1,6 +1,6 @@
 ---
 title: Arduino Cosmos
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Arduino Cosmos.
 thumbnail: ./arduino-cosmos.webp
 ---

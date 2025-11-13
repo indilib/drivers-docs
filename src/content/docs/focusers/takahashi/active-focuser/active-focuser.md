@@ -21,7 +21,7 @@ This driver can be used to :
 - Read the data coming from the temperature sensors
 - Enable or disable the fan directly into the driver
 
-This driver has been made by [Takahashi Europe](http://www.takahashi-europe.com/) team.
+This driver has been made by [Takahashi Europe](https://www.takahashi-europe.com/) team.
 
 ## Operation
 

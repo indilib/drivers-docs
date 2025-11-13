@@ -2,6 +2,128 @@
 
 This guide explains how to add new driver documentation, including details on file structure, image placement, and how custom CSS ensures consistent styling. This project aims to provide a comprehensive and easily navigable resource for various drivers.
 
+## Prerequisites and Setup
+
+### Requirements
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18 or higher recommended) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js) or **yarn** or **pnpm**
+- **Git** - [Download here](https://git-scm.com/)
+- **Visual Studio Code** (recommended) - [Download here](https://code.visualstudio.com/)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone git@github.com:indilib/drivers-docs.git
+   cd drivers-docs
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+   This will install all required dependencies including:
+   - **Astro** (v5.6.1+) - The static site framework
+   - **@astrojs/starlight** - Documentation theme
+   - **js-yaml** - YAML parsing for driver metadata
+   - **sharp** - Image optimization
+   - **remark-github-blockquote-alert** - Support for GitHub-style callout blocks
+
+### Running the Development Server
+
+**Option 1: Using npm scripts (recommended for command line)**
+```bash
+npm run dev
+```
+This starts the Astro development server at `http://localhost:4321`
+
+**Option 2: Using VS Code Run and Debug (recommended for VS Code users)**
+
+This project includes a pre-configured VS Code launch configuration:
+
+1. Open the project in VS Code
+2. Press `F5` or go to **Run and Debug** panel (Ctrl+Shift+D / Cmd+Shift+D)
+3. Select **"Development server"** from the dropdown
+4. Click the green play button or press `F5`
+
+The development server will start, and you can access it at `http://localhost:4321`
+
+**Development Server Features:**
+- **Hot Module Replacement (HMR)** - Changes to files are reflected instantly in the browser
+- **Automatic page reloads** - When you add new drivers or modify content
+- **Error overlay** - Compilation errors are displayed directly in the browser
+
+### VS Code Setup for Astro Development
+
+For the best development experience with Astro in VS Code:
+
+1. **Install the Astro VS Code Extension:**
+   - Open VS Code Extensions panel (Ctrl+Shift+X / Cmd+Shift+X)
+   - Search for "Astro"
+   - Install the official **"Astro"** extension by Astro
+   - This provides syntax highlighting, IntelliSense, and code formatting for `.astro` files
+
+2. **Recommended additional extensions:**
+   - **"MDX"** - Better Markdown editing experience
+   - **"YAML"** - Syntax highlighting and validation for `.yaml` files
+   - **"WebP Preview"** - Preview `.webp` images directly in VS Code
+
+3. **Using VS Code Tasks for Driver Images:**
+
+   This project includes a VS Code task to automatically copy driver thumbnail images to the public directory for testing:
+
+   **To run the task:**
+   - Press `Ctrl+Shift+B` (Cmd+Shift+B on Mac) to run the default build task
+   - Or press `Ctrl+Shift+P` (Cmd+Shift+P), type "Tasks: Run Task", and select:
+     - **"Copy Thumbnails to Public"** - Copies all driver thumbnails from `src/content/docs` to `public/images/drivers`
+     - **"Build (with thumbnails)"** - Copies thumbnails AND builds the entire site
+
+   **When to use these tasks:**
+   - After adding a new driver with images
+   - When you want to test that all thumbnail images are correctly placed
+   - Before building for production
+
+   **What the task does:**
+   - Finds all `.webp` files at the root of driver directories (excluding the `images/` subdirectory)
+   - Copies them to `public/images/drivers/<manufacturer>/<driver>.webp`
+   - This mirrors the directory structure for easy reference
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+This creates an optimized production build in the `dist/` directory.
+
+To preview the production build locally:
+```bash
+npm run preview
+```
+
+### Project Structure Overview
+
+```
+drivers.indilib.org/
+├── .vscode/
+│   ├── launch.json          # VS Code debugger configuration
+│   └── tasks.json           # VS Code tasks (copy images, build)
+├── public/
+│   └── images/              # Shared assets (manufacturer logos, category icons)
+├── src/
+│   ├── content/
+│   │   └── docs/            # All driver documentation
+│   ├── components/          # Astro components
+│   ├── pages/               # Astro pages/routes
+│   └── styles/              # Global styles
+├── astro.config.mjs         # Astro configuration
+├── package.json             # Dependencies and scripts
+└── tsconfig.json            # TypeScript configuration
+```
+
 ## 1. Adding New Drivers
 
 Each driver entry consists of two files: a Markdown (`.md`) file for the main content and a YAML (`.yaml`) file for metadata.
@@ -35,7 +157,7 @@ src/content/docs/
 **Directory Naming Convention:**
 - Use **lowercase** with **hyphens** for directory names (e.g., `sky-watcher`, `deep-sky-dad`, `ikarus-technologies`)
 - Category directories: `mounts`, `cameras`, `dustcaps`, `lightboxes`, etc.
-- Manufacturer directories: `sky-watcher`, `deep-sky-dad`, `zwo`, `qhyccd`, etc.
+- Manufacturer directories: `sky-watcher`, `deep-sky-dad`, `zwo`, `qhyccd`, etc. ("Generic" if there is no)
 - Driver directories: `eqmod`, `deep-sky-dad-fp1`, etc.
 - Driver filenames must match directory: `eqmod/eqmod.md`, `deep-sky-dad-fp1/deep-sky-dad-fp1.md`, etc.
 
@@ -76,7 +198,7 @@ version: 1.0
 
 **Key Fields:**
 - `driver_name`: Human-friendly driver name (displayed on the website)
-- `manufacturer_name`: Human-friendly manufacturer name (e.g., "Sky Watcher", "Ikarus Technologies")
+- `manufacturer_name`: Human-friendly manufacturer name (e.g., "Sky Watcher", "Ikarus Technologies", and "Generic" if there is no)
 - `categories`: Array of category slugs the driver belongs to (e.g., `["mounts"]`, `["dustcaps", "lightboxes"]`)
 - Additional fields: You can add any custom metadata that will be displayed in the driver information sidebar
 
@@ -173,7 +295,8 @@ src/content/docs/mounts/sky-watcher/eqmod/
 - **Format**: Must be `.webp`
 - **Thumbnail**: Named same as driver (e.g., `eqmod.webp`) at root of driver directory
 - **Additional Images**: All other images must be in the `images/` subdirectory
-- **Recommended Size**: 200x200 pixels for thumbnails, larger for screenshots
+- **Required Resolution**: 300x300 pixels for thumbnails (resize and crop as necessary to get this exact size). For images used inside the documentation, do not use larger than 1200 pixels for width.
+- **Required Format**: The thumbnail must be in WebP format. Screenshots can be either WebP, PNG, or JPG.
 - **References**: Use relative paths in markdown:
   - Thumbnail: `./eqmod.webp`
   - Other images: `./images/features.webp`
@@ -206,7 +329,7 @@ public/images/categories/cameras.webp
 
 **Requirements:**
 - **Format**: Must be `.webp`
-- **Recommended Size**: 200x200 pixels
+- **Resolution**: Must be 300x300 pixels
 
 ## 3. URL Structure
 

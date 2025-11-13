@@ -1,6 +1,6 @@
 ---
 title: Sky Quality Meter
-categories: ["auxiliary"]
+categories: ["auxiliaries"]
 description: Sky Quality Meter
 thumbnail: ./sky-quality-meter.webp
 ---
@@ -8,7 +8,7 @@ thumbnail: ./sky-quality-meter.webp
 
 ## Features
 
-INDI SQM driver support Ethernet-enabled  [SQM-LE](http://unihedron.com/projects/sqm-le/) and USB. The driver provides basic averaged readings from the unit including sky brightness and temperature.
+INDI SQM driver support Ethernet-enabled  [SQM-LE](https://unihedron.com/projects/sqm-le/) and USB. The driver provides basic averaged readings from the unit including sky brightness and temperature.
 
 ## Operation
 
