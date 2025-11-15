@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: CheapoDC
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Power Controllers
+
+# Additional Metadata (Optional)
+website: github.com/hcomet/CheapoDC
+executable: indi_cheapodc
+platforms: Linux, BSD, OSX
+author: Stephen Hillier
+version: 2.0

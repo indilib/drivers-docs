@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: MyDCP4ESP32
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Power Controllers
+
+# Additional Metadata (Optional)
+website: sourceforge.net/projects/esp32-dew-controller/
+executable: indi_mydcp4esp32
+platforms: Linux, BSD, OSX
+author: Stephen Hillier
+version: 2.0
