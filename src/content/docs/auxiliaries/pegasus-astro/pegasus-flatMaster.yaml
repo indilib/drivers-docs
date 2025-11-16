@@ -1,0 +1,20 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Pegasus FlatMaster
+manufacturer_name: Pegasus Astro
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+executable: Pegasus FlatMaster
+Family: auxiliaries
+version: 1.2
+
+
+
+Driver NamePegasus FlatMaster
+Driver ExecutablePegasus FlatMaster
+FamilyAuxiliary
+ManufacturerPegasus Astro
+Version1.2

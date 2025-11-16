@@ -1,12 +1,11 @@
 # Display Names (Human-Friendly - Required)
-driver_name: AstroLink 4
-manufacturer_name: AstroJolo
+driver_name: Arduino Cosmos
+manufacturer_name: Arduino
 
 # Categories (Required - can be multiple)
 categories:
   - auxiliaries
 
 # Additional Metadata (Optional)
-executable: indi_astrolink4
-version: 1.0
-
+executable: indi_duino
+version: 0.6

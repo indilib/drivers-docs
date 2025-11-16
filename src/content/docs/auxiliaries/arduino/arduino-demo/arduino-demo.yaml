@@ -1,6 +1,6 @@
 # Display Names (Human-Friendly - Required)
-driver_name: Arduino Stepper
-manufacturer_name: DIY
+driver_name: Arduino Demo
+manufacturer_name: Arduino
 
 # Categories (Required - can be multiple)
 categories:

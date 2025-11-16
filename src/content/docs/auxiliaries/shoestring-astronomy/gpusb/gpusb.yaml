@@ -1,12 +1,15 @@
 # Display Names (Human-Friendly - Required)
-driver_name: AstroLink 4
-manufacturer_name: AstroJolo
+driver_name: GPSUB
+manufacturer_name: Shoestring Astronomy
 
 # Categories (Required - can be multiple)
 categories:
   - auxiliaries
 
 # Additional Metadata (Optional)
-executable: indi_astrolink4
+executable: ndi_gpusb
+Family: Weather
+Platforms: Linux, OSX, BSD
+Author: Jasem Mutlaq
 version: 1.0
 

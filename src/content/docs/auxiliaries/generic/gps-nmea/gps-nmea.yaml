@@ -1,12 +1,12 @@
 # Display Names (Human-Friendly - Required)
-driver_name: AstroLink 4
-manufacturer_name: AstroJolo
+driver_name: GPS NMEA
+manufacturer_name: Generic
 
 # Categories (Required - can be multiple)
 categories:
   - auxiliaries
 
 # Additional Metadata (Optional)
-executable: indi_astrolink4
-version: 1.0
-
+executable: indi_gpsd
+AuthorJasem Mutlaq, 
+version: 0.1

@@ -1,12 +1,13 @@
 # Display Names (Human-Friendly - Required)
-driver_name: AstroLink 4
-manufacturer_name: AstroJolo
+driver_name: Imager Agent
+manufacturer_name: Generic
 
 # Categories (Required - can be multiple)
 categories:
   - auxiliaries
 
 # Additional Metadata (Optional)
-executable: indi_astrolink4
-version: 1.0
+executable: indi_imager_agent
+version: 1.2
+
 

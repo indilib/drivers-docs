@@ -1,11 +1,12 @@
 # Display Names (Human-Friendly - Required)
-driver_name: Arduino Roof
-manufacturer_name: DIY
+driver_name: Arduino Switcher
+manufacturer_name: Arduino
 
 # Categories (Required - can be multiple)
 categories:
   - auxiliaries
 
 # Additional Metadata (Optional)
-executable: indi_roof
+executable: indi_duino
 version: 0.6
+

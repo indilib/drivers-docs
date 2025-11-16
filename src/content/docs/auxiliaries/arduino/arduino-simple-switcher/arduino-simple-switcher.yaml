@@ -1,6 +1,6 @@
 # Display Names (Human-Friendly - Required)
-driver_name: Arduino Cosmos
-manufacturer_name: Generic
+driver_name: Arduino Simple Switcher
+manufacturer_name: Arduino
 
 # Categories (Required - can be multiple)
 categories:
