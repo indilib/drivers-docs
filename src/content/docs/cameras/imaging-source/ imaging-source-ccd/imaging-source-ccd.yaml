@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly - Required)
+driver_name: V4L2 CCD
+categories: ["cameras"]
+manufacturer_name: Imaging Source
+
+# Additional Metadata (Optional)
+executable: indi_v4l2_ccd
+Family: CCD
+Platforms: Linux
+Author: Jasem Mutlaq, Jean-Luc
+version: 0.1
+
+

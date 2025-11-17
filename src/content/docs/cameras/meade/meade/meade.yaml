@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Meade
+categories: ["cameras"]
+manufacturer_name: Meade
+
+# Additional Metadata (Optional)
+executable: indi_dsi_ccd
+Family: Cameras
+Author: Ben Gilsrud
+version: 0.1
+

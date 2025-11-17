@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly - Required)
+driver_name: FLI CCD
+categories: ["cameras"]
+manufacturer_name: FLI
+
+# Additional Metadata (Optional)
+executable: indi_fli_ccd
+Platforms: Linux
+Author: Jasem Mutlaq
+version: 1.0

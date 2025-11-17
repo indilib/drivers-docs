@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly - Required)
+driver_name: MALLINCAM
+categories: ["cameras"]
+manufacturer_name: MALLINCAM
+
+# Additional Metadata (Optional)
+executable: indi_mallincam_ccd
+Family: Cameras
+version: 2.1
+

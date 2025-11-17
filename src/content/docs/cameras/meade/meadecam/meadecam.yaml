@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Meade Cam
+categories: ["cameras"]
+manufacturer_name: Meade
+
+# Additional Metadata (Optional)
+executable: indi_meadecam_ccd
+Manufacturer: Meade
+Family: Cameras
+version: 2.1
+

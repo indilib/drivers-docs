@@ -1,0 +1,15 @@
+# Display Names (Human-Friendly - Required)
+driver_name: DSLR Camera
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Cameras
+
+# Additional Metadata (Optional)
+executable: Driver Executableindi_gphoto_ccd
+Platforms: Linux, BSD, OSX
+Author: Jasem Mutlaq, Geoffrey Hausheer
+version: 2.6
+
+

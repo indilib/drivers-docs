@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly - Required)
+driver_name: INova
+categories: ["cameras"]
+manufacturer_name: I-Nova CCD
+
+# Additional Metadata (Optional)
+executable: indi_nova_ccd
+Platforms: Linux
+Author: I-Nova CCD
+version: 0.1

@@ -1,0 +1,8 @@
+# Display Names (Human-Friendly - Required)
+driver_name: FireFly MV
+categories: ["cameras"]
+manufacturer_name: FLIR Systems
+
+# Additional Metadata (Optional)
+executable: indi_ffmv_ccd
+version: 1.0

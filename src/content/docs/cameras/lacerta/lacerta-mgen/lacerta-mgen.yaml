@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Lacerta MGen Autoguider
+categories: ["cameras"]
+manufacturer_name: Lacerta
+
+# Additional Metadata (Optional)
+executable: indi_mgenautoguider
+Family: Cameras
+Platforms: Linux
+Author: Eric Dejouhanet
+version: 0.1
+

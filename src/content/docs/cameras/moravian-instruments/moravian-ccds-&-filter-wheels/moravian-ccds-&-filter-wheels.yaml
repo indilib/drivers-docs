@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly - Required)
+driver_name: MI CCD
+categories: ["cameras"]
+manufacturer_name: MI CCD
+
+# Additional Metadata (Optional)
+executable: indi_mi_ccd
+Family: Cameras
+Author: Jasem Mutlaq
+version: 0.1
