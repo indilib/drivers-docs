@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: Nightscape 8300 CCD
+categories: ["cameras"]
+manufacturer_name: Celestron
+
+# Additional Metadata
+executable: indi_nighscape_ccd
+Platforms: Linux, MacOS
+Author: Dirk Niggemann
+version: 1.0
+
+
