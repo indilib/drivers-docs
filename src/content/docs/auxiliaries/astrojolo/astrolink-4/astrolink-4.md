@@ -2,7 +2,7 @@
 title: AstroLink 4
 categories: ["auxiliaries"]
 description: AstroLink 4.
-thumbnail: ./astrolink-4-driver.webp
+thumbnail: ./astrolink-4.webp
 
 ---
 ## Features
