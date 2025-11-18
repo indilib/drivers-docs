@@ -45,3 +45,19 @@ main.main-pane {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* Hide scrollbar in left sidebar */
+.sidebar-pane,
+.sidebar-content,
+starlight-menu-button ~ nav,
+nav[aria-label="Main"] {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+.sidebar-pane::-webkit-scrollbar,
+.sidebar-content::-webkit-scrollbar,
+starlight-menu-button ~ nav::-webkit-scrollbar,
+nav[aria-label="Main"]::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari and Opera */
+}

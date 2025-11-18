@@ -194,6 +194,13 @@ categories.forEach((category) => {
         height: 100%;
         overflow-y: auto;
         padding: 1rem;
+        /* Hide scrollbar for all browsers */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .sidebar-nav::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
     }
 
     ul {
