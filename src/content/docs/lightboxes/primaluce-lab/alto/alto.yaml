@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: ALTO
+categories: ["lightboxes"]
+manufacturer_name: Primaluce Labs
+
+# Additional Metadata
+executable: indi_alto
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 1.0
+

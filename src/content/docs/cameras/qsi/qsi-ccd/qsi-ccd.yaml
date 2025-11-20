@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: QSI CCD
+categories: ["cameras"]
+manufacturer_name: QSI
+
+# Additional Metadata (Optional)
+executable: indi_qsi_ccd
+Family: CCD
+Platforms: Linux, BSD, OSX
+Author: Sami Lehti, Jasem Mutlaq
+version: 0.4
+

@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: GIOTTO
+categories: ["lightboxes"]
+manufacturer_name: Primaluce Labs
+
+# Additional Metadata
+executable: indi_giotto
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 1.0

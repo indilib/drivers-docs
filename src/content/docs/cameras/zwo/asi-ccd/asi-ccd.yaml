@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: ASI CCD
+categories: ["cameras"]
+manufacturer_name: ZWO Optics
+
+# Additional Metadata (Optional)
+executable: indi_asi_ccd
+Family: Cameras
+Platforms: Linux
+Author: Jasem Mutlaq
+version: 2.1

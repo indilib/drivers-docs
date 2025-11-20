@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Pentax DSLR (Native)
+categories: ["cameras"]
+manufacturer_name: Ricoh Imaging
+
+# Additional Metadata (Optional)
+executable: indi_pentax
+Family: CCD
+Platforms: Linux
+Author: Karl Rees
+version: 0.1
+

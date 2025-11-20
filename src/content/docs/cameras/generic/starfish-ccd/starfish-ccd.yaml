@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Starfish CCD
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Cameras
+
+# Additional Metadata (Optional)
+executable: indi_fishcamp_ccd
+version: 1.1

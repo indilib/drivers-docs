@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: PlayerOne CCD
+categories: ["cameras"]
+manufacturer_name: Player One Astronomy
+
+# Additional Metadata (Optional)
+executable: indi_palyerone_ccd
+Family: CCDs
+Platforms: Linux, OSX
+Author: Hiroshi SAITO
+version: 0.1
+

@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: SVBony
+categories: ["cameras"]
+manufacturer_name: SVBONY
+
+# Additional Metadata (Optional)
+executable: indi_sx_ccd
+Family: CCD
+Platforms: Linux, MacOS
+Author: Blaise-Florentin Collin, Tetsuya Kakura
+version: 1.3.3

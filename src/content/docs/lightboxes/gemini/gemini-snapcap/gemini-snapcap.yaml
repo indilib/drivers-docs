@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: SnapScap
+categories: ["lightboxes"]
+manufacturer_name: Gemini Telescopes
+
+# Additional Metadata
+executable: indi_pegasus_uch
+Platforms: Linux, BSD, MacOS
+Author: Jarno Paananen
+version: 1.0
+

@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Toupcam
+categories: ["cameras"]
+manufacturer_name: ToupTek
+# Additional Metadata (Optional)
+executable: indi_toupcam_ccd
+Family: CCD
+Platforms: Linux, MacOS
+Author: Jasem Mutlaq
+version: 1.1
+
+
+

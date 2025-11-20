@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: WandererBox Pro V3
+categories: ["observatory-controllers"]
+manufacturer_name: Wanderer Astro
+
+# Additional Metadata
+executable: indi_wandererbox_pro_v3
+version: 1.0
+

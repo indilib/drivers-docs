@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: SBIG CCD
+categories: ["cameras"]
+manufacturer_name: SBIG
+
+# Additional Metadata (Optional)
+executable: indi_sbig_ccd
+Family: CCD
+Platforms: Linux, MacOS
+Author: Jasem Mutlaq, Jan Soldan
+version: 2.1
+

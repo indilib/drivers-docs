@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Astroshop
+categories: ["cameras"]
+manufacturer_name: Omegon
+
+# Additional Metadata (Optional)
+executable: indi_omegonprocam_ccd
+Manufacturer: Meade
+Family: Cameras
+version: 2.1
+

@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: StartshootG
+categories: ["cameras"]
+manufacturer_name: Orion
+
+# Additional Metadata (Optional)
+executable: indi_starshootg_ccd
+Manufacturer: Orion
+Family: Cameras
+version: 2.1
+
