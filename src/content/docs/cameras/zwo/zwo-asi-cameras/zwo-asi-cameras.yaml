@@ -8,4 +8,4 @@ executable: indi_asi_ccd
 Family: Cameras
 Platforms: Linux
 Author: Jasem Mutlaq
-version: 2.1
+version: 1.3

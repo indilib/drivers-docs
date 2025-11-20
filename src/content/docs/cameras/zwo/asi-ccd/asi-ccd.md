@@ -1,8 +1,8 @@
 ---
-title: ZWO ASI Cameras
+title:  ZWO ASI Cameras
 categories: ["cameras"]
-description: ZWO ASI Cameras
-thumbnail: ./zwo-asi-cameras.webp
+description:  ASI CCD
+thumbnail: ./asi-ccd.webp
 ---
 
 ## Features
@@ -29,7 +29,7 @@ There are two ZWO camera drivers available:
 
 ### Main Control Tab
 
-[![Screenshot_2021-09-04_at_22.58.50.png](./images/Screenshot_2021-09-04_at_22.58.50.webp)
+![Screenshot_2021-09-04_at_22.58.50.png](./images/Screenshot_2021-09-04_at_22.58.50.webp)
 
 The  **Main Control**  tab deals with the following parameters:
 
@@ -44,7 +44,7 @@ The way cooling works is to set a target temperature. The cooler then adjusts th
 
 ### General Info Tab
 
-[![Screenshot_2021-09-04_at_23.16.02.png](./images/Screenshot_2021-09-04_at_23.16.02.webp)
+![Screenshot_2021-09-04_at_23.16.02.png](./images/Screenshot_2021-09-04_at_23.16.02.webp)
 The  **General Info**  tab displays information about the driver:
 
 -   **Driver Info**: Displays information about the driver.
@@ -76,7 +76,7 @@ The  **Options**  tab allows a number of parameters to be viewed and set.
 
 ### Image Setting Tab
 
-[![Screenshot_2021-09-04_at_23.16.34.png](./images/Screenshot_2021-09-04_at_23.16.34.webp)
+![Screenshot_2021-09-04_at_23.16.34.png](./images/Screenshot_2021-09-04_at_23.16.34.webp)
 
 The  **Image Settings**  tab allows parameters associated with the images taken by the device to be viewed and set:
 
@@ -88,7 +88,7 @@ The  **Image Settings**  tab allows parameters associated with the images taken 
 
 ### Image Info Tab
 
-[![Screenshot_2021-09-04_at_23.19.26.png](./images/Screenshot_2021-09-04_at_23.19.26.webp)
+![Screenshot_2021-09-04_at_23.19.26.png](./images/Screenshot_2021-09-04_at_23.19.26.webp)
 
 The  **Image Info**  tab displays information about the camera device:
 
@@ -104,7 +104,7 @@ The  **Image Info**  tab displays information about the camera device:
 
 ### Guider Control Tab
 
-[![Screenshot_2021-09-04_at_23.17.03.png](./images/Screenshot_2021-09-04_at_23.17.03.webp)
+![Screenshot_2021-09-04_at_23.17.03.png](./images/Screenshot_2021-09-04_at_23.17.03.webp)
 
 The  **Guider Control**  tab supports parameters associated with guiding from the camera to the mount if the camera has an ST4 port.
 
@@ -149,7 +149,7 @@ Typically video format is used in planetary photography and not in DSO photograp
 
 ### Controls Tab
 
-[![Screenshot_2021-09-04_at_23.18.23.png](./images/Screenshot_2021-09-04_at_23.18.23.webp)
+![Screenshot_2021-09-04_at_23.18.23.png](./images/Screenshot_2021-09-04_at_23.18.23.webp)
 
 The  **Controls**  tab allows for a number of parameters to be adjusted:
 

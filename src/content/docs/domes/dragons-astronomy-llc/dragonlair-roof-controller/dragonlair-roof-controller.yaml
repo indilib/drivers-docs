@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: DragonLAIR
+categories: ["domes"]
+manufacturer_name: dragon Astronomy LLC
+
+# Additional Metadata
+executable: dragonlair_dome
+Author: Rick Bassham
+version: 1.0
+
