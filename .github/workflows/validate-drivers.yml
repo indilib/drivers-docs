@@ -38,11 +38,6 @@ jobs:
               echo "::error file=$driver_dir::Driver directory '$driver_dir' must contain '$driver_name.webp'."
               exit 1
             fi
-
-            # Check for optional images directory
-            if [ -d "$driver_dir/images" ]; then
-              echo "Info: Driver directory '$driver_dir' contains an optional 'images/' subdirectory."
-            fi
           done
 
           # Use regex to ensure all .md, .yaml, and .webp files are at the correct driver level and named correctly
@@ -51,9 +46,37 @@ jobs:
             # Extract driver_name from the file path for comparison
             # Example: file = src/content/docs/category/manufacturer/driver_name/driver_name.md
             # Expected pattern for driver_name: ([^/]+)
-            # Full path pattern: ^src/content/docs/[^/]+/[^/]+/([^/]+)/\1\.(md|yaml|webp)$
-            if ! echo "$file" | grep -Pq "^src/content/docs/[^/]+/[^/]+/([^/]+)/\\1\\.(md|yaml|webp)$"; then
-              echo "::error file=$file::Misplaced or incorrectly named driver file. Expected format: src/content/docs/{{category}}/{{manufacturer}}/{{driver_name}}/{{driver_name}}.(md|yaml|webp)"
+            driver_dir_name=$(basename "$(dirname "$file")")
+            file_base_name=$(basename "$file")
+            file_extension="${file_base_name##*.}"
+            file_name_without_ext="${file_base_name%.*}"
+            file_dir=$(dirname "$file")
+
+            is_primary_file_name_match=false
+            if [[ "$file_name_without_ext" == "$driver_dir_name" ]]; then
+              if [[ "$file_extension" == "md" || "$file_extension" == "yaml" || "$file_extension" == "webp" ]]; then
+                is_primary_file_name_match=true
+              fi
+            fi
+
+            is_primary_file_dir_match=false
+            if echo "$file_dir" | grep -Pq "^src/content/docs/[^/]+/[^/]+(?:/[^/]+)?$"; then
+              is_primary_file_dir_match=true
+            fi
+
+            is_image_subdir_match=false
+            if echo "$file" | grep -Pq "^src/content/docs/[^/]+/[^/]+/[^/]+/images/[^/]+\\.webp$"; then
+              is_image_subdir_match=true
+            fi
+
+            if $is_primary_file_name_match && $is_primary_file_dir_match; then
+              # This file is a primary driver file and correctly named/located.
+              :
+            elif $is_image_subdir_match; then
+              # This file is an image within the driver's images/ subdirectory and correctly named.
+              :
+            else
+              echo "::error file=$file::Misplaced or incorrectly named file. Expected primary driver file format: src/content/docs/{{category}}/{{manufacturer}}/{{driver_name}}/{{driver_name}}.(md|yaml|webp) or image file format: src/content/docs/{{category}}/{{manufacturer}}/{{driver_name}}/images/{{image_name}}.webp"
               exit 1
             fi
           done
