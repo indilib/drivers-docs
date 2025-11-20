@@ -1,6 +1,6 @@
 ---
 title: Joystick
-categories: ["controller"]
+categories: ["observatory-controllers"]
 description: Joystick
 thumbnail: ./joysticks.webp
 ---

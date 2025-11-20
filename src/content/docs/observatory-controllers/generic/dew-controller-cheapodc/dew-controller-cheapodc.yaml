@@ -1,6 +1,6 @@
 # Display Names (Human-Friendly)
 driver_name: CheapoDC
-categories: ["controllers"]
+categories: ["observatory-controllers"]
 manufacturer_name: Generic
 
 # Additional Metadata

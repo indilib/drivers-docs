@@ -1,6 +1,6 @@
 ---
 title: Pegasus UCH
-categories: ["controller"]
+categories: ["observatory-controllers"]
 description: Pegasus UCH
 thumbnail: ./pegasus-uch.webp
 ---

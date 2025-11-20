@@ -1,6 +1,6 @@
 ---
 title: Dew Controller - CheapoDC
-categories: ["dustcaps", "lightboxes"]
+categories: ["observatory-controllers"]
 description: Dew Controller - CheapoDC
 thumbnail: ./dew-controller-cheapodc.webp
 ---

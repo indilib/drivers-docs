@@ -1,6 +1,6 @@
 # Display Names (Human-Friendly)
 driver_name: Pegasus UCH
-categories: ["controllers"]
+categories: ["observatory-controllers"]
 manufacturer_name: Pegasus Astro
 
 # Additional Metadata
