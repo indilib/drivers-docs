@@ -2,7 +2,7 @@
 title: Max Dome II
 categories: ["domes"]
 description: MaxDomeII
-thumbnail: ./maxdome-II.webp
+thumbnail: ./maxdome-ii.webp
 ---
 
 ## Features
