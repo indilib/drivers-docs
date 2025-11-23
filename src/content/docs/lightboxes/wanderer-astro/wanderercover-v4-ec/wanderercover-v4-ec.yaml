@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: WandererCover V4-EC
+categories: ["lightboxes"]
+manufacturer_name: Wanderer Astro
+
+# Additional Metadata
+executable: indi_wanderercover_v4_ec
+version: 1.0
+

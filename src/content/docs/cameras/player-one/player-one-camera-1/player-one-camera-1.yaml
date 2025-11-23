@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly - Required)
+driver_name: PlayerOne
+categories: ["cameras"]
+manufacturer_name: Player One Astronomy
+
+# Additional Metadata (Optional)
+executable: indi_palyerone_single_ccd
+version: 1.2
+

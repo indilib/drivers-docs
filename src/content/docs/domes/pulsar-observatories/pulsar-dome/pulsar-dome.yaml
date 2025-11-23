@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: Rigel Dome
+categories: ["domes"]
+manufacturer_name: Pulsar Observatories
+
+# Additional Metadata
+executable: indi_rigel_dome
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 1.0
+
+

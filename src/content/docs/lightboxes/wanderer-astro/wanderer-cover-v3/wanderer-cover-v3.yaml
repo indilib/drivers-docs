@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Wanderer Cover V3
+categories: ["lightboxes"]
+manufacturer_name: Wanderer Astro
+
+# Additional Metadata
+executable: indi_wanderer_cover
+Platforms: Linux, BSD, MacOS
+Author: Jérémie Klein
+version: 1.0

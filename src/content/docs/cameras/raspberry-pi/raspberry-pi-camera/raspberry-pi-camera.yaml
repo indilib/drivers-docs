@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: RPI Camera
+categories: ["cameras"]
+manufacturer_name: Raspberry PI
+
+# Additional Metadata (Optional)
+executable: indi_rpicam
+Family: CCD
+Platforms: Linux
+Author: Lars Berntzon
+version: 1.0

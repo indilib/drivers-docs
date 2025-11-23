@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Nncam
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Cameras
+
+# Additional Metadata (Optional)
+executable: indi_nncam_ccd
+version: 2.1
+

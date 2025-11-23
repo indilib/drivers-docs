@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Starlight Xpress AO
+manufacturer_name: Starlight Xpress
+# Categories (Required - can be multiple)
+categories:
+  - adaptive-optics
+
+# Additional Metadata (Optional)
+executable: indi_sx_ao
+Author: Peter Polakovic
+version: 1.2

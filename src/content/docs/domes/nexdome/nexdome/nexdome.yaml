@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: NexDome
+categories: ["domes"]
+manufacturer_name: NexDome
+
+# Additional Metadata
+executable: indi_nexdome
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 1.5
+

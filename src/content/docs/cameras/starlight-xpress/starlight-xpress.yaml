@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: SX CCD
+categories: ["cameras"]
+manufacturer_name: Starlight Xpress
+
+# Additional Metadata (Optional)
+executable: indi_sx_ccd
+Family: CCD
+Platforms: Linux, BSD, OSX
+Author: Peter Polakovic
+version: 1.2

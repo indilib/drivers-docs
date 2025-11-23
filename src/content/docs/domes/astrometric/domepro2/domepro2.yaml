@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: DomePro2
+categories: ["domes"]
+manufacturer_name: Astrometric
+
+# Additional Metadata
+executable: indi_domepro2_dome
+version: 1.0
+

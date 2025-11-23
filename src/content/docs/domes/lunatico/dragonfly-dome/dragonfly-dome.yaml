@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: DragonFly Dome
+categories: ["domes"]
+manufacturer_name: Lunatico
+
+# Additional Metadata
+executable: indi_dragonfly_dome
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 2.1
+

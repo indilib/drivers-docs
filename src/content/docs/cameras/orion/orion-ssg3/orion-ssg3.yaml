@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Orion SSG3
+categories: ["cameras"]
+manufacturer_name: Orion
+
+# Additional Metadata (Optional)
+executable: indi_orion_ssg3_ccd
+Manufacturer: Orion
+Family: Cameras
+version: 0.1
+

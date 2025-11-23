@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Baader Dome
+categories: ["domes"]
+manufacturer_name: Baader Planetarium
+
+# Additional Metadata
+executable: indi_baader_dome
+Author: Jasem Mutlaq
+version: 1.0
+

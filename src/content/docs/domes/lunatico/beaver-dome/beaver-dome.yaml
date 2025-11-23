@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Beaver Dome
+categories: ["domes"]
+manufacturer_name: Lunatico
+
+# Additional Metadata
+executable: indi_beaver_dome
+version: 2.1
+

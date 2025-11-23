@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: QHY CCD
+categories: ["cameras"]
+manufacturer_name: QHY
+
+# Additional Metadata (Optional)
+executable: indi_pentax
+Family: CCD
+Platforms: Linux
+Author: Jasem Mutlaq, Zhirong Li
+version: 1.5

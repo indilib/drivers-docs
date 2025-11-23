@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: NexDome Beaver
+categories: ["domes"]
+manufacturer_name: NexDome
+
+# Additional Metadata
+executable: indi_nexdome_beaver
+Platforms: Linux, BSD, MacOS
+Author: Sifan Kahale
+version: 1.1
+

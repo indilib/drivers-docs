@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Teleskop
+categories: ["cameras"]
+manufacturer_name: Teleskop
+# Additional Metadata (Optional)
+executable: indi_tscam_ccd
+Family: CCD
+version: 2.1
+
+
+

@@ -1,0 +1,15 @@
+# Display Names (Human-Friendly - Required)
+driver_name: INDI Webcam
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Cameras
+
+# Additional Metadata (Optional)
+executable: indi_webcam_ccd
+Platforms: OS X, Linux
+Author: Robert Lancaster
+version: 0.2
+
+
