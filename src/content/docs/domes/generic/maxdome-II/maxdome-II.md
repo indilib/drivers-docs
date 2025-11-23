@@ -1,5 +1,5 @@
 ---
-title: MaxDomeIIs
+title: Max Dome II
 categories: ["domes"]
 description: MaxDomeII
 thumbnail: ./maxdome-II.webp
