@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Universal Roll Off Driver
+categories: ["domes"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_universalror_roof
+Platforms: Linux, BSD, MacOS
+Author: Jasem Mutlaq
+version: 0.1
+

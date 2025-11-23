@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: ScopeDome
+categories: ["domes"]
+manufacturer_name: ScopeDome
+# Additional Metadata
+executable: indi_scopedome_dome
+Platforms: Linux, MacOS X, Raspberry PI
+Author: Jarno Paananen
+version: 2.0
+
+
