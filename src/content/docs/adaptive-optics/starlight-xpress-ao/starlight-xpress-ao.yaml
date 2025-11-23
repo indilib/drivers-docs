@@ -3,7 +3,7 @@ driver_name: Starlight Xpress AO
 manufacturer_name: Starlight Xpress
 # Categories (Required - can be multiple)
 categories:
-  - auxiliaries
+  - adaptive-optics
 
 # Additional Metadata (Optional)
 executable: indi_sx_ao
