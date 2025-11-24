@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Nncam EFW
+categories: ["filter-wheels"]
+manufacturer_name: Nn
+
+# Additional Metadata
+executable: indi_nncam_wheel
+version: 2.1
+
