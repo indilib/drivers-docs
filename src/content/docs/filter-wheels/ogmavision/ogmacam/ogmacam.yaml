@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: OGMAVision
+categories: ["filter-wheels"]
+manufacturer_name: OGMAVision
+
+# Additional Metadata
+executable: indi_ogmacam_wheel
+version: 2.1
+

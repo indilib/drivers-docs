@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: FLI CFW
+categories: ["filter-wheels"]
+manufacturer_name: Mallincam
+
+# Additional Metadata
+executable: indi_mallincam_wheel
+version: 2.1
+

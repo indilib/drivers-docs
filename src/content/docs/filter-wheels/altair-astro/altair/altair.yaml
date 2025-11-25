@@ -1,0 +1,8 @@
+# Display Names (Human-Friendly)
+driver_name: Altair
+categories: ["filter-wheels"]
+manufacturer_name: Altair Astro
+
+# Additional Metadata
+executable: indi_altair_wheel
+version: 2.1

@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Apogee CFW
+categories: ["filter-wheels"]
+manufacturer_name: Andor
+
+# Additional Metadata
+executable: indi_apogee_wheel
+version: 1.9
+
+

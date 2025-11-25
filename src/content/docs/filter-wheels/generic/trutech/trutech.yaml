@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: TruTech
+categories: ["filter-wheels"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_trutech_wheel
+Platforms: Linux, BSD, OSX
+Author: Jasem Mutlaq
+version: 1.0
+

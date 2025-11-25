@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Orion
+categories: ["filter-wheels"]
+manufacturer_name: Orion
+
+# Additional Metadata
+executable: indi_starshootg_wheel
+version: 2.1
+

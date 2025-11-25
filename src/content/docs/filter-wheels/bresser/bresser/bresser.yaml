@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Bresser
+categories: ["filter-wheels"]
+manufacturer_name: Bresser
+
+# Additional Metadata
+executable: indi_bressercam_wheel
+version: 2.1
+
+

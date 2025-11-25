@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Armadillo/Platypus
+categories: ["focusers"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: armadillo_focus
+Platforms: Linux, MacOS, BSD
+Author: Jaime Alemany
+version: 1.0
+

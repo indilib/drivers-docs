@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: QSI CCD
+categories: ["filter-wheels"]
+manufacturer_name: QSI
+
+# Additional Metadata
+executable: indi_qsi_ccd
+Author: Sami Lehti, Jasem Mutlaq
+version: 0.4
+

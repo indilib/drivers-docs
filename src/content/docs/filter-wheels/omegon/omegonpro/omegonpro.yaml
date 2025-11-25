@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: OmegonPro
+categories: ["filter-wheels"]
+manufacturer_name: Omegon
+
+# Additional Metadata
+executable: indi_omegonprocam_wheel
+version: 2.1
+

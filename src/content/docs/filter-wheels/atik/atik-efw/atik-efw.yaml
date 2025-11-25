@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Atik EFW
+categories: ["filter-wheels"]
+manufacturer_name: Atik
+
+# Additional Metadata
+executable: indi_atik_wheel
+version: 3.1
+
+

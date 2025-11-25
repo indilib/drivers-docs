@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: AstroLink 4
+categories: ["focusers"]
+manufacturer_name: AstroJolo
+
+# Additional Metadata
+executable: indi_astrolink4
+version: 0.1
+

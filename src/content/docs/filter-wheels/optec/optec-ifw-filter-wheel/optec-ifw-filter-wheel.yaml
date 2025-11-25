@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Optec IFW
+categories: ["filter-wheels"]
+manufacturer_name: Optec Inc
+
+# Additional Metadata
+executable: indi_optec_wheel
+Platforms: Linux, BSD, OSX
+Author: Philippe Besson
+version: 1.0
+
