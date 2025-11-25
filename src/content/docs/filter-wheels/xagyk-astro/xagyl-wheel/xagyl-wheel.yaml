@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: XAGYL Wheel
+categories: ["filter-wheels"]
+manufacturer_name: XAGYL Astro
+
+# Additional Metadata
+executable: indi_xagyl_wheel
+platforms: Linux, BSD, OSX
+author: Jasem Mutlaq
+version: 1.2
+
+

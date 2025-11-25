@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: PlayerOne EFW
+categories: ["filter-wheels"]
+manufacturer_name: PlayerOne
+
+# Additional Metadata
+executable: indi_playerone_wheel
+version: 1.12
+
