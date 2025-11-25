@@ -2,7 +2,7 @@
 title: AstroLink 4
 categories: ["focusers"]
 description: AstroLink 4
-thumbnail: ./astroLink-4.webp
+thumbnail: ./astrolink-4.webp
 ---
 
 ## Features
