@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: DeepSkyDad AF2
+categories: ["focusers"]
+manufacturer_name: Deep Sky Dad
+
+# Additional Metadata
+executable: indi_deepskydad_af2_focus
+Platforms: Linux, Mac, BSD
+Author: Pavle Gartner
+version: 1.0
+

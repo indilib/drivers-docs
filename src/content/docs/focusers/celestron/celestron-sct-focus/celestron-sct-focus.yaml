@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: Celestron SCT
+categories: ["focusers"]
+manufacturer_name: Celestron
+
+# Additional Metadata
+executable: indi_celestron_sct_focus
+Platforms: Linux, Mac, BSD
+Author: Chris Rowland
+version: 1.0
+
+

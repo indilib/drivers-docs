@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Baader SteelDrive
+categories: ["focusers"]
+manufacturer_name: Baader Planetarium
+
+# Additional Metadata
+executable: indi_steeldrive_Focus
+Platforms: Linux, BSD, OSX
+Author: Jasem Mutlaq
+version: 1.0
+

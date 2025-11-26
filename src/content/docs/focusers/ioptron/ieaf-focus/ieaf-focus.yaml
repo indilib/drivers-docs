@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: iEAFFocus
+categories: ["focusers"]
+manufacturer_name: iOptron
+
+# Additional Metadata
+executable: indi_ieaf_focus
+version: 1.0
+

@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: SmartFocus
+categories: ["focusers"]
+manufacturer_name: JMI Mobile
+
+# Additional Metadata
+executable: indi_smartfocus_focus
+Platforms: Linux, OSX, BSD
+Author: Camiel Severijns
+version: 1.0
+

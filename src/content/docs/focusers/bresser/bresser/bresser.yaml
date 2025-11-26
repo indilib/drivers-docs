@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Bresser
+categories: ["focusers"]
+manufacturer_name: Bresser
+
+# Additional Metadata
+executable: indi_bressercam_focuser
+version: 2.1
+
+

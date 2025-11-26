@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: MoonLite
+categories: ["focusers"]
+manufacturer_name: MoonLite
+
+# Additional Metadata
+executable: indi_moonlite_focus
+Platforms: Linux, BSD, OSX
+Author: Jasem Mutlaq
+version: 1.0
+
+

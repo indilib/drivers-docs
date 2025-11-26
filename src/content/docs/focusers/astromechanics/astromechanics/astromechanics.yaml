@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Astromechanics
+categories: ["focusers"]
+manufacturer_name: Astromechanics
+
+# Additional Metadata
+executable: indi_astrolink4
+version: 0.2
+

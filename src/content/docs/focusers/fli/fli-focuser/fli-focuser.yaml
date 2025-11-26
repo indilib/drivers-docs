@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Finger Lakes Instruments (FLI) Focuser
+categories: ["focusers"]
+manufacturer_name: fli
+
+# Additional Metadata
+executable: indi_fli_wheel indi_fli_focus
+Author: Jasem Mutlaq
+version: 1.0
+
+

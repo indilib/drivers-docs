@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Nn
+categories: ["focusers"]
+manufacturer_name: Nn
+
+# Additional Metadata
+executable: indi_mnncam_focuser
+version: 2.1
+
+

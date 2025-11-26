@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: LX200 Autostar
+categories: ["focusers"]
+manufacturer_name: Meade
+
+# Additional Metadata
+executable: indi_lx200autostar
+Platforms: Linux, OSX, BSD
+Author: Jasem Mutlaq
+version: 1.0
+
+

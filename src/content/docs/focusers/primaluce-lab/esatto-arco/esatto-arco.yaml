@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly)
+driver_name: Esatto Arco
+categories: ["focusers"]
+manufacturer_name: Primaluce Lab
+
+# Additional Metadata
+executable: indi_esattoarco_focus
+Platforms: Linux
+Author: Jasem Mutlaq
+version: 1.0
+
+
+

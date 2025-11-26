@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Lacerta MFOC FMC
+categories: ["focusers"]
+manufacturer_name: Lacerta GmbH
+
+# Additional Metadata
+executable: indi_lacerta_mfoc_fmc_focus
+version: 0.1
+
+

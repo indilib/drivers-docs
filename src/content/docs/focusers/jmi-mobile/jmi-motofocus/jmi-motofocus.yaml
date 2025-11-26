@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: JMI MOTOFOCUS
+categories: ["focusers"]
+manufacturer_name: JMI Mobile
+
+# Additional Metadata
+executable: indi_lx200classicautostar
+Platforms: Linux, MacOS, BSD
+Author: Jasem Mutlaq
+version: 1.0
+

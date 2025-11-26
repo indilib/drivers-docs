@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Lacerta MFOC
+categories: ["focusers"]
+manufacturer_name: Lacerta GmbH
+
+# Additional Metadata
+executable: indi_lacerta_mfoc_focus
+Platforms: Linux, MacOS, BSD
+Author: Franck Le Rhun, Christian Liska
+version: 1.0
