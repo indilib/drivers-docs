@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: LX200 Autostar
+categories: ["mounts"]
+manufacturer_name: Meade
+
+# Additional Metadata
+executable: indi_lx200autostar
+platforms: Linux, BSD, OSX
+author: Jasem Mutlaq
+version: 1.0
+

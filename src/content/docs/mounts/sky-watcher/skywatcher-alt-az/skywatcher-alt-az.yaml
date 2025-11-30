@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly)
+driver_name: Skywatcher Alt-Az
+categories: ["mounts"]
+manufacturer_name: Sky Watcher
+
+# Additional Metadata
+Website: www.skywatcherusa.com/products/sky-watcher-flextube-250p-syn
+Tags: Alt-Az, GOTO, Dobsonian, Reflector
+executable: indi_skywatcherAltAzMount
+platforms: Linux, BSD, OSX
+author: Roger James, Gerry Rozema, Jean-Luc Geehalel, Jasem Mutlaq
+version: 1.0
+

@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: AstroPhysics V2
+categories: ["mounts"]
+manufacturer_name: Astrophysics
+
+# Additional Metadata
+website: www.astro-physics.com
+executable: indi_lx200ap_v2
+platforms: Linux, BSD, OSX
+author: Hy Murveit
+version: 1.0
+

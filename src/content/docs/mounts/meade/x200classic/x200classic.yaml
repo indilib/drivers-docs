@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: LX200 Classic
+categories: ["mounts"]
+manufacturer_name: Meade
+
+# Additional Metadata
+executable: indi_lx200classic
+platforms: Linux, BSD, OSX
+author: Jasem Mutlaq
+version: 1.0

@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: SynScan
+categories: ["mounts"]
+manufacturer_name: Sky Watcher
+
+# Additional Metadata
+Website: skywatcher.com
+executable: indi_synscan_telescope
+platforms: Linux, BSD, OSX
+author: Gerry Rozema, Jasem Mutlaq
+version: 1.0
