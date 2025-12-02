@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: AstroPhysics V2
+categories: ["mounts"]
+manufacturer_name: Astrotrac
+
+# Additional Metadata
+website: www.astrotrac.com
+executable: indi_astrotrac_telescope
+platforms: Linux, BSD, MacOS
+author: Jasem Mutlaq
+version: 1.0
