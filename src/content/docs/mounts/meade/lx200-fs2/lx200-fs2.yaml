@@ -1,11 +1,11 @@
 # Display Names (Human-Friendly)
-driver_name: LX200 Basic
+driver_name: LX200 FS2
 categories: ["mounts"]
 manufacturer_name: Meade
 
 # Additional Metadata
-executable: indi_lx200basic
+executable: indi_lx200fs2
 platforms: Linux, BSD, OSX
-author: Jasem Mutlaq
-version: 2007-09-28
+author: Ferran Casarramona
+version: 1.0
 
