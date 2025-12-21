@@ -20,18 +20,20 @@ INDIドライバーで可能なコントロールは以下のとおりです。
   - USB 3.0 x 2 (Type-A x 2)
   - Type-c,1,2 コネクタ と 3,4,5 コネクタの二組を ON/OFF 切り替え可能
 
-### Note
-
-- SV241 Pro に接続されるデバイスがある場合、Ekos の Start 時には他のデバイスよりも先に起動し、Ekos の Stop 時は他のデバイスより後に終了する必要があります。  
-- 設定の方法は後述の Profile の Profile Script Editor を参照してください。  
-- SV241 Pro の INDI ドライバーは起動時に自動的に Connect します。手動で Connect/Disconnect をするとそれより先に接続されているUSB機器の再接続が発生しそれらの機器のINDIドライバーが正常に動作しなくなる場合があります。
+> ⚠️ **Note:**
+>
+> - SV241 Pro にデバイスを接続している場合、Ekos の Start 時にはSV241 Proを他のデバイスよりも先に起動し、Ekos の Stop 時は他のデバイスより後に終了する必要があります。  
+> - 設定の方法は後述の Profile の Profile Script Editor を参照してください。  
+> - SV241 Pro の INDI ドライバーは起動時に自動的に Connect します。手動で Connect/Disconnect をするとそれより先に接続されているUSB機器の再接続が発生しそれらの機器のINDIドライバーが正常に動作しなくなる場合があります。
 
 ## Ekos > Profile > Script
 
 ![Profile](./images/profile.webp)
 
 前述の通り SV241 Pro に接続されるデバイスがある場合、それらのデバイスよりも先に　SV241 Pro INDIドライバーを起動しコネクトさせる必要があります。
-Ekos の Profile Editor の右下 [Scripts] ポタンから Profile Scripts Editor を開き SV241 Pro の実行順を制御するための待ち時間を設定します。
+そのためには Ekos の Profile Editor の右下 [Scripts] ポタンから Profile Scripts Editor を開き SV241 Pro の実行順を制御するための待ち時間を設定しなければなりません。
+
+### Profile Script Editor での追加の手順
 
 1. [Add Rule] で Rule を1行追加する。
 2. Driver: "SVBONY SV241 Pro" を指定。
@@ -50,28 +52,39 @@ Ekos の Profile Editor の右下 [Scripts] ポタンから Profile Scripts Edit
 - Auto Search:
   - Enables:自動的に接続先のシリアルポートを検出します。
   - Disabled: 手動で指定したシリアルポートで接続を試みます。
-- Refresh > Scan Ports: コンピューターの現在のシリアルポートを検索し直し、System Ports をリフレッシュします。
+- Refresh > Scan Ports: コンピューターの現在のシリアルポートを検索し直し、System Ports の一覧をリフレッシュします。
 
 ## Dew
 
 ![Dew](./images/dew.webp)
 
-＊＊＊＊＊
+PWM OUT 1 と 2 を操作できます。
+
+- Toggle Dew: PWM 1 と 2 の ON/OFFの切り替え。
+- Duty Cycle: PWM 1 と 2 の出力レベルを0%から100%で設定。Toggle Dew が ON の場合に設定したレベルが有効。
 
 ## Power
 
 ![Power](./images/power.webp)
 
-＊＊＊＊＊
+DC 1から5 を操作できます。
+
+- Cycle Power: DC 1-5 および REGULATED OUT, PWM OUT 1,2 をすべてOFFにし続けてONにする。
+- Toggle DC: DC 1 から 5 の ON/OFFの切り替え。
 
 ## Variable
 
 ![Variable](./images/variable.webp)
 
-＊＊＊＊＊
+REGULATED OUT を操作できます。
+
+- Channels: REGUALATED OUT の ON/OFF 切り替え。
+- Voltage: 出力電圧を0から15.3の間で変更。ChannelsがONの場合に設定した出力電圧が有効。
 
 ## USB
 
 ![USB](./images/USB.webp)
 
-＊＊＊＊＊
+USBコネクタ Type-Cおよび1から5 を操作できます。
+
+- Ports: USB Type-C,1,2 および USB 3,4,5 を切り替え。
