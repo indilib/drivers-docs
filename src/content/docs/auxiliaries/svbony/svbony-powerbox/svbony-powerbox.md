@@ -6,85 +6,89 @@ thumbnail: ./svbony-powebox.webp
 ---
 ## Features
 
-7 12V DC outputs, Regulated Interface and switch1-5 interfaces can be individually controlled on/off;
-The USB port can connect to guide cameras, planetary cameras, etc.; the DC port can connect to DSO cooled cameras, equatorial mounts, electronic focus controller, motorized filter wheels, and electronic field flatteners; and the RCA interface can connect to dew heaters;
-Real-time detection of ambient temperature and humidity to achieve automatic temperature control throughout the process.
+The SVBONY SV241 Pro features five 12V DC outputs with ON/OFF control, a variable voltage DC output capable of regulating up to 15.3V, one constant 12V DC output, and six USB ports supporting data communication, including Type-C. DC ports can connect to DSO cooled cameras, equatorial mounts, electronic focus controllers, motorized filter wheels, electronic field flatteners, and more.
+Additionally, it features two RCA-format PWM outputs that can be connected to anti-condensation heaters. The SV241 Pro's sensors detect ambient temperature and humidity in real time, enabling automatic temperature control throughout the entire process.
 
-INDIドライバーで可能なコントロールは以下のとおりです。
+The following controls are available with the INDI driver:
 
-- PWM 12V6Ax2ポート, 0から100%までのCycle変更が可能, ON/OFF切り替え可能
-- DC5521 12Vx5ポート, ON/OFFの切り替え可能
-- REGULATED OUT 1ポート, 0から15.3V の電圧調整が可能
+- PWM 12V 6A x 2 ports, cycle adjustment from 0 to 100%, ON/OFF switching possible
+- DC5521 12V x 5 ports, ON/OFF switching possible
+- REGULATED OUT 1 port, voltage adjustment from 0 to 15.3V
 - USB
   - USB 2.0 x 4 (Type-C x 1, Type-A x 3)
   - USB 3.0 x 2 (Type-A x 2)
-  - Type-c,1,2 コネクタ と 3,4,5 コネクタの二組を ON/OFF 切り替え可能
+  - Two sets of connectors (Type-C connectors 1 and 2, and connectors 3, 4, and 5) can be switched ON/OFF
 
 > ⚠️ **Note:**
 >
-> - SV241 Pro にデバイスを接続している場合、Ekos の Start 時にはSV241 Proを他のデバイスよりも先に起動し、Ekos の Stop 時は他のデバイスより後に終了する必要があります。  
-> - 設定の方法は後述の Profile の Profile Script Editor を参照してください。  
-> - SV241 Pro の INDI ドライバーは起動時に自動的に Connect します。手動で Connect/Disconnect をするとそれより先に接続されているUSB機器の再接続が発生しそれらの機器のINDIドライバーが正常に動作しなくなる場合があります。
+>- If any device is connected to the SV241 Pro, Ekos must start the SV241 Pro before other devices when starting Ekos, and stop it after other devices when stopping Ekos.  
+>- Refer to the Profile Script Editor in the Profile section described later for configuration.  
+> - The SV241 Pro's INDI driver automatically connects upon startup. Manually connecting or disconnecting may cause previously connected devices to reconnect, potentially causing their INDI drivers to malfunction.
+
+> ⚠️ **Note:**
+>
+> - Switching the power OFF/ON while any device is connected to the DC port or USB port may cause those devices to malfunction.
+
 
 ## Ekos > Profile > Script
 
 ![Profile](./images/profile.webp)
 
-前述の通り SV241 Pro に接続されるデバイスがある場合、それらのデバイスよりも先に　SV241 Pro INDIドライバーを起動しコネクトさせる必要があります。
-そのためには Ekos の Profile Editor の右下 [Scripts] ポタンから Profile Scripts Editor を開き SV241 Pro の実行順を制御するための待ち時間を設定しなければなりません。
+As mentioned earlier, if there are devices connected to the SV241 Pro, you must start the SV241 Pro INDI driver and connect it before those devices.
+To do this, open the Profile Scripts Editor from the [Scripts] button in the lower right corner of Ekos' Profile Editor and set a wait time to control the execution order of the SV241 Pro.
 
-### Profile Script Editor での追加の手順
+### Settings in Profile Script Editor
 
-1. [Add Rule] で Rule を1行追加する。
-2. Driver: "SVBONY SV241 Pro" を指定。
-3. Post start: SV241 Pro INDIドライバー起動時の待ち時間を秒で指定する。指定の秒数間、他のドライバーは起動待ちになる。
-4. Pre stop: Ekos [Stop] から SV241 Pro が終了開始するまでの待ち時間を指定する。他のドライバーが終了するのに十分な時間を指定しする。指定の時間が経過後つまり他のドライバーが終了後に SV241 Pro が終了する。
+1. Add one rule using [Add Rule].
+2. Specify Driver: “SVBONY SV241 Pro”.
+3. Post start: Specify the wait time in seconds when launching the SV241 Pro INDI driver. With this setting, other drivers will wait for the specified number of seconds before launching.
+4. Pre stop: Specify the wait time in seconds from Ekos [Stop] until SV241 Pro begins shutdown. Ensure sufficient time is set for other drivers to terminate. With this setting, SV241 Pro will shut down after the specified time elapses, meaning after other drivers have finished.
 
 ## Connection
 
 ![connection](./images/connection.webp)
 
-コンピューターとSV241 Proの接続設定をします。
+In Connection, configure the connection settings between the computer and the SV241 Pro.
 
-- System Ports: 選択可能なシリアルポートの一覧。
-- Ports: 直接ポート名を入力できます。
-- Baud Rate: 115200 固定です。変更しないでください。
+- System Ports: A list of available serial ports.
+- Ports: You can enter the port name directly.
+- Baud Rate: Fixed at 115200. Do not change this setting.
 - Auto Search:
-  - Enables:自動的に接続先のシリアルポートを検出します。
-  - Disabled: 手動で指定したシリアルポートで接続を試みます。
-- Refresh > Scan Ports: コンピューターの現在のシリアルポートを検索し直し、System Ports の一覧をリフレッシュします。
+  - Enabled: Automatically detects the target serial port.
+  - Disabled: Does not perform automatic serial port detection.
+- Refresh > Scan Ports: Rescans the computer's current serial ports and refreshes the System Ports list.
 
 ## Dew
 
 ![Dew](./images/dew.webp)
 
-PWM OUT 1 と 2 を操作できます。
+In Dew section, configure the PMW OUT settings.
 
-- Toggle Dew: PWM 1 と 2 の ON/OFFの切り替え。
-- Duty Cycle: PWM 1 と 2 の出力レベルを0%から100%で設定。Toggle Dew が ON の場合に設定したレベルが有効。
+- Toggle Dew: Switches PWM 1 and 2 ON/OFF.
+- Duty Cycle: Sets the output level of PWM 1 and 2 from 0% to 100%. The set level is effective when Toggle Dew is ON.
 
 ## Power
 
 ![Power](./images/power.webp)
 
-DC 1から5 を操作できます。
+In the Power section, configure the DC OUT settings.
 
-- Cycle Power: DC 1-5 および REGULATED OUT, PWM OUT 1,2 をすべてOFFにし続けてONにする。
-- Toggle DC: DC 1 から 5 の ON/OFFの切り替え。
+- Cycle Power: Turns all DC 1-5 and USB connectors OFF continuously, then ON.
+- Toggle DC: Switches DC 1 through 5 ON/OFF.
 
 ## Variable
 
 ![Variable](./images/variable.webp)
 
-REGULATED OUT を操作できます。
+In the Variable section, configure the REGULATED OUT settings.
 
-- Channels: REGUALATED OUT の ON/OFF 切り替え。
-- Voltage: 出力電圧を0から15.3の間で変更。ChannelsがONの場合に設定した出力電圧が有効。
+- Channels: Toggle the ON/OFF state of REGULATED OUT.
+- Voltage: Adjust the output voltage between 0 and 15.3. The set output voltage is active when Channels is ON.
 
 ## USB
 
 ![USB](./images/usb.webp)
 
-USBコネクタ Type-Cおよび1から5 を操作できます。
+In the USB section, set the USB ports.
 
-- Ports: USB Type-C,1,2 および USB 3,4,5 を切り替え。
+- Ports: Switch between USB Type-C, 1, and 2, and USB 3, 4, and 5.
