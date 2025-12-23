@@ -1,8 +1,9 @@
 ---
-title: STAR2000
+title: WARPDRIVE
 categories: ["mounts"]
-description: STAR2000
-thumbnail: ./star2000.webp
+description: WARPDRIVE
+thumbnail: ./warpdrive.webp
 ---
+
 > [!NOTE]
 > There is no available documentation for this driver. Please help us document this driver by submitting a [Pull Request](https://github.com/indilib/drivers-docs).

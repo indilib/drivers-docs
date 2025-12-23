@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Temma
+categories: ["mounts"]
+manufacturer_name: Takahashi
+
+# Additional Metadata
+executable: indi_lx200ss2000pc
+platforms: Linux, BSD, OSX
+author: Gerry Rozema
+version: 1.0

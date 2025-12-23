@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: AAG Solo
+categories: ["weather-stations"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_aagsolo_weather
+author: Peter englmaier
+version: 1.0

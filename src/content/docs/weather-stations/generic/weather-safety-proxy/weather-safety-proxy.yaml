@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Weather Safety Proxy
+categories: ["weather-stations"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_weather_safety_proxy
+Platforms: Linux, MacOS, BSD
+Author: Hans Lambermont
+version: 1.0
+

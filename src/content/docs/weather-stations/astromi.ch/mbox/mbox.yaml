@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly)
+driver_name: MBox Meteostation
+categories: ["weather-stations"]
+manufacturer_name: astromi.ch
+
+# Additional Metadata
+website: astromi.ch
+executable: mbox_weather
+platforms: Linux, MacOS, BSD
+author: Jasem Mutlaq
+version: 1.0
+
+
+
