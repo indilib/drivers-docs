@@ -37,6 +37,8 @@ The following controls are available with the INDI driver:
 As mentioned earlier, if there are devices connected to the SV241 Pro, you must start the SV241 Pro INDI driver and connect it before those devices.
 To do this, open the Profile Scripts Editor from the [Scripts] button in the lower right corner of Ekos' Profile Editor and set a wait time to control the execution order of the SV241 Pro.
 
+If the SV241 Pro remains unconnected after Ekos [Start], turn off “Auto-connect” in the profile settings. Then, ensure no other drivers are connected and select an available port in the SV241 Pro's “Connection” section. After that, execute Ekos [Disconnect] and [Stop] to completely terminate all drivers, then restart Ekos [Start].
+
 ### Settings in Profile Script Editor
 
 1. Add one rule using [Add Rule].
