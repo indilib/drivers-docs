@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_Name: AStar Box
+categories: ["power"]
+manufacturer_name: Generuc
+
+# Additional Metadata
+executable: indi_astarbox
+version: 1.0
+

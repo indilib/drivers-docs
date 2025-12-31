@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: Davis Instruments Vantage Pro/Pro2/Vue
+categories: ["weather-stations"]
+manufacturer_name: Davis Instruments
+
+# Additional Metadata
+executable: indi_vantage_weather
+Platforms: Linux, BSD, OSX
+author: Jasem Mutlaq
+version: 1.0
+
+

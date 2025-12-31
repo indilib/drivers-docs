@@ -1,0 +1,8 @@
+# Display Names (Human-Friendly)
+driver_name: LX200 OnStep
+categories: ["mounts"]
+manufacturer_name: WarpAstron
+
+# Additional Metadata
+executable: indi_lx200_OnStep
+version: 1.24

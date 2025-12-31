@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Uranus Meteo Sensor
+categories: ["weather-stations"]
+manufacturer_name: Pegasus Astro
+
+# Additional Metadata
+executable: indi_uranus_weather
+version: 1.0
+
