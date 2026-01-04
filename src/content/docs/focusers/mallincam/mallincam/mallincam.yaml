@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: MALLINCAM
+categories: ["focusers"]
+manufacturer_name: MALLINCAM
+
+# Additional Metadata
+executable: indi_mallincam_focuser
+version: 2.1
+

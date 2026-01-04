@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Sky Quality Meter - LU
+categories: ["weather-stations"]
+manufacturer_name: Unihedron
+
+# Additional Metadata
+executable: indi_I4JSQMDriver
+Author: Zerjillo
+version: 1.37
+
+

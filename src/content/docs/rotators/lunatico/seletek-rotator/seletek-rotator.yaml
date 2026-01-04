@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_Name: Seletek Rotator
+categories: ["rotators"]
+manufacturer_name: Lunatico
+
+# Additional Metadata
+executable: indi_seletek_rotator
+platforms: Linux, BSD, MacOS
+author: Jasem Mutlaq
+version: 1.1
+

@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_Name: Gemini Focusing Rotator
+categories: ["power"]
+manufacturer_name: Optec
+
+# Additional Metadata
+executable: indi_gemini_focuser
+Platforms: Linux, MacOS, BSD
+Author: Jasem Mutlaq
+version: 1.0
+

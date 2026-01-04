@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Touptek
+categories: ["focusers"]
+manufacturer_name: Toupcam
+
+# Additional Metadata
+executable: indi_toupcam_focuser
+version: 2.1
+
+

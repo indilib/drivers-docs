@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Tscam EFW
+categories: ["filter-wheels"]
+manufacturer_name: Teleskop
+# Additional Metadata
+executable: indi_tscam_wheel
+version: 2.1
+
+

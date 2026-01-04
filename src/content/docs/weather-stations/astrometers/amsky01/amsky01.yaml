@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly)
+driver_name: Astrometers AMSKY01 API
+categories: ["weather-stations"]
+manufacturer_name: Astrometers.eu
+
+# Additional Metadata
+website: astrometers.eu/products/AMSKY01/
+executable: indi_amsky01_api
+platforms: GNU/Linux
+author: Roman Dvořák, AstroMeters
+version: 1.0
+
+

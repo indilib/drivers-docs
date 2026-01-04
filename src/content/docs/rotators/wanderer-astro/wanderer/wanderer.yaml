@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_Name: Wanderer Rotator Lite
+categories: ["power"]
+manufacturer_name: Wanderer Astro
+
+# Additional Metadata
+executable: indi_wanderer_lite_rotator
+Platforms: Linux, MacOS, BSD
+Author: Jasem Mutlaq
+version: 1.0
+

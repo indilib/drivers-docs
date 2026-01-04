@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: QHY Q-Focuser
+categories: ["focusers"]
+manufacturer_name: QHY 
+
+# Additional Metadata
+executable: indi_qhyccd
+version: 1.0
+
+

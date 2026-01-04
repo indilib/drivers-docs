@@ -1,0 +1,12 @@
+# Display Names (Human-Friendly)
+driver_name: Weather Meta
+categories: ["weather-stations"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_meta_weather
+Platforms: Linux, BSD, OSX
+Author: Jasem Mutlaq
+version: 1.0
+
+
