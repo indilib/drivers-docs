@@ -13,8 +13,8 @@ export default defineConfig({
       social: [
         {
           icon: 'github',
-          label: 'GitHub',
-          href: 'https://github.com/indilib/indi',
+          label: 'Add your driver',
+          href: 'https://github.com/indilib/drivers-docs',
         },
       ],
       components: {
