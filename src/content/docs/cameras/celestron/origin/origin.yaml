@@ -1,6 +1,6 @@
 # Display Names (Human-Friendly)
 driver_name: indi-celestron-origin
-categories: ["cameras"]
+categories: ["cameras", "mounts"]
 manufacturer_name: Celestron
 
 # Additional Metadata
