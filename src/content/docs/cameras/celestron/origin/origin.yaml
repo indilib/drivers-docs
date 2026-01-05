@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: indi-celestron-origin
+categories: ["cameras", "mounts"]
+manufacturer_name: Celestron
+
+# Additional Metadata
+website: https://www.celestron.com/products/celestron-origin-intelligent-home-observatory
+executable: indi-celestron-origin
+platforms: Linux, MacOS
+author: Jonathan Kimmitt
+version: 1.0
