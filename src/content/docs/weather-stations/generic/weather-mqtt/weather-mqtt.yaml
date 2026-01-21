@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Weather MQTT
+categories: ["weather-stations"]
+manufacturer_name: Generic
+
+# Additional Metadata
+executable: indi_weather_mqtt
+author: Radek Kaczorek
+version: 1.2
