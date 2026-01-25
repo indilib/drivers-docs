@@ -31,7 +31,7 @@ INDI core libraries only.
 2. In your INDI client open the **Connection** tab and set the serial **Port** (recommended: a stable udev symlink such as `/dev/startech`) and **Baud Rate** (default 9600).
 3. Open the **Main Control** tab and Click **Connect**.
 
-![Connection Panel](./images/connection.png)
+![Connection Panel](./images/connection.webp)
 
 **Connection panel**: select the serial port device and baud rate.
 
@@ -44,7 +44,7 @@ The **Main Control** tab contains (in order):
 3. **USB Port 1 … USB Port 7**: per‑port power and data connection control (ON/OFF).
 4. **USB All Ports**: switches all ports ON or OFF with a single command.
 
-![Main Control Panel](./images/main-control.png)
+![Main Control Panel](./images/main-control.webp)
 
 ### Options
 
@@ -55,7 +55,7 @@ The **Options** tab provides standard INDI configuration controls plus **Port La
 - Press **Save** to persist labels to the INDI configuration file.
 - Press **Load** to restore saved labels and apply them to the UI.
 
-![Options Panel](./images/options.png)
+![Options Panel](./images/options.webp)
 
 ## Tips and Best Practices
 
