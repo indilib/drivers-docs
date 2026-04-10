@@ -1,0 +1,9 @@
+# Display Names
+driver_name: ESP32go
+manufacturer_name: Generic
+categories: ["mounts"]
+
+# Additional Metadata 
+website: www.indlib.org
+executable: indi_lx200_esp32go
+version: 1.0
