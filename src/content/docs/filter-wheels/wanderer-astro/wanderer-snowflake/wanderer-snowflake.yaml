@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: Wanderer Snowflake Filter Wheel
+categories: ["filter-wheels"]
+manufacturer_name: Wanderer Astro
+
+# Additional Metadata
+executable: indi_wanderer_snowflake_wheel
+Author: Jérémie Klein (https://github.com/grm)
+version: 1.0
