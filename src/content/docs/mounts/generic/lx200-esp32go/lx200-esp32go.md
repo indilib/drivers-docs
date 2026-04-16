@@ -8,7 +8,7 @@ description: INDI driver for ESP32go and PicGoto DIY mounts.
 
 This is the documentation for the ESP32go and PicGoto DIY mount controller driver. You can find documentation of the project at [PicGoto/ESP32go Official Group](https://groups.io/g/PicgotoGroup).
 
-![main](images/main.webp)
+![main2](images/main2.webp)
 ## Features
 This INDI driver is not limited to ESP32 based versions (ESP32go) as it supports PIC based boards (PicGoto).
 
@@ -39,6 +39,8 @@ The main control tab is where the primary control of ESP32go takes place. To tra
 Park button will first slew the mount to the home position defined in the mount and after that it will park the mount.
 
 Tracking can be engaged and disengaged by toggling the Tracking property.
+
+Track mode will go back to Sidereal no matter what mode you choose. This has been implemented this way for compatibility with some applications that need this setting to be available. As soon as the mount firmware supports it, it will be updated to full support for updated mounts.
 
 ### Options
 
