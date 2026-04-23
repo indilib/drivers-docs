@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Sesto Senso 3 (and variants)
+categories: ["focusers"]
+manufacturer_name: Primaluce Lab
+
+# Additional Metadata
+Website: www.primalucelab.com
+executable: indi_sestosenso2_focus
+version: 0.7
+
