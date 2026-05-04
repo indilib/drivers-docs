@@ -4,6 +4,6 @@ categories: ["focusers"]
 manufacturer_name: Omegon
 
 # Additional Metadata
-executable: indi_ogmacam_focuser
+executable: indi_omegonprocam_focuser
 version: 2.1
 
