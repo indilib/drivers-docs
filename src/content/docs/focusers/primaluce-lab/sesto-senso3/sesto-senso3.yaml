@@ -5,6 +5,5 @@ manufacturer_name: Primaluce Lab
 
 # Additional Metadata
 Website: www.primalucelab.com
-executable: indi_sestosenso2_focus
-version: 0.7
-
+executable: indi_sestosenso3_focus
+version: 1.0
