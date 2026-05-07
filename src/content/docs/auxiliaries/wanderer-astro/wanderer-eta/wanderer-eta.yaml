@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Wanderer ETA M54
+manufacturer_name: Wanderer Astro
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+website: www.wandererastro.com
+executable: indi_wanderer_eta
+platforms: Linux, BSD
+author: Andreas Ruthner
+version: 1.0
