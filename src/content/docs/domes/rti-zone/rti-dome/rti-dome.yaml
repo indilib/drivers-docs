@@ -1,0 +1,9 @@
+# Display Names (Human-Friendly)
+driver_name: RTI Dome
+categories: ["domes"]
+manufacturer_name: RTI-Zone
+
+# Additional Metadata
+executable: indi_rti_dome
+Author: Rodolphe Pineau
+version: 0.1
