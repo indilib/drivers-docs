@@ -5,5 +5,5 @@ manufacturer_name: RTI-Zone
 
 # Additional Metadata
 executable: indi_rti_dome
-Author: Rodolphe Pineau
+Author: Jasem Mutlaq
 version: 1.0
