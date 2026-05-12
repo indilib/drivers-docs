@@ -8,6 +8,8 @@ thumbnail: ./rti-dome.webp
 
 RTI-Dome is an open-source, high-performance DIY dome and shutter control system developed by Rodolphe Pineau (RTI-Zone). Designed for observatories of various sizes—from NexDome to heavy custom installations—it provides professional-grade features using accessible ESP32 hardware.
 
+![dome](./images/dome.webp)
+
 It supports the following features:
 
 1.  **ESP32 Based**: High-speed processing with built-in WiFi and Ethernet (WIZnet W5500) capabilities.
@@ -43,7 +45,12 @@ The native `indi_rti_dome` driver provides direct support for the RTI-Dome over 
 2.  **Configuration**:
     *   **Serial**: Select the appropriate port (typically `/dev/ttyUSB0` or similar).
     *   **TCP**: Enter the IP address and port (default is 2323).
-3.  **Features**: Full support for Azimuth rotation (Absolute/Relative), Homing, Syncing, and Shutter control. It also provides monitoring for rain status and shutter battery voltage.
+3. **Main control**: 
+![main-control](./images/main_control.webp)
+4. **Settings**:
+![settings](./images/settings.webp)
+5.  **Features**: Full support for Azimuth rotation (Absolute/Relative), Homing, Syncing, and Shutter control. It also provides monitoring for rain status and shutter battery voltage.
+![info](./images/info.webp)
 
 ### Alpaca Support
 
@@ -61,5 +68,3 @@ RTI-Dome is developed by **Rodolphe Pineau**.
 *   **Project Page**: [rti-zone.org/astro_dome_control.php](https://rti-zone.org/astro_dome_control.php)
 *   **Firmware & Hardware**: [GitHub (rpineau/RTI-Dome)](https://github.com/rpineau/RTI-Dome)
 *   **Commands Documentation**: [Download PDF](https://rti-zone-files.s3.amazonaws.com/rti-dome-commands.pdf)
-
-*Open Source Observatory Control*
