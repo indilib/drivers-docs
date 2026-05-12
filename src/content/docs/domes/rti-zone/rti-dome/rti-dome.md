@@ -47,10 +47,26 @@ The native `indi_rti_dome` driver provides direct support for the RTI-Dome over 
     *   **TCP**: Enter the IP address and port (default is 2323).
 3. **Main control**: 
 ![main-control](./images/main_control.webp)
+
+From the Main Control Panel, you can set the absolute azimuth position, find home, and park/unpark the dome. The driver checks if a shutter is detected on startup.
 4. **Settings**:
 ![settings](./images/settings.webp)
+
+In Settings tab, You can adjust the home position, steps per rotation, acceletaiton, and which action to take when rain is detected.
+
 5.  **Features**: Full support for Azimuth rotation (Absolute/Relative), Homing, Syncing, and Shutter control. It also provides monitoring for rain status and shutter battery voltage.
 ![info](./images/info.webp)
+
+6. **Slaving**: You can slave the dome to the mount by setting the required slaving parameters (by convention the units are in meters);
+
+* **Radius** is for the radius of the dome
+* **Shutter width** is the aperture of the shutter of the dome in meters.
+* **N displacement** is for north-south displacement of the intersection of the RA & DEC axis as measured from the center of the dome. Displacement to north is positive, and to south is negative.
+* **E displacement** is for east-west displacement. Similar as the above, displacement to east are positive, and to west are negative.
+* **Up displacement** is for displacement of the RA/DEC intersection in the vertical axis as measured from the origin of the dome (not the walls). Up is positive, down is negative.
+* **OTA offset** is for the distance of the optical axis to the RA/DEC intersection. In fork mount this is generally 0, but for German like mounts is the distance from mount axis cross to the center line of the telescope. West is positive, east is negative.
+
+After settings the parameters above, go to Options tab and click Save in Configurations so that the parameters are used in future sessions. You can also set the Autosync threshold which is the minimum distance autosync will move the dome. Any motion below this threshold will not be triggered. This is to prevent continuous dome moving during telescope tracking.
 
 ### Alpaca Support
 
