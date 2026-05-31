@@ -9,7 +9,7 @@ thumbnail: ./amsky02.webp
 
 The **[AMSKY02](https://astrometers.eu/products/AMSKY02/)** is a professional, weatherproof sky sensor designed for autonomous and remotely operated observatories. It is the successor to the [AMSKY01](/weather-stations/astrometers/amsky01/amsky01) and features a dual-sensor architecture combining two independent SQM channels with a high-resolution pixel-array infrared cloud detector.
 
-![AMSKY02 sensor](./images/amsky02-main.jpg)
+![AMSKY02 sensor](./images/amsky02-main.webp)
 
 > **Compatibility:** AMSKY02 uses the same `indi_amsky01` driver and communication protocol as [AMSKY01](/weather-stations/astrometers/amsky01/amsky01). Both models are fully interchangeable at the software level.
 
@@ -26,7 +26,7 @@ The **[AMSKY02](https://astrometers.eu/products/AMSKY02/)** is a professional, w
 
 The dual thermopile array acts as a low-resolution thermal camera for the sky. Unlike single-point sensors, the pixel sensor allows spatial analysis of cloud coverage:
 
-![Sky visualisation comparison](./images/amsky-visualisation.jpg)
+![Sky visualisation comparison](./images/amsky-visualisation.webp)
 
 *Comparison of an optical all-sky image with the AMSKY thermopile sensor output. Clouds are clearly visible as warmer regions in the IR thermal map.*
 
