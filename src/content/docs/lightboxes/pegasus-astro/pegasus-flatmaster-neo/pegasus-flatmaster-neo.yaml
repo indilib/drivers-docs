@@ -1,0 +1,15 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Pegasus FlatMaster Neo
+manufacturer_name: Pegasus Astro
+
+# Categories (Required - can be multiple)
+categories:
+  - lightboxes
+  - dustcaps
+
+# Additional Metadata (Optional)
+website: www.indlib.org
+executable: indi_pegasus_flatmaster_neo
+platforms: Linux, BSD, OSX
+author: Dominik Merkel
+version: 1.0
