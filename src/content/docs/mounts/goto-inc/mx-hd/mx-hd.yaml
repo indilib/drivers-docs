@@ -1,0 +1,8 @@
+﻿driver_name: MX-HD Telescope
+categories: ["mounts"]
+manufacturer_name: GOTO INC
+
+executable: indi_mxhd_telescope
+platforms: Linux, BSD, OSX
+version: 1.0
+website: http://gototelesco.co.jp/mxhd.html
