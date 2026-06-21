@@ -1,0 +1,13 @@
+# Display Names (Human-Friendly)
+driver_name: GigE CCD
+manufacturer_name: Generic
+
+# Categories (Required - can be multiple)
+categories:
+  - Cameras
+
+# Additional Metadata
+website: https://github.com/aravisproject/aravis
+platforms: Linux, OSX
+executable: indi_gige_ccd
+version: 0.2
