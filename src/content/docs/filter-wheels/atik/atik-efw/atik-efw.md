@@ -11,11 +11,6 @@ The INDI Atik EFW v1 driver controls legacy Atik USB electronic filter wheels
 that are no longer supported by the current Atik Linux SDK. It is a standalone
 USB driver and does not require the Atik camera SDK.
 
-> [!IMPORTANT]
-> This page is for the legacy Atik EFW v1 hardware supported by
-> **indi_atik_efw**. Atik EFW2 and later SDK-supported wheels should use the
-> Atik SDK driver from the **indi-atik** package, exposed as **indi_atik_wheel**.
-
 The driver provides:
 
 - Filter slot selection from INDI clients such as Ekos.
@@ -67,6 +62,10 @@ the one backed by **indi_atik_efw** for legacy v1 hardware.
 
 After the configuration is saved, INDI clients can select filter slots normally.
 
+The driver communicates at 9600 baud using the standard INDI serial connection
+plugin. Select the actual serial device assigned by the system; the driver does
+not open the FTDI USB device directly.
+
 ### Main Control Tab
 
 The **Main Control** tab connects and disconnects the wheel. When connected,
@@ -95,17 +94,20 @@ The **Options** tab provides the common INDI driver controls:
 ## Troubleshooting
 
 If the wheel is detected by USB but does not connect, first confirm that the
-Ekos profile is using **indi_atik_efw**. The older SDK driver,
+Ekos profile is using **indi_atik_efw**. The other SDK driver,
 **indi_atik_wheel**, is for SDK-supported Atik wheels and does not solve the
 legacy v1 SDK deprecation issue.
-
-If the driver reports status parsing or connection failures, update to
-**indi_atik_efw** version 1.1 or newer. Version 1.1 includes the legacy v1
-workarounds from issue #1222 for compact or incomplete status responses.
 
 If the driver cannot open the wheel, verify:
 
 - The wheel appears in `lsusb`.
 - The USB identifier is the legacy FTDI Atik wheel identifier.
-- The INDI user has permission to access the USB device.
+- A serial device is created by the kernel for the USB device.
+- The INDI user has permission to access the serial device.
 - No other process is already using the wheel.
+
+The previous direct USB implementation configured FTDI RTS/CTS flow control
+before sending wheel commands. The serial implementation uses INDI's standard
+raw 9600 8N1 serial connection, which leaves hardware flow control disabled. If
+a host setup requires RTS/CTS for this adapter, handle it outside the driver or
+through future INDI serial flow-control support.
