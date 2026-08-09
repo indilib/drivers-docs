@@ -1,8 +1,6 @@
-# Display Names (Human-Friendly)
 driver_name: IKun Focuser
 categories: ["focusers"]
-manufacturer_name: EFucoser
+manufacturer_name: IKun
 
-# Additional Metadata
 executable: indi_ikun_focuser
 version: 1.0
