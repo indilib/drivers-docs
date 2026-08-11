@@ -1,0 +1,6 @@
+driver_name: IKun Focuser
+categories: ["focusers"]
+manufacturer_name: IKun
+
+executable: indi_ikun_focuser
+version: 1.0
