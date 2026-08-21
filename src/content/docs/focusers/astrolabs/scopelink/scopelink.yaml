@@ -1,0 +1,17 @@
+# Display Names (Human-Friendly - Required)
+driver_name: ScopeLink
+manufacturer_name: Astrolabs
+
+# Categories (Required - can be multiple)
+categories:
+  - focusers
+  - dustcaps
+  - lightboxes
+  - auxiliaries
+
+# Additional Metadata (Optional)
+website: www.astrolabs.hu
+executable: indi_scopelink
+platforms: Linux
+author: Bence Toth
+version: 1.0
