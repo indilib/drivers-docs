@@ -1,0 +1,10 @@
+# Display Names (Human-Friendly)
+driver_name: Gemini Power Box Hub Advanced v3
+categories: ["observatory-controllers"]
+manufacturer_name: Gemini
+
+# Additional Metadata
+executable: indi_gemini_pbh
+platforms: Linux, BSD, OSX
+author: Dieter
+version: 1.0

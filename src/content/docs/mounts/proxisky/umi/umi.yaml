@@ -1,0 +1,11 @@
+# Display Names (Human-Friendly)
+driver_name: Proxisky UMi
+categories: ["mounts"]
+manufacturer_name: Proxisky
+
+# Additional Metadata
+website: https://www.proxisky.com
+executable: indi_lx200_proxisky
+platforms: Linux, BSD, OSX
+author: Nico
+version: 1.0
