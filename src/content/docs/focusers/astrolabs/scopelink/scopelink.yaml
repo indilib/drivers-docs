@@ -5,6 +5,7 @@ manufacturer_name: Astrolabs
 # Categories (Required - can be multiple)
 categories:
   - focusers
+  - rotators
   - dustcaps
   - lightboxes
   - auxiliaries
@@ -14,4 +15,4 @@ website: www.astrolabs.hu
 executable: indi_scopelink
 platforms: Linux
 author: Bence Toth
-version: 1.0
+version: 1.1
