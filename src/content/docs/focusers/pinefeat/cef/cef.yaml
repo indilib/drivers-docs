@@ -1,0 +1,6 @@
+driver_name: EF Lens Controller
+manufacturer_name: Pinefeat
+categories:
+  - focusers
+website: www.pinefeat.co.uk
+executable: indi_pinefeat_cef_focus
