@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: OAPA
+manufacturer_name: MBAstro
+
+# Categories (Required - can be multiple)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+website: https://github.com/michelebergo/indi-oapa
+executable: indi_oapa
+platforms: Linux, OSX
+author: Michele Bergo
+version: 3.0
