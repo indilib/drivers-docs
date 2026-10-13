@@ -1,0 +1,9 @@
+driver_name: Prometheus Astro Tyr
+manufacturer_name: Prometheus Astro
+categories: [mounts]
+website: https://prometheusastro.com/
+executable: indi_tyr_telescope
+platforms: Linux
+author: Prometheus Astro
+version: "0.3.0"
+connection: USB serial, TCP/IP
