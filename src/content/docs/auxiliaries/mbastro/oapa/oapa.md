@@ -19,17 +19,18 @@ The driver implements the INDI **PAC (Polar Alignment Correction)** interface, s
 - Motor run and hold current per axis, sent on every connection because the controller forgets them at power-off
 - Direction reverse per axis
 - Platform position readout in degrees
+- USB serial, or TCP on port 2323 for a board on WiFi (firmware 1.3.0 or newer)
 - Safety: moves are refused until the platform is calibrated; a move that stalls, times out or stops short of its target is stopped and reported as an error
 
 ## Requirements
 
 - INDI 2.2.0 or newer
-- OAPA firmware **1.2.1 or newer** (1.2.2 recommended). Older firmware connects, but speed and Abort are ignored and the driver logs a warning.
+- OAPA firmware **1.2.1 or newer** (current release 1.3.5). Older firmware connects, but speed and Abort are ignored and the driver logs a warning.
 - For automatic correction: KStars 3.8.2 or newer. The feature is marked preliminary in KStars.
 
 ## Installation
 
-The driver is part of INDI core and needs no extra dependencies. Connect the controller by USB; it appears as `/dev/ttyUSB0` or `/dev/ttyACM0`.
+The driver is part of INDI core and needs no extra dependencies. Connect the controller by USB; it appears as `/dev/ttyUSB0` or `/dev/ttyACM0`. A board on WiFi running firmware 1.3.0 or newer is reached over TCP instead, on port 2323.
 
 To run it on its own:
 
@@ -40,7 +41,7 @@ indiserver -v indi_oapa
 ## Configuration
 
 1. In the Ekos profile editor, select **OAPA** under Auxiliary.
-2. In the INDI Control Panel, choose the port on the **Connection** tab and click **Connect**. The board resets when the port opens; the driver waits for it.
+2. In the INDI Control Panel, choose the port on the **Connection** tab and click **Connect**. The board resets when the port opens; the driver waits for it. For a board on WiFi, set the connection mode to **TCP** and enter its address and port 2323; the firmware serves one client at a time, so close its other clients first.
 3. Set **Calibration** (steps per arcminute) for both axes. Until you do, every correction is refused. See [Calibration](#calibration) below.
 4. Check the directions once, as described in [Direction check](#direction-check).
 
