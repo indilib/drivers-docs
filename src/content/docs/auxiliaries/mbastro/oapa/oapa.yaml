@@ -11,4 +11,4 @@ website: https://github.com/michelebergo/indi-oapa
 executable: indi_oapa
 platforms: Linux, OSX
 author: Michele Bergo
-version: 3.0
+version: 3.1
