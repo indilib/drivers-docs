@@ -24,3 +24,59 @@
     scroll-padding-top: 1.5rem;
   }
 }
+
+/* Wide screens: the page sits in the same centered 1180px column as the indilib.org header,
+   with empty space on both sides. --indi-gap is where the header's logo starts. */
+@media (min-width: 72rem) {
+  :root {
+    --indi-gap: max(16px, calc((100vw - 1180px) / 2 + 16px));
+  }
+
+  /* Category and manufacturer pages */
+  :root:not([data-has-sidebar]) .main-frame { padding-inline: calc(var(--indi-gap) - 16px); }
+  :root:not([data-has-sidebar]) .content-panel { padding-inline: 16px; }
+
+  /* Driver pages: device list, page text and driver details side by side in that column */
+  :root[data-has-sidebar][data-has-toc] {
+    --sl-sidebar-width: 16rem;
+    --indi-details-w: 20rem;
+  }
+  :root[data-has-sidebar][data-has-toc] .sidebar-pane {
+    inset-inline-start: var(--indi-gap);
+    border-inline-start: 1px solid var(--sl-color-hairline);
+  }
+  :root[data-has-sidebar][data-has-toc] .main-frame {
+    padding-inline: calc(var(--indi-gap) + var(--sl-sidebar-width)) var(--indi-gap);
+  }
+  :root[data-has-sidebar][data-has-toc] .main-frame > div { display: flex; }
+  :root[data-has-sidebar][data-has-toc] .main-pane {
+    order: 1;
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
+  }
+  :root[data-has-sidebar][data-has-toc] .right-sidebar-container {
+    order: 2;
+    flex: 0 0 var(--indi-details-w);
+    width: var(--indi-details-w) !important;
+  }
+  :root[data-has-sidebar][data-has-toc] .right-sidebar {
+    position: static;
+    width: 100% !important;
+    height: calc(100vh - var(--sl-nav-height));
+    padding-top: 0;
+    border-inline: 1px solid var(--sl-color-hairline);
+  }
+  :root[data-has-sidebar][data-has-toc] .starlight-right-sidebar {
+    width: auto !important;
+    margin-left: 0 !important;
+    border-left: 0 !important;
+  }
+  :root[data-has-sidebar][data-has-toc] .driver-thumbnail { width: 100%; height: auto; }
+}
+
+/* The device list scrolls by itself (Sidebar.astro), so the box around it doesn't */
+@media (min-width: 50rem) {
+  .sidebar-pane { overflow-y: hidden; }
+  .sidebar-content { height: 100%; min-height: 0; padding-top: 0; }
+}

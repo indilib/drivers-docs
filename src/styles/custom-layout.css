@@ -32,13 +32,6 @@ main.main-pane {
     /* Ensure it behaves as a block element for margin: auto to work */
 }
 
-/* Fix right sidebar width - override Starlight's width: 100% */
-.right-sidebar-container,
-.right-sidebar {
-    right: 10px;
-    width: fit-content;
-}
-
 /* Center all images in markdown content */
 .sl-markdown-content img {
     display: block;
