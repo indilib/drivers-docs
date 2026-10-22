@@ -1,0 +1,6 @@
+---
+// The location bar under the header shows the page, so the big title is hidden.
+// It stays for screen readers and search engines; "_top" is the id Starlight's
+// "Overview" link in the table of contents jumps to.
+---
+<h1 id="_top" class="sr-only">{Astro.locals.starlightRoute.entry.data.title}</h1>

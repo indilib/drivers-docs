@@ -1,0 +1,26 @@
+/* Page layout with the indilib.org header (src/components/Header.astro) */
+
+/* The title's panel is empty now that the title is hidden (src/components/PageTitle.astro) */
+.content-panel:has(> .sl-container > #_top:only-child) { padding: 0; }
+.content-panel:has(> .sl-container > #_top:only-child) + .content-panel { border-top: 0; }
+
+/* Thin dark scrollbars, in the indilib.org colors (the device list sets its own in Sidebar.astro) */
+.right-sidebar,
+.main-pane {
+  scrollbar-width: thin !important;
+  scrollbar-color: #3a3939 transparent;
+}
+
+/* Driver pages on wide screens: three columns that each scroll on their own. The device list
+   and the driver details already sit in fixed columns; the page text gets its own scroll area
+   too, so its scrollbar is at its own edge and the page itself doesn't scroll. */
+@media (min-width: 72rem) {
+  :root[data-has-sidebar][data-has-toc],
+  :root[data-has-sidebar][data-has-toc] body { height: 100%; overflow: hidden; }
+
+  :root[data-has-sidebar][data-has-toc] .main-pane {
+    height: calc(100vh - var(--sl-nav-height));
+    overflow-y: auto;
+    scroll-padding-top: 1.5rem;
+  }
+}
