@@ -1,11 +1,15 @@
-/* Header shared with indilib.org (src/components/Header.astro).
-   Colors, fonts and sizes match indilib.org's header. */
+/* Header shared with indilib.org (src/components/Header.astro), in two bars like forum.indilib.org:
+   the indilib.org header with the same size and layout as on indilib.org, then a full-width
+   location bar with the search. */
 
 :root {
-  --sl-nav-height: 4rem;
+  --indi-head-h: 64px;
+  --indi-sub-h: 48px;
+  /* Starlight places the sidebars and the page under this height */
+  --sl-nav-height: calc(var(--indi-head-h) + var(--indi-sub-h));
 }
 
-/* Starlight's header bar, with the colors of indilib.org and forum.indilib.org */
+/* Starlight's header area holds both bars */
 .header {
   --indi-ink: #f2f2f2;
   --indi-muted: #a9a9a9;
@@ -14,31 +18,39 @@
   --indi-bg: #1d1d1d;
   --indi-blue: #2359f5;
   --indi-blue-deep: #0037dd;
+  padding: 0 !important;
+  border-bottom: 0;
   background: var(--indi-bg);
-  border-bottom: 1px solid var(--indi-line);
   color: var(--indi-ink);
 }
 
+/* ---------- indilib.org header ---------- */
 .indi-head {
+  height: var(--indi-head-h);
+  background: var(--indi-bg);
+  border-bottom: 1px solid var(--indi-line);
+}
+.indi-wrap {
+  max-width: 1180px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
   display: flex;
   align-items: center;
   gap: 24px;
-  height: 100%;
+  position: relative;
 }
 
 .indi-brand {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
   text-decoration: none;
   color: var(--indi-ink);
 }
 .indi-brand img { width: 38px; height: 38px; border-radius: 6px; }
 .indi-brand b { font: 800 1.3rem/1 "Archivo", "Arial Narrow", system-ui, sans-serif; font-stretch: 125%; letter-spacing: 0.02em; }
 .indi-brand small { display: block; font: 0.68rem/1.2 "IBM Plex Mono", ui-monospace, monospace; color: var(--indi-muted); letter-spacing: 0.04em; }
-
-.indi-search { flex: 1 1 auto; min-width: 0; max-width: 22rem; }
 
 .indi-nav { display: flex; gap: 2px; margin-left: auto; }
 .indi-nav a {
@@ -54,7 +66,6 @@
 .indi-nav a.ext::after { content: "↗"; font-size: 0.8em; margin-left: 3px; color: var(--indi-muted); }
 
 .indi-cta {
-  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   font: 600 0.88rem/1 "IBM Plex Sans", system-ui, sans-serif;
@@ -66,7 +77,8 @@
 }
 .indi-cta:hover { background: var(--indi-blue-deep); color: #fff; }
 
-.indi-brand:focus-visible, .indi-nav a:focus-visible, .indi-cta:focus-visible, .indi-burger:focus-visible {
+.indi-brand:focus-visible, .indi-nav a:focus-visible, .indi-cta:focus-visible,
+.indi-burger:focus-visible, .indi-trail a:focus-visible {
   outline: 2px solid #eb9e20;
   outline-offset: 3px;
   border-radius: 4px;
@@ -85,31 +97,9 @@
   cursor: pointer;
 }
 .indi-burger svg { width: 20px; height: 20px; }
-.indi-burger .grid { display: none; }
 
-/* Starlight's driver list button on phones, in the same style as the menu button.
-   Only below 50rem: Starlight hides it on wider screens. */
-@media (max-width: 50rem) {
-  starlight-menu-button button {
-    top: calc((var(--sl-nav-height) - 40px) / 2);
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #3a3939;
-    background: #262525;
-    color: #f2f2f2;
-    box-shadow: none;
-    padding: 0;
-    display: grid;
-    place-items: center;
-  }
-  starlight-menu-button button svg { width: 20px; height: 20px; }
-  starlight-menu-button[aria-expanded="true"] button { background: #3a3939; }
-}
-
-/* The search box and the menu don't fit next to each other here: the menu opens from a button,
-   as on indilib.org on small screens. */
-@media (max-width: 75rem) {
+/* Same as indilib.org: the menu opens from a button on small screens */
+@media (max-width: 900px) {
   .indi-nav {
     display: none;
     position: absolute;
@@ -119,20 +109,66 @@
     flex-direction: column;
     background: var(--indi-bg);
     border-bottom: 1px solid var(--indi-line);
-    padding: 8px var(--sl-nav-pad-x) 16px;
+    padding: 8px 16px 16px;
+    z-index: 1;
   }
   .indi-nav.open { display: flex; }
-  .indi-search { margin-left: auto; }
+  .indi-cta { margin-left: auto; }
   .indi-burger { display: grid; }
 }
 
-/* Phones: Starlight's driver list button sits to the right of the menu button.
-   It has the three lines there, so the menu button shows a grid. */
+/* ---------- Location bar ---------- */
+.indi-sub {
+  height: var(--indi-sub-h);
+  padding: 0 var(--sl-nav-pad-x);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--indi-band);
+  border-bottom: 1px solid var(--indi-line);
+}
+
+.indi-trail { flex: 1 1 auto; min-width: 0; }
+.indi-trail ol {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font: 500 0.92rem/1.4 "IBM Plex Sans", system-ui, sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.indi-trail li { display: flex; align-items: center; min-width: 0; margin: 0; }
+.indi-trail li + li::before { content: "›"; margin: 0 10px; color: var(--indi-muted); }
+.indi-trail a { color: var(--indi-muted); text-decoration: none; }
+.indi-trail a:hover { color: #fff; }
+.indi-trail [aria-current="page"] { color: #fff; font-weight: 600; overflow: hidden; text-overflow: ellipsis; }
+
+.indi-search { flex: 0 1 22rem; min-width: 0; }
+
+/* Phones: the last two steps only, and room on the right for Starlight's driver list button,
+   which sits in this bar */
 @media (max-width: 50rem) {
-  .indi-head { gap: 12px; }
-  .indi-search { flex: 0 0 auto; }
-  .indi-cta { display: none; }
-  .indi-brand small { display: none; }
-  :root[data-has-sidebar] .indi-burger .lines { display: none; }
-  :root[data-has-sidebar] .indi-burger .grid { display: block; }
+  .indi-trail li:not(:nth-last-child(-n + 2)) { display: none; }
+  .indi-trail li:nth-last-child(2)::before { display: none; }
+  .indi-search { flex: 0 0 auto; margin-left: auto; }
+  :root[data-has-sidebar] .indi-sub { padding-right: calc(var(--sl-nav-pad-x) + 36px + 12px); }
+
+  starlight-menu-button button {
+    top: calc(var(--indi-head-h) + (var(--indi-sub-h) - 36px) / 2);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid #3a3939;
+    background: #1d1d1d;
+    color: #f2f2f2;
+    box-shadow: none;
+    padding: 0;
+    display: grid;
+    place-items: center;
+  }
+  starlight-menu-button button svg { width: 18px; height: 18px; }
+  starlight-menu-button[aria-expanded="true"] button { background: #3a3939; }
+  :root[data-indi-menu-open] starlight-menu-button { visibility: hidden; }
 }
