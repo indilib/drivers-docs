@@ -1,0 +1,23 @@
+/* indilib.org colors for the whole site: charcoal page (#1d1d1d), #262525 bands, blue accent.
+   Dark only (src/components/ThemeProvider.astro), like indilib.org. */
+:root {
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #f2f2f2;
+  --sl-color-gray-2: #d6d6d6;
+  --sl-color-gray-3: #a9a9a9;
+  --sl-color-gray-4: #6e6d6d;
+  --sl-color-gray-5: #3a3939;
+  --sl-color-gray-6: #262525;
+  --sl-color-black: #1d1d1d;
+
+  --sl-color-accent-low: #18286b;
+  --sl-color-accent: #2359f5;
+  --sl-color-accent-high: #7d9bff;
+
+  --sl-color-bg: #1d1d1d;
+  --sl-color-bg-nav: #1d1d1d;
+  --sl-color-bg-sidebar: #1d1d1d;
+  --sl-color-hairline-light: #3a3939;
+  --sl-color-hairline: #3a3939;
+  --sl-color-hairline-shade: #3a3939;
+}
