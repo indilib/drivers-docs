@@ -25,11 +25,11 @@
   }
 }
 
-/* Wide screens: the page sits in the same centered 1180px column as the indilib.org header,
-   with empty space on both sides. --indi-gap is where the header's logo starts. */
+/* Wide screens: the page sits in a centered column up to 1600px wide, with empty space on both
+   sides. The location bar under the header uses the same edges (indi-header.css). */
 @media (min-width: 72rem) {
   :root {
-    --indi-gap: max(16px, calc((100vw - 1180px) / 2 + 16px));
+    --indi-gap: max(16px, calc((100vw - 1600px) / 2 + 16px));
   }
 
   /* Category and manufacturer pages */
@@ -39,7 +39,7 @@
   /* Driver pages: device list, page text and driver details side by side in that column */
   :root[data-has-sidebar][data-has-toc] {
     --sl-sidebar-width: 16rem;
-    --indi-details-w: 20rem;
+    --indi-details-w: 17rem;
   }
   :root[data-has-sidebar][data-has-toc] .sidebar-pane {
     inset-inline-start: var(--indi-gap);
@@ -71,12 +71,17 @@
     width: auto !important;
     margin-left: 0 !important;
     border-left: 0 !important;
+    padding: 12px !important;
   }
   :root[data-has-sidebar][data-has-toc] .driver-thumbnail { width: 100%; height: auto; }
 }
 
-/* The device list scrolls by itself (Sidebar.astro), so the box around it doesn't */
+/* The device list scrolls by itself (Sidebar.astro), so the box around it doesn't. No padding
+   around the list, and its scrollbar on the left edge of the column: the scroll box is
+   right-to-left (which puts the scrollbar on the left) and the list in it left-to-right. */
 @media (min-width: 50rem) {
   .sidebar-pane { overflow-y: hidden; }
-  .sidebar-content { height: 100%; min-height: 0; padding-top: 0; }
+  .sidebar-content { height: 100%; min-height: 0; padding: 0; }
+  :root .sidebar-pane .sidebar-nav { padding: 8px 8px 8px 4px; direction: rtl; }
+  :root .sidebar-pane .sidebar-nav > * { direction: ltr; }
 }

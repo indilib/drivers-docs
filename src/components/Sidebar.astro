@@ -228,7 +228,9 @@ categories.forEach((category) => {
         transition: transform 0.2s;
         color: var(--sl-color-gray-2);
         margin-left: auto;
-        padding-right: 0.5rem;
+        /* A margin, not padding: the open arrow is this one turned around, and padding would
+           turn with it and move the arrow */
+        margin-right: 0.5rem;
         flex-shrink: 0;
     }
 
