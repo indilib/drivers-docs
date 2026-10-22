@@ -33,12 +33,13 @@ export default defineConfig({
       ],
       components: {
         Header: './src/components/Header.astro',
+        PageTitle: './src/components/PageTitle.astro',
         ThemeProvider: './src/components/ThemeProvider.astro',
         ThemeSelect: './src/components/ThemeSelect.astro',
         Sidebar: './src/components/Sidebar.astro',
         PageSidebar: './src/components/StarlightRightSidebar.astro',
       },
-      customCss: ['./src/styles/alerts.css', './src/styles/custom-layout.css', './src/styles/indi-colors.css', './src/styles/indi-header.css'],
+      customCss: ['./src/styles/alerts.css', './src/styles/custom-layout.css', './src/styles/indi-colors.css', './src/styles/indi-header.css', './src/styles/indi-layout.css'],
     }),
   ],
 });
