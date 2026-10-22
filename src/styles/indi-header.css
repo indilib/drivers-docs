@@ -147,6 +147,11 @@
 
 .indi-search { flex: 0 1 22rem; min-width: 0; }
 
+/* Wide screens: the same edges as the page under it (indi-layout.css) */
+@media (min-width: 72rem) {
+  .indi-sub { padding-inline: var(--indi-gap); }
+}
+
 /* Phones: the last two steps only, and room on the right for Starlight's driver list button,
    which sits in this bar */
 @media (max-width: 50rem) {
