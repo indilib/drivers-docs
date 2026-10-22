@@ -1,0 +1,49 @@
+---
+// Same header as indilib.org: INDI brand, the indilib.org menu with Drivers marked as the
+// current site, and the "Get INDI" button. Starlight's search stays in the middle.
+// Styles are in src/styles/indi-header.css.
+import Search from "virtual:starlight/components/Search";
+
+const INDI = "https://indilib.org";
+const LINKS = [
+  ["About", `${INDI}/about.html`],
+  ["Tutorials", `${INDI}/tutorials.html`],
+  ["Develop", `${INDI}/develop.html`],
+  ["Download", `${INDI}/download.html`],
+  ["Support", `${INDI}/support.html`],
+];
+---
+<div class="indi-head">
+  <a class="indi-brand" href={`${INDI}/`} aria-label="INDI home">
+    <img src="/img/indi-logo.webp" alt="" width="38" height="38" />
+    <span><b>INDI</b><small>Open Astronomy Instrumentation</small></span>
+  </a>
+  <div class="indi-search print:hidden"><Search /></div>
+  <nav class="indi-nav" id="indi-nav" aria-label="Main">
+    {LINKS.map(([label, href]) => <a href={href}>{label}</a>)}
+    <a href="/" aria-current="page">Drivers</a>
+    <a class="ext" href="https://forum.indilib.org">Forum</a>
+  </nav>
+  <a class="indi-cta" href={`${INDI}/download.html`}>Get INDI</a>
+  <button class="indi-burger" id="indi-burger" type="button" aria-expanded="false" aria-controls="indi-nav" title="INDI menu">
+    <svg class="lines" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <!-- On phones Starlight's driver list button has the three lines, so this one shows a grid -->
+    <svg class="grid" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>
+  </button>
+</div>
+
+<script>
+  // Site menu on narrow screens
+  const burger = document.getElementById("indi-burger")!;
+  const nav = document.getElementById("indi-nav")!;
+  burger.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    burger.setAttribute("aria-expanded", String(open));
+  });
+  nav.addEventListener("click", (e) => {
+    if ((e.target as HTMLElement).tagName === "A") {
+      nav.classList.remove("open");
+      burger.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>
