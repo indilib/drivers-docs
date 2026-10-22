@@ -1,24 +1,41 @@
 name: Deploy Astro Documentation
 
+# Push to main, or "Run workflow" in the Actions tab: build and copy the site to the indilib.org
+# server with rsync, the same way as indi-website.
+#
+# Secrets: REMOTE_HOST (the server IP: SSH can't pass through Cloudflare), REMOTE_PORT, REMOTE_USER,
+# REMOTE_PRIVATE_KEY, DEPLOY_PATH. Variables: SITE_URL, DEPLOY_RRSYNC_ROOT.
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      SITE_URL: ${{ vars.SITE_URL || 'https://drivers.indilib.org' }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Copy driver thumbnails to public directory
         run: |
@@ -33,15 +50,41 @@ jobs:
             echo "Copied: $file -> public/images/drivers/$manufacturer/$driver.webp"
           done
 
-      - name: Build Astro project
+      - name: Build Astro project for ${{ env.SITE_URL }}
         run: npm run build
 
-      - name: rsync deployments
+      # rsync --delete removes everything in the target that is not part of the site,
+      # so refuse anything that looks like a top-level or home folder.
+      # Exception: when the server locks the deploy key to one folder with rrsync, paths are
+      # inside that folder ("/" is the folder itself). DEPLOY_RRSYNC_ROOT records that folder.
+      - name: Check deploy folder
+        env:
+          TARGET: ${{ secrets.DEPLOY_PATH }}
+          RRSYNC_ROOT: ${{ vars.DEPLOY_RRSYNC_ROOT }}
+        run: |
+          if [ -n "$RRSYNC_ROOT" ]; then
+            echo "Server limits this key to $RRSYNC_ROOT with rrsync; deploying inside it."
+            exit 0
+          fi
+          # Strip spaces and trailing slashes, then count the folder levels
+          t="$(printf '%s' "$TARGET" | tr -d '[:space:]' | sed -E 's#/+$##')"
+          rel="${t#\~/}"; rel="${rel#\~}"; rel="${rel#/}"
+          levels=$(printf '%s' "$rel" | tr '/' '\n' | grep -c .)
+          min=1
+          case "$t" in /*) min=3 ;; esac
+          if [ "$levels" -lt "$min" ] || printf '%s' "/$rel/" | grep -qE '/\.{1,2}/'; then
+            echo "::error::DEPLOY_PATH must be the site's own folder, for example public_html or /var/www/drivers.indilib.org/html. Absolute paths need at least 3 levels."
+            exit 1
+          fi
+          echo "Deploy folder accepted ($levels levels)."
+
+      - name: rsync to the server
         uses: burnett01/rsync-deployments@7.1.0
         with:
           switches: -azv --delete
           path: dist/
-          remote_path: public_html/
+          remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_port: ${{ secrets.REMOTE_PORT || '22' }}
           remote_user: ${{ secrets.REMOTE_USER }}
           remote_key: ${{ secrets.REMOTE_PRIVATE_KEY }}
