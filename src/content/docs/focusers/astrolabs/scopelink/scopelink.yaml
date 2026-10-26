@@ -15,4 +15,4 @@ website: www.astrolabs.hu
 executable: indi_scopelink
 platforms: Linux
 author: Bence Toth
-version: 1.1
+version: 1.2

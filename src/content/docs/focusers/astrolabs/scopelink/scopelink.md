@@ -15,7 +15,7 @@ thumbnail: ./scopelink.webp
 | **Executable** | `indi_scopelink` |
 | **Author** | Bence Toth, Astrolabs Hungary Kft. |
 | **Maintainer** | Bence Toth &lt;bence.toth@astrolabs.hu&gt; |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Device type** | Focuser, rotator, dust cap, light box, auxiliary |
 | **Connection** | Serial (USB CDC-ACM) |
 | **Minimum INDI** | 2.0.0 |
@@ -166,7 +166,8 @@ Two options are worth setting before the first connection, on the **Options** ta
 - **Simulated hardware** — which controller the driver imitates while **Simulation** is on. Ignored
   otherwise. Four entries for three generations, because a generation is not a frame layout: the same
   generation 3 board runs interface 1.0 and 1.1, and 1.1 is a different layout rather than a different
-  board. Generation 4 exists only on 1.1 and so needs no second entry. See "Running without a controller"
+  board. Generation 4 is simulated on interface 1.2, the firmware it ships with, and so needs no second
+  entry. See "Running without a controller"
   below.
 
 ![The Options tab](./images/options.webp)
@@ -183,7 +184,8 @@ below behaves as it does on hardware, including motion, the flat panel, the faul
 configuration parameters. **Simulated hardware** on the Options tab picks which controller it imitates,
 which is what makes the differences between them visible — the USB hub and the smart switch settings
 appear and disappear as they would on the real controllers, and the interface 1.1 entry sends the frame
-layout that firmware uses.
+layout that firmware uses. Generation 4 is simulated on interface 1.2, with a sensor module that has every
+sensor on it.
 
 It is meant for trying the driver out, for reproducing a problem without the hardware to hand, and for
 client development. The simulated controller is answerable and self consistent; it is not a model of the
@@ -277,11 +279,55 @@ the panel on with the brightness at zero produces no light, and the driver says 
 Read-only. Supply, rear fan and side fan rail voltages; ambient and mirror temperature and the
 difference between them; and the load on each motor.
 
-With **Controller diagnostics** enabled in Options, a second group appears with the infrared sensor
+What the sensor module measures decides which of these appear. Every module measures the air, so the
+focuser's temperature is there on all of them; the mirror and the difference need the infrared sensor,
+which the module without one does not have. From interface 1.2 the module with the humidity sensor adds
+**Climate** — relative humidity, dew point, and how far the mirror is above the dew point — and a module
+with an accelerometer adds **Tilt**, the acceleration along its three axes in thousandths of g.
+
+The margin above the dew point is taken from the mirror, because the mirror is what fogs; while the
+mirror is not being measured it is taken from the air instead. At or below zero, the mirror is at the dew
+point.
+
+Humidity, dew point and the three axes are smoothed over a few readings, so that the last digit does not
+flicker: the humidity and dew point settle over about fifteen seconds, the axes over about a second. A
+real jump — a door opened onto the night, the tube knocked to a new position — that is still there on the
+next reading is shown at once. A single odd reading is ignored.
+
+![The top of the Telemetry tab on a controller with the humidity and tilt module](./images/telemetry.webp)
+
+### Orientation
+
+Where the module has an accelerometer, **Orientation** shows which way the tube is pointing, worked out
+from the smoothed axes:
+
+- **Altitude**: how far the tube is raised above the horizon, from 90° at the zenith to −90° straight
+  down.
+- **Roll**: how far the tube is turned about its own length, from −180° to 180°, positive turning
+  clockwise as seen from behind the tube looking out of the sky end.
+
+Which way round the compass the tube faces cannot be measured by an accelerometer and is not shown.
+Within 5° of the zenith or the nadir the roll cannot be measured either; there the last roll is held and
+the property turns idle until the tube comes down again. An alert means the module is reporting no
+acceleration, or one too weak to be gravity.
+
+Until told otherwise, the driver assumes the module is fitted the way it was designed to be: its Z axis
+along the tube towards the sky, and its Y axis pointing at the ground with the tube level. A module fitted
+a few degrees crooked, or turned round the tube, reads the tube that much raised or rolled. To correct
+that, point the tube level, at the roll you normally use it at, hold it still, and press **Tube is level
+now** under **Level reference**. Pressing **Clear** goes back to the design assumption.
+
+The reference is refused while the tube is moving or being handled (the module reading more than 15% away
+from 1 g), and when the module's Z axis is more than 30° from horizontal with the tube level — which means
+the module is not fitted with Z along the tube at all. It is kept in the driver's configuration, not on the
+controller, and is shown beside the switch as the direction the accelerometer read as up; all zeros means
+there is no reference.
+
+With **Controller diagnostics** enabled in Options, a second group appears with the sensor module
 supply, the controller's own supply and die temperature, CPU and peak CPU load, stack usage and the I²C
 error counter.
 
-![The Telemetry tab with controller diagnostics enabled](./images/telemetry.webp)
+![The bottom of the Telemetry tab, with controller diagnostics enabled](./images/telemetry-diagnostics.webp)
 
 ## Fans
 
@@ -290,7 +336,7 @@ Each fan can be left under the controller's own thermostat or taken over manuall
 - **Manual control** — enables the override for each fan independently.
 - **Commanded state** — what each fan does while its override is enabled.
 - **Automatic targets** — the mirror-to-ambient temperature difference each fan aims at when it is not
-  overridden, in Kelvin. Only offered on a unit with the temperature sensor fitted, since there is
+  overridden, in Kelvin. Only offered on a unit with the infrared sensor fitted, since there is
   nothing to regulate against without it.
 
 ![The Fans tab](./images/fans.webp)
