@@ -38,6 +38,10 @@ Connect the focuser by USB and select its port on the **Connection** tab. The de
 - **Max. Position:** the travel measured by the last calibration. It is read from the focuser and cannot be changed.
 - **Backlash:** the value is stored in the focuser and read on connection.
 
+### Options
+
+- **Calibrate:** **Start** sets a new zero position at the focuser's inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active and the focuser is not moving. It takes a few seconds; moves are refused until it is done.
+
 ### Environment
 
 - **Temperature:** the motor sensor, and the external probe if one is connected. A value of -273.15 means there is no external probe.
@@ -45,7 +49,7 @@ Connect the focuser by USB and select its port on the **Connection** tab. The de
 
 ## Operation
 
-- Every ESATTO is calibrated in the factory. The driver does not start a calibration; use the PLAY software or the Virtual HandPad from PrimaLuceLab.
+- Every ESATTO is calibrated in the factory. The calibration on the **Options** tab only sets the zero position again (tested with an ESATTO 2" LP); a full calibration of the travel needs the PLAY software or the Virtual HandPad.
 - PrimaLuceLab expects small changes of the step position after many autofocus runs on the Crayford-style 2", 3" and 4" models. If the focus position drifts by more than half of the travel, they recommend a new calibration. This is not backlash, and it does not require backlash compensation.
 
 ## Troubleshooting

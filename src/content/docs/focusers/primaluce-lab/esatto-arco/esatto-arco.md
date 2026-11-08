@@ -43,7 +43,11 @@ The driver enables the ARCO when it connects. If the ARCO was disabled before, t
 - **Goto:** the rotator position in steps.
 - **Sync:** set the current position to a given angle.
 - **Reverse:** handled by the driver, not by the rotator firmware.
-- **Calibrate:** starts the ARCO calibration.
+- **Calibrate:** starts the ARCO calibration. It takes about a minute; the angle is set to 0 when it is done.
+
+### Options
+
+- **Calibrate:** **Start** sets a new zero position of the focuser at its inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active and the focuser is not moving. Moves are refused until it is done. The ARCO is calibrated separately on the **Rotator** tab.
 
 ### Environment
 
