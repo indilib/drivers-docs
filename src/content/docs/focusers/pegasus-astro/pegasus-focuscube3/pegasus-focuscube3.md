@@ -38,27 +38,31 @@ indiserver -v indi_pegasus_focuscube3
 
 ## Driver Controls
 
-### Motion
+### Main Control
 
+![Main Control tab of the Pegasus FocusCube 3 driver in the INDI Control Panel](./images/focuscube3-main-control.webp)
+
+- **Direction**, **Relative Position:** move in or out by a number of steps.
 - **Absolute Position:** move to a position in steps. The maximum position is 1317500.
-- **Relative Position:** move in or out by a number of steps.
+- **Max. Position:** upper limit for moves.
 - **Abort Motion:** stop the focuser.
+- **Sync:** set the current position to a known value, for example 0 when the drawtube is fully in.
+- **Reverse Motion:** move in the opposite direction.
+- **Backlash:** enable the compensation and set the backlash in steps. The value is stored in the focuser; the firmware applies it on every change of direction. When the firmware reports a backlash above 0, the driver shows the compensation as enabled.
 - **Firmware:** firmware version reported by the focuser.
 
 A move is complete when the focuser has stopped at the target position. If it does not start, the driver reports the move as finished after 5 seconds.
 
-### Settings and sensors
+### Settings
 
-- **Max Position:** upper limit for moves.
-- **Sync:** set the current position to a known value, for example 0 when the drawtube is fully in.
-- **Reverse:** move in the opposite direction.
-- **Backlash:** enable the compensation and set the backlash in steps. The value is stored in the focuser; the firmware applies it on every change of direction. When the firmware reports a backlash above 0, the driver shows the compensation as enabled.
 - **MaxSpeed:** maximum motor speed. The driver reads it from the focuser on connection. Firmware 2.0 accepts 100 to 400 (default 400) and ignores higher values; the driver then shows the speed the focuser kept and warns.
-- **Temperature:** temperature of the external probe (3.5 mm jack), in °C. The value is only shown while the probe is connected. Ekos can use it for temperature compensation.
+- **Temperature:** temperature of the external probe (3.5 mm jack), in °C. It only appears while the probe is connected. Ekos can use it for temperature compensation.
 
 ### WiFi
 
 The **WiFi** tab sets up the WiFi of the focuser. The focuser stores all of these settings itself.
+
+![WiFi tab of the Pegasus FocusCube 3 driver, connected to a WiFi network](./images/focuscube3-wifi.webp)
 
 - **Hotspot:** switch the hotspot of the focuser on or off.
 - **Hotspot Credentials:** SSID and password of the hotspot. The password is also the login for the web dashboard (user `admin`).
