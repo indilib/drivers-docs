@@ -61,16 +61,20 @@ The **Report** field on the **Status** tab shows the state. With firmware 1.39.2
 - **Refraction:** switch the refraction correction of the mount on or off.
 - **Reboot:** restart the mount controller.
 
+![Main Control tab of the Pegasus NYX-101 driver](./images/main.webp)
+
 ### Site Management
 
 - **Park Options:** **Current** stores the current position as the park position of the mount. Move the mount to the park position first; it has to be unparked and stopped, and needs time and location. The mount keeps the park position after power-off. **Default** is not supported, because the mount has no default park position. **Write Data** and **Purge Data** only affect the park status file of the driver.
+
+![Site Management tab of the Pegasus NYX-101 driver](./images/site_management.webp)
 
 > [!TIP]
 > Store a park position before the first park. Without one, the mount does not park and the driver reports an error after 10 seconds.
 
 ### Motion Control
 
-- **Mount Type:** **GEM** for equatorial use or **ALTAZ** for alt-azimuth use. The mount is switched to the selected mode.
+- **Mount Type:** **GEM** for equatorial use or **ALTAZ** for alt-azimuth use. The mount is switched to the selected mode and has to be restarted to apply it. **Fork (Eq)** is not supported by the mount and is refused.
 - **Track Mode:** Sidereal, Solar, Lunar or King.
 - **Slew Rate:** speed for manual motion.
 
@@ -80,9 +84,13 @@ The **Report** field on the **Status** tab shows the state. With firmware 1.39.2
 
 The mount accelerates at about 2.2°/s² and reaches 5°/s only after about 2 seconds. A short move at 1200x therefore covers less than the full speed suggests.
 
+![Motion Control tab of the Pegasus NYX-101 driver](./images/motion_control.webp)
+
 ### Settings
 
 - **Guide Rate:** guide rate in multiples of the sidereal rate, as the standard properties `GUIDE_RATE_WE` and `GUIDE_RATE_NS`. The NYX-101 has one guide rate for both axes and supports 0.25, 0.50 and 1.00 only; other values are rounded to the nearest of these and applied to both axes. The current rate is read from the mount on connection. Pegasus recommends 0.50 for pulse guiding.
+
+![Settings tab of the Pegasus NYX-101 driver](./images/settings.webp)
 
 > [!TIP]
 > PHD2 reads the guide rate from the driver and warns when it changes after a calibration. Recalibrate after changing the guide rate.
@@ -91,6 +99,8 @@ The mount accelerates at about 2.2°/s² and reaches 5°/s only after about 2 se
 
 - **Report:** the raw reply of the mount status query `:GU#`.
 - **Verbose:** when on, the individual status flags (tracking, slew complete, parked, at home, pier side, refraction, …) are shown as separate fields.
+
+![Status tab of the Pegasus NYX-101 driver with Verbose on](./images/status.webp)
 
 ## Operation
 
