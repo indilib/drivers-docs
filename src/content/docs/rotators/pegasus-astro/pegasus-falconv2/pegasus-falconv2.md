@@ -40,10 +40,13 @@ On connection the driver reads the firmware version, the motor speed, the cable 
 
 ### Main Control
 
+![Main Control tab of the Pegasus Falcon V2 driver in the INDI Control Panel](./images/falconv2-main-control.webp)
+
 - **Goto:** move the rotator to an angle. 0° is the home position, where the camera is level.
 - **Abort Motion:** stop the rotator.
 - **Sync:** if the reported angle is wrong, set it to the correct observed value. This also shifts the cable limit, see [Rotation range and cable limit](#rotation-range-and-cable-limit).
 - **Reverse:** rotate in the opposite direction.
+- **Limits (Safe Range):** an additional software limit of the INDI rotator interface. Moves are refused if they end more than half the range away from the angle of the first move after connecting; 0 switches it off. Unlike the cable limit, it does not change the direction of a move.
 - **Derotation:** field derotation rate in **arcseconds per second**, −3600 to 3600; negative values rotate in reverse, 0 switches it off. Derotation is only needed on an alt-az mount. The rate is not saved in the configuration, so derotation never starts by itself when the driver connects; older configurations with a derotation interval are ignored.
 - **Speed:** motor speed in steps per second, 10 to 4500. At 4500 the rotator turns about 2.25° per second.
 - **Cable Limit:** keeps the rotation within the range described below. The rotator stores this setting itself. Only switch it off if your cables can follow any number of turns.
@@ -57,6 +60,8 @@ Up to three preset angles can be stored on the **Presets** tab. They are saved i
 ### WiFi
 
 The **WiFi** tab sets up the WiFi of the rotator. The rotator stores all of these settings itself.
+
+![WiFi tab of the Pegasus Falcon V2 driver, connected to a WiFi network](./images/falconv2-wifi.webp)
 
 - **Hotspot:** switch the hotspot of the rotator on or off.
 - **Hotspot Credentials:** SSID and password of the hotspot. The password is also the login for TCP and for the web dashboard (user `admin`), so the driver copies it to **TCP Password** when you change it.
