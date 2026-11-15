@@ -89,7 +89,7 @@ Each parameter has an OK range (min and max) and a warning zone in percent of th
 
 ![Variable tab of the Pegasus UPB driver](./images/variable.webp)
 
-The adjustable output (v2) always supplies its voltage, 3 to 12 V. It cannot be switched off; the driver shows it as on and refuses to switch it off. The voltage is stored in the device.
+The adjustable output (v2) always supplies its voltage, 3 to 12 V in whole volts. A value in between is rounded, and a value outside the range is set to the nearest limit; the property shows the voltage that was set. The output cannot be switched off; the driver shows it as on and refuses to switch it off. The voltage is stored in the device.
 
 ### USB
 
