@@ -8,8 +8,8 @@ categories:
   - dustcaps
 
 # Additional Metadata (Optional)
-website: www.indlib.org
+website: pegasusastro.com
 executable: indi_pegasus_flatmaster_neo
-platforms: Linux, BSD, OSX
+platforms: Linux, BSD, MacOS
 author: Dominik Merkel
-version: 1.0
+version: 1.3
