@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Pegasus Falcon V2
+manufacturer_name: Pegasus Astro
+
+# Categories (Required)
+categories:
+  - rotators
+
+# Additional Metadata (Optional)
+website: pegasusastro.com
+executable: indi_falconv2_rotator
+platforms: Linux, BSD, MacOS
+author: Chrysikos Efstathios
+version: 1.2
