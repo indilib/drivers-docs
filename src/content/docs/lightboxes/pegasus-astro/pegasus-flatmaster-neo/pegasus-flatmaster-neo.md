@@ -151,7 +151,7 @@ Control commands:
 
 ![Dew Control tab of the Pegasus FlatMaster Neo driver](./images/dew_control.webp)
 
-### Environment / Weather
+### Environment
 
 The `Environment` tab includes:
 
