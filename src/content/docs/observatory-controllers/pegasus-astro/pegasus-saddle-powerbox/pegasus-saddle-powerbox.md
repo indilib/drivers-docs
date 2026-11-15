@@ -32,7 +32,7 @@ Connect the Saddle Powerbox to the PC or StellarMate with the USB cable. It show
 - **Port A Mode / Port B Mode:** **Dew** for a dew heater with a duty cycle, **Power** for a constant 12 V output. The mode is stored in the device.
 - **Dew Control:** switches auto dew on or off. With auto dew on, the device controls both dew outputs, and both channels show as on.
 - **Dew Heater:** switches a channel on with its duty cycle, or off. A port in power mode is switched fully on.
-- **Duty Cycles:** power of each channel in percent. A duty cycle set while a channel is off is kept and used when the channel is switched on.
+- **Duty Cycles:** power of each channel in percent. A duty cycle set while a channel is off is kept and used when the channel is switched on. With auto dew on, the duty cycles show what auto dew sets, 0 % included; when auto dew is switched off, the duty cycles set before are shown again.
 - **Currents:** current of each dew output.
 - **Labels:** names for the dew outputs.
 
