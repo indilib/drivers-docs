@@ -73,13 +73,13 @@ The **WiFi** tab sets up the WiFi of the focuser. The focuser stores all of thes
 
 ## Operation
 
-- Set **Max Position** to the travel of your focuser, then use **Sync** to define the zero point.
+- Set **Max. Position** to the travel of your focuser, then use **Sync** to define the zero point.
 - The gearbox backlash of the FocusCube 3 is about 30 steps. Pegasus recommends setting the backlash only in the imaging software and leaving it at 0 in the focuser. Use one of them, not both: in Ekos, either the backlash of the focuser or the AF Overscan of the focus module.
 - To determine the backlash by hand, move outwards, then inwards in small steps until the star size starts to change, and enter the steps needed.
 
 ## Troubleshooting
 
 - If the driver cannot connect by USB, check that no other program (for example Pegasus Unity) uses the port.
-- If the focuser moves the wrong way, enable **Reverse** and sync the position again.
+- If the focuser moves the wrong way, enable **Reverse Motion** and sync the position again.
 - **No connection over WiFi:** check **Current WiFi** over USB, and that the computer resolves `focuscube3.local`; otherwise enter the IP address shown there.
 - **The speed jumps back:** the focuser ignores speeds above its maximum (400 on firmware 2.0).

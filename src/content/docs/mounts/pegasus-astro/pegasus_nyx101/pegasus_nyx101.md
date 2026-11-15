@@ -56,7 +56,7 @@ The **Report** field on the **Status** tab shows the state. With firmware 1.39.2
 - **Home:** go to the home position, or set the current position as home.
 - **Pier Side:** **Flip** asks the mount to move to the other side of the pier. The current side is shown in the pier side property of the mount. At the home position the mount reports no pier side.
 - **Elevation Limit:** lowest (**Horizon**, −30° to 0°) and highest (**Overhead**, 60° to 90°) altitude limit of the mount.
-- **Meridian Limit:** meridian limit of the mount in degrees (±120).
+- **Limit:** meridian limit of the mount in degrees (±120).
 - **Custom Limits:** **Set** stores a custom safety limit in the mount, **Clear** removes it.
 - **Refraction:** switch the refraction correction of the mount on or off.
 - **Reboot:** restart the mount controller.

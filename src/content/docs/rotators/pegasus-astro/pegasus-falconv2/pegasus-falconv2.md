@@ -101,4 +101,4 @@ A move counts as complete when the rotator has stopped near the target. If the r
 - **The rotator turns back and forth in Ekos:** check that **Reverse** in the driver matches the rotator direction set in Ekos, that **Derotation** is 0, and that the position angle tolerance in Ekos is not tighter than the rotator can reach.
 - **The angle is off after a power cycle:** move to the home position, check that the camera is level, and use **Sync**.
 - **No connection over WiFi:** check **Current WiFi** over USB, and that the computer resolves `falcon2.local`; otherwise enter the IP address shown there. A failed login means that **TCP Password** is not the hotspot password.
-- **Reload Firmware:** the connection drops while the rotator restarts. Disconnect and connect again.
+- **Firmware → Reload:** the connection drops while the rotator restarts. Disconnect and connect again.
