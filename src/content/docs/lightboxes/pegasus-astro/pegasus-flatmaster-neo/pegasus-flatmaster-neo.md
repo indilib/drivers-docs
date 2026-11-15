@@ -18,7 +18,7 @@ Implemented INDI interfaces:
 - `DUSTCAP_INTERFACE`
 - `WEATHER_INTERFACE`
 
-The FlatMaster Neo communicates over USB serial. The driver exposes lightbox on/off and dimming, cap open/close and angle control, dew heater and auto dew, temperature/humidity/dew point monitoring, and WiFi/hotspot management. It was tested with firmware 1.4.
+The FlatMaster Neo communicates over USB serial or, when it is connected to a WiFi network, over TCP. The driver exposes lightbox on/off and dimming, cap open/close and angle control, dew heater and auto dew, temperature/humidity/dew point monitoring, and WiFi/hotspot management. It was tested with firmware 1.4.
 
 ## Supported Hardware
 
@@ -31,7 +31,7 @@ The FlatMaster Neo communicates over USB serial. The driver exposes lightbox on/
 - Family: Lightbox, Dustcap
 - Manufacturer: Pegasus Astro
 - Platforms: Linux, BSD, macOS
-- Version: 1.3
+- Version: 1.4
 
 ## Installing & Running
 
@@ -52,7 +52,13 @@ If you build only this driver from the INDI source tree, the build target is als
 The FlatMaster Neo uses a USB serial connection. The driver prefers serial ports whose system name contains `FlatMaster`.
 
 - Default baud rate: `9600`
-- Supported connection: USB serial
+- Supported connections: USB serial, TCP over WiFi
+
+### WiFi (TCP)
+
+Once the FlatMaster Neo has joined a WiFi network (see [Network](#network)), it takes the same commands on TCP port 9999 and announces itself as `fmneo.local`. Choose **TCP** on the **Connection** tab; the defaults are `fmneo.local` and `9999`. If the name does not resolve on your network, enter the IP address shown in **Current WiFi**.
+
+The driver first sends the **TCP Password** from the **Connection** tab. The FlatMaster Neo (firmware 1.4) accepts commands without it, so anyone on the network can control the device; the driver logs a warning about this.
 
 ### First Time Connection
 
@@ -196,7 +202,7 @@ The `Network` tab includes WiFi and hotspot controls:
 - `AC` / `AC:<channel>` — read/write the hotspot channel (1–11)
 - `A?` / `AE:0` / `AE:1` — hotspot status and enable/disable
 - `AL` / `AN:<ssid>` / `AP:<password>` — hotspot credentials (SSID up to 32, password 8–63 characters)
-- `WI` — current WiFi connection, shown as SSID, IP address and signal strength
+- `WA` — current WiFi connection, shown as SSID, IP address and signal strength; read again on every poll
 - `WS` — WiFi network scan, listing each network once with its best signal
 - `WN:<ssid>` / `WP:<password>` — connect to a 2.4 GHz WiFi network
 - `WZ` — WiFi factory reset: clears the WiFi connection and switches the hotspot on again

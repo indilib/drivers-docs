@@ -12,4 +12,4 @@ website: pegasusastro.com
 executable: indi_pegasus_flatmaster_neo
 platforms: Linux, BSD, MacOS
 author: Dominik Merkel
-version: 1.3
+version: 1.4
