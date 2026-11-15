@@ -7,6 +7,6 @@ manufacturer_name: ZWO
 executable: indi_asi_wheel
 platforms: Linux, mac
 author: John Evans
-version: 1.8
+version: 2.8
 
 
