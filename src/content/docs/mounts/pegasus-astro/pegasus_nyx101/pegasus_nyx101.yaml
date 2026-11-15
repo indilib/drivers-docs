@@ -11,4 +11,4 @@ website: pegasusastro.com
 executable: indi_lx200_pegasus_nyx101
 platforms: Linux, BSD, MacOS
 author: Chrysikos Efstathios
-version: 2.3
+version: 2.4
