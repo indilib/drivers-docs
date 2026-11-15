@@ -8,4 +8,4 @@ website: pegasusastro.com
 executable: indi_pegasus_upb
 platforms: Linux, BSD, MacOS
 author: Jasem Mutlaq
-version: 1.7
+version: 1.8

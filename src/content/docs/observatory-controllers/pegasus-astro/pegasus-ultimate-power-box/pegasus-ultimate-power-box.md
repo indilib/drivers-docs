@@ -5,7 +5,7 @@ description: INDI driver for the Pegasus Astro Ultimate Powerbox v1 and v2.
 thumbnail: ./pegasus-ultimate-power-box.webp
 ---
 
-The INDI Pegasus UPB driver (`indi_pegasus_upb`) controls the Pegasus Astro **Ultimate Powerbox v1 and v2**. The Ultimate Powerbox v3 has its own driver, `indi_pegasus_upb3`. This page describes the driver version 1.7 with an Ultimate Powerbox v2; it was tested with firmware 2.4.
+The INDI Pegasus UPB driver (`indi_pegasus_upb`) controls the Pegasus Astro **Ultimate Powerbox v1 and v2**. The Ultimate Powerbox v3 has its own driver, `indi_pegasus_upb3`. This page describes the driver version 1.8 with an Ultimate Powerbox v2; it was tested with firmware 2.4.
 
 ## Features
 
@@ -73,6 +73,7 @@ If a stepper motor focuser is connected to the motor output, it can be controlle
 
 - **Relative Position** with **Direction**, and **Absolute Position** within **Max. Position**
 - **Abort Motion** and **Sync** to set the current position to any value
+- A move is complete when the motor stands at the target position, also for a move to the current position. If the motor stops somewhere else, the move ends with an alert.
 - **Reverse Motion**
 - **Backlash:** enable the compensation and set the steps. When the compensation is enabled again, the steps set before are used again.
 - **Settings:** maximum speed of the motor (0 to 900), stored in the device.
@@ -113,5 +114,6 @@ The states of the outputs, the dew channels and the USB ports are kept in the IN
 
 - **All USB ports showed as off after reconnecting** (driver versions up to 1.6): reconnect with version 1.7, which sends the real states after every connection.
 - **A dew channel stays off after switching it on** (versions up to 1.6): the duty cycle was 0. Set the duty cycle and switch the channel on again.
+- **The focuser stays busy after a move to its current position** (versions up to 1.7): abort the move; version 1.8 completes it.
 - **The focuser backlash is 1 step after enabling it** (versions up to 1.6): set the backlash steps again.
 - **An output is off and its Over Current light is red:** remove the short circuit or the device with too high a current, then switch the output on again.
