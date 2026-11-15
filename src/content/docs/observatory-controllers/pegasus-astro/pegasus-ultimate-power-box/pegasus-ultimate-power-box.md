@@ -1,113 +1,117 @@
 ---
 title: Pegasus UPB
 categories: ["observatory-controllers"]
-description: Pegasus UPB
+description: INDI driver for the Pegasus Astro Ultimate Powerbox v1 and v2.
 thumbnail: ./pegasus-ultimate-power-box.webp
 ---
 
+The INDI Pegasus UPB driver (`indi_pegasus_upb`) controls the Pegasus Astro **Ultimate Powerbox v1 and v2**. The Ultimate Powerbox v3 has its own driver, `indi_pegasus_upb3`. This page describes the driver version 1.7 with an Ultimate Powerbox v2; it was tested with firmware 2.4.
+
 ## Features
 
-INDI Pegasus UPB driver provides complete control over the Pegasus power box including:
-
-- Power Port Control
-- Power Monitoring
-- USB Hub Control
-- Focus Control
-- Dew Control
-- Environment Monitoring
+- Four 12 V outputs, switched one by one, with current per port and over current indication
+- Outputs switched on when the device boots (**Power On Boot**)
+- Three dew heater outputs with duty cycle, current, and auto dew per channel (v2)
+- Adjustable output, 3 to 12 V (v2)
+- Six USB ports, switched one by one (v2)
+- Built-in stepper motor focuser control
+- Voltage, current, power and consumption monitoring
+- Temperature, humidity and dew point
+- LED control and device reboot
 
 Please make sure the power box is updated to the latest firmware before using it with the INDI driver.
 
-### Connect
+## Connection
 
-![connection](./images/connection.webp)
+Connect the UPB to the PC or StellarMate with the USB cable. The operating system assigns a serial port to the device, for example `/dev/ttyUSB0`. The default baud rate is 9600. If the driver cannot connect on the selected port, it searches the other serial ports of the system.
 
-Connect UPB to the PC/StellarMate via the USB cable. The operating system assigns a serial port to the device (e.g. /dev/ttyUSB0). If the device cannot establish connection to the default port, it starts a process to scan the entire systems for additional serial ports to connect to.
+The driver detects the version from the reply to `P#`: `UPB2_OK` is an Ultimate Powerbox v2, anything else is treated as v1.
 
-## Operation
+> [!CAUTION]
+> If the PC or StellarMate runs from one of the UPB outputs, switching that output off also switches off the computer that runs INDI. The computer then cannot switch the output on again. Give that output a label such as "StellarMate" and leave it on, also in **Power On Boot**.
+
+## Driver Controls
 
 ### Main Control
 
-![main control](./images/main-control.webp)
+![Main Control tab of the Pegasus UPB driver](./images/main.webp)
 
-To establish connection to Pegasus UPB, press the Connect button.
-
-Once connection is established, addiotnal tabs for the different control categories are created accordingly.
-
-The main control provides displays for the voltage, current, and power sensors. The average consumption of current and power is also displayed. You can turn on or off all the ports at once if desired. Finally, you can reboot the device.
-
-### Options
-
-![Options](./images/options.webp)
-
-The INDI generic Options tab provides controls for debugging and logging in addition to polling period. It is best not to change any setting here
+- **Consumption:** average current, amp hours and watt hours since the device started.
+- **Reboot Device:** restarts the UPB controller.
 
 ### Power
 
-![power](./images/power.webp)
+![Power tab of the Pegasus UPB driver](./images/power.webp)
 
-The power tab provides all controls to manage the four 12v power ports on the UPB. The first property controls which ports are on or off. To change the name of the ports from the generic Port 1, Port 2..etc to more meaningful names of the actual devices (e.g. camera), edit the **Power Labels** to set the label of each port. Once set, you need to restart the driver to see the changes.
+- **Power On Boot:** the 12 V outputs that the device switches on when it starts. The setting is stored in the device.
+- **Over Current:** one light for each 12 V and dew output. The device switches an output off when it detects a short circuit or an over current, and the light turns red.
+- **Sensors:** input voltage, total current and power.
+- **LEDs:** switches the LED of the UPB on or off.
+- **Cycle Power:** switches all four 12 V outputs and the dew outputs **on**. The UPB has no command to switch everything off and on again, so this is not a power cycle.
+- **Toggle DC:** switches the four 12 V outputs one by one.
+- **Currents:** current of each 12 V output.
+- **Labels:** names for the outputs, for example the device that runs from it.
 
-The **Power On Boot** property sets which ports are powered when the device boots up. By default, all the ports are powered.
-
-In case of an over-current, the LEDs for each port in the **Over Current** property will turn from green to red to indicate a problem
-
-To turn on or off the small LED on the UPB box, click on the **LED** property settings.
+> [!WARNING]
+> On UPB v2 boards from revision C on, the stepper motor output sleeps while the LED is off. Keep the LED on if you use the focuser output.
 
 ### Dew
 
-![Dew Control](./images/dew-control.webp)
+![Dew tab of the Pegasus UPB driver](./images/dew.webp)
 
-UPB can control up to two Dew heaters using Pulse-Width-Modulation (0 to 100%). Once PWM is set, the current drew should also reflect how much current each dew is consuming.
-
-To activate the Dew heating automatically based on the measured Dew point, turn it on from the **Auto Dew** property.
-
-### USB
-
-Enable or disable the USB hub. This can only control ports 1-5 since port 6 is always on.
+- **Auto Dew Agg:** aggressiveness of the automatic dew control, stored in the device.
+- **Auto Dew Control:** automatic dew control for each of the three channels.
+- **Toggle Dew:** switches a dew channel on with its duty cycle, or off.
+- **Duty Cycles:** power of each channel in percent. A duty cycle set while a channel is off is kept and used when the channel is switched on.
+- **Currents:** current of each dew channel.
 
 ### Focuser
 
-![Focuser Control](./images/focuser.webp)
+![Focuser tab of the Pegasus UPB driver](./images/focuser.webp)
 
-If a focuser is connected, it can be controlled directly from the focuser tab.
+If a stepper motor focuser is connected to the motor output, it can be controlled from this tab:
 
-To move the focuser specific number of steps inward or outward, select the **Direction** and then set the **Relative Position** property.
-
-For absolute position, enter the desired position in the **Absolute Position** property. The postition must be within the maximum position as can be configured by the **Max. Position** property.
-
-**Sync** is used to set the current focuser position to any arbitrary value.
-
-The focuser settings include the following:
-
-- Direction Reverse
-- Backlash (in steps)
-- Backlash Enable and Disable
-- Max Focuser Speed (in %)
+- **Relative Position** with **Direction**, and **Absolute Position** within **Max. Position**
+- **Abort Motion** and **Sync** to set the current position to any value
+- **Reverse Motion**
+- **Backlash:** enable the compensation and set the steps. When the compensation is enabled again, the steps set before are used again.
+- **Settings:** maximum speed of the motor (0 to 900), stored in the device.
 
 ### Environment
 
-![Environment Monitoring](./images/environment.webp)
+![Environment tab of the Pegasus UPB driver](./images/environment.webp)
 
-The weather information, measured and calculated, is displayed in this tab. Three parameters are listed:
+Temperature, humidity and dew point of the sensor of the UPB, and their ranges. The temperature is the critical parameter: when it leaves its OK range, the weather status of the driver changes to warning or alert.
 
-- Temperature (C)
-- Humidity (%)
-- Dew Point (C)
+Each parameter has an OK range (min and max) and a warning zone in percent of that range. With the default temperature range of −15 to 35 °C and 15 %, the warning starts at about 27.5 °C. Adjust the ranges to your site; the dew point range starts at 0 °C by default, so negative dew points in winter show as alert.
 
-The temperature parameter is considered the Critical parameter and if the range is out of normal range, the overall weather status indicator shall reflect that.
+### Variable
 
-Each environment variable range is controlled by the following:
+![Variable tab of the Pegasus UPB driver](./images/variable.webp)
 
-- 1. OK range Min: This is the Minimum range at which the status of the property is considered OK (Green LED). Anything below this would be Alert (Red LED)
+The adjustable output (v2) always supplies its voltage, 3 to 12 V. It cannot be switched off; the driver shows it as on and refuses to switch it off. The voltage is stored in the device.
 
-- 2. OK range Max: This is the Maximum range at which the status of the property is considered OK (Green LED). Anything above this would be Alert (Red LED)
+### USB
 
-- 3. % for warning: At what percentage of the OK range should a warning indicator activates?
+![USB tab of the Pegasus UPB driver](./images/usb.webp)
 
-For example, if the range as illustrated above is Min: -15 and Max: 40, then the warning range is from Min: -15 + -15*0.15 = -12.75C
+The six USB ports (USB3 ports 1 to 4, USB2 ports 5 and 6) can be switched one by one. The UPB v1 can only switch the whole hub.
 
-Similary, the warning zone max: 40 - 40*.15 = 34C. If the temperature is 27.80 then it is within the **OK** range and not within the **Warning** zone. Once the temperature reaches 34C, the temperature indicates turns yellow to **Warning**. If it continues climbing, the state remains **Warning** unitl it hits and exceeds 40C in which case the state become Alert.
+### Firmware
 
-## Issues
-There are no known bugs for this driver. If you found a bug, please report it at INDI.
+![Firmware tab of the Pegasus UPB driver](./images/firmware.webp)
+
+Firmware version and uptime of the device.
+
+## Settings stored in the device
+
+The UPB stores **Power On Boot**, the auto dew aggressiveness, the focuser maximum speed and the voltage of the adjustable output itself. The driver reads them on connection and does not keep them in the INDI configuration, so changes made in Pegasus Unity are not overwritten. Configurations saved by driver versions up to 1.6 still contain these values; they are ignored when the configuration is loaded.
+
+The states of the outputs, the dew channels and the USB ports are kept in the INDI configuration. Ekos loads the configuration on connection and switches the outputs to the saved states.
+
+## Troubleshooting
+
+- **All USB ports showed as off after reconnecting** (driver versions up to 1.6): reconnect with version 1.7, which sends the real states after every connection.
+- **A dew channel stays off after switching it on** (versions up to 1.6): the duty cycle was 0. Set the duty cycle and switch the channel on again.
+- **The focuser backlash is 1 step after enabling it** (versions up to 1.6): set the backlash steps again.
+- **An output is off and its Over Current light is red:** remove the short circuit or the device with too high a current, then switch the output on again.
