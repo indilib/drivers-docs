@@ -1,0 +1,14 @@
+# Display Names (Human-Friendly - Required)
+driver_name: Avalon UPAS
+manufacturer_name: Avalon Instruments
+
+# Categories (Required)
+categories:
+  - auxiliaries
+
+# Additional Metadata (Optional)
+website: www.avalon-instruments.it
+executable: indi_avalon_upas
+platforms: Linux, BSD, MacOS
+author: Jasem Mutlaq, Dominik Merkel
+version: 1.2
