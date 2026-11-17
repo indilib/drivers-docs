@@ -64,7 +64,7 @@ The **WiFi** tab sets up the WiFi of the rotator. The rotator stores all of thes
 ![WiFi tab of the Pegasus Falcon V2 driver, connected to a WiFi network](./images/falconv2-wifi.webp)
 
 - **Hotspot:** switch the hotspot of the rotator on or off.
-- **Hotspot Credentials:** SSID and password of the hotspot. The password is also the login for TCP and for the web dashboard (user `admin`), so the driver copies it to **TCP Password** when you change it.
+- **Hotspot Credentials:** SSID and password of the hotspot. The password is also the login for TCP and for the web dashboard (user `admin`), so after a change the driver reads the credentials back and copies the password the rotator reports to **TCP Password**.
 - **WiFi Channel:** hotspot channel, 1 to 11. Channels 1, 6 and 11 do not overlap.
 - **Current WiFi:** the network the rotator is connected to, with its IP address and signal strength.
 - **Scan Networks:** list the networks in range, each with its best signal. The WiFi radio is only on while the hotspot is enabled or the rotator is connected to a network.
