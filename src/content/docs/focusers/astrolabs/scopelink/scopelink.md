@@ -1,7 +1,7 @@
 ---
 title: ScopeLink
 categories: ["focusers", "rotators", "dustcaps", "lightboxes", "auxiliaries"]
-description: Focuser, rotator, front flap, flat panel, fans and auxiliary power on the Astrolabs ScopeLink telescope controller.
+description: Focuser, rotator, front flap, flat panel, fans, auxiliary power and dew heaters on the Astrolabs ScopeLink telescope controller.
 thumbnail: ./scopelink.webp
 ---
 
@@ -15,7 +15,7 @@ thumbnail: ./scopelink.webp
 | **Executable** | `indi_scopelink` |
 | **Author** | Bence Toth, Astrolabs Hungary Kft. |
 | **Maintainer** | Bence Toth &lt;bence.toth@astrolabs.hu&gt; |
-| **Version** | 1.2 |
+| **Version** | 1.3 |
 | **Device type** | Focuser, rotator, dust cap, light box, auxiliary |
 | **Connection** | Serial (USB CDC-ACM) |
 | **Minimum INDI** | 2.0.0 |
@@ -40,7 +40,8 @@ ScopeLink is a single-box telescope controller from Astrolabs. One USB connectio
 - a flat panel
 - two mirror cooling fans, thermostatically controlled against the mirror-to-ambient temperature
   difference or switched by hand
-- two auxiliary power outputs
+- two auxiliary power outputs, each either a switch or — from interface 1.3 — a dew heater, set by hand
+  or under the controller's own automatic dew control
 - a powered USB hub — two ports with per-port fault reporting on generation 3, six ports on generation 4
 
 The driver publishes all of it as one INDI device. The interfaces it claims depend on what the connected
@@ -65,9 +66,10 @@ no front flap fitted.
 code path, differing only in what the capability read at connect time turns on. The driver is tested
 against real units of both.
 
-**Generation 4 is supported but has not been tested against hardware**, because none exists yet. It is
-checked against the simulator, which serves the same frames from the same capability set the driver
-decodes with.
+**Generation 4 is the newest**, and is tested against a real unit on interface 1.3: the focuser, the
+rotator on the third motor, the front flap, the flat panel, the sensor module, the dew heaters and the
+restart an assignment needs were all driven through this driver, and the screenshots on this page are of
+that unit.
 
 ### Which motor drives what
 
@@ -93,7 +95,7 @@ by two functions. An assignment that breaks one of them is refused by the contro
 somehow holding one anyway, the driver says what is wrong with it and offers no focuser, rotator or flap
 until it is corrected.
 
-![The assignment on the Parameters tab: the focuser on motor 1, the flap on motor 2, no rotator](./images/assignment.webp)
+![The assignment on the Parameters tab: the focuser on motor 1, the rotator on motor 3, the flap on motor 2](./images/assignment.webp)
 
 **A change needs the controller restarted, not just reconnected.** The controller reads its
 configuration when it starts and drives from that copy, so an assignment written while it is running is
@@ -104,7 +106,7 @@ the new assignment adds. The driver says as much in the log when you change one.
 link drops while it leaves the USB bus and comes back — a few seconds — and the driver then connects
 again by itself, which is when it decides which devices to offer. Pulling the power does the same thing;
 so does a firmware update, which ends with a restart for exactly this reason. If the controller does not
-come back within thirty seconds the driver says so and stops waiting; unplug it and plug it back in, then
+come back within a minute the driver says so and stops waiting; unplug it and plug it back in, then
 connect again.
 
 The infrared temperature sensor is a fitting option rather than a generation difference. On a unit
@@ -166,7 +168,7 @@ Two options are worth setting before the first connection, on the **Options** ta
 - **Simulated hardware** — which controller the driver imitates while **Simulation** is on. Ignored
   otherwise. Four entries for three generations, because a generation is not a frame layout: the same
   generation 3 board runs interface 1.0 and 1.1, and 1.1 is a different layout rather than a different
-  board. Generation 4 is simulated on interface 1.2, the firmware it ships with, and so needs no second
+  board. Generation 4 is simulated on interface 1.3, the firmware it ships with, and so needs no second
   entry. See "Running without a controller"
   below.
 
@@ -184,7 +186,7 @@ below behaves as it does on hardware, including motion, the flat panel, the faul
 configuration parameters. **Simulated hardware** on the Options tab picks which controller it imitates,
 which is what makes the differences between them visible — the USB hub and the smart switch settings
 appear and disappear as they would on the real controllers, and the interface 1.1 entry sends the frame
-layout that firmware uses. Generation 4 is simulated on interface 1.2, with a sensor module that has every
+layout that firmware uses. Generation 4 is simulated on interface 1.3, with a sensor module that has every
 sensor on it.
 
 It is meant for trying the driver out, for reproducing a problem without the hardware to hand, and for
@@ -343,21 +345,49 @@ Each fan can be left under the controller's own thermostat or taken over manuall
 
 ## Power
 
-**Auxiliary outputs** switches the two auxiliary power outputs.
+**Auxiliary outputs** switches the two auxiliary power outputs. An output run as a dew heater is on while
+it runs at any duty; switching it off sets it to nothing by hand, and switching it on again goes back to
+whatever it was last under — its last duty, or automatic control.
+
+From interface 1.3 either output can be configured as a **dew heater** on the Parameters tab (*Power
+outputs*, a change takes effect when the controller restarts). The Power tab then has three more rows, with
+one entry for each output that is a heater:
+
+- **Dew heaters (%)** is the duty it is running at, the share of every second it is on. Setting a duty runs
+  the heater at it by hand and takes it off automatic control.
+- **Automatic dew** hands the heater to the controller, which sets the duty from how close the air is to the
+  dew point (the margins are on the Parameters tab, under *Automatic dew control*). Switching it off keeps
+  the heater at the duty it was running at.
+- **Following dew** is green while automatic control is following the dew point, and amber while
+  it is on automatic with no dew point to follow — a sensor module without the humidity sensor, or one that
+  has stopped answering — and runs the heater at its power-up duty instead.
+
+Automatic control works from the air temperature, not the mirror's, so its margin can differ from **Above
+dew point** on the Telemetry tab, which is taken from the mirror while it is being measured. The duty is
+nothing at the start margin or above it, the output's automatic maximum at the full power margin or below
+it, and in proportion between; the controller moves it by at most 5 % a second rather than jumping.
+
+**Output names** names what is plugged into each output, such as *Main scope* or *Guide scope*, in up to
+20 characters. The name labels the output's switch in place of *Output 1* and *Output 2*, and an empty
+name goes back to the number. The names are kept in this driver's configuration, not on the controller,
+so a ScopeLink moved to another computer shows *Output 1* and *Output 2* until it is named there too. A
+script that switches the outputs by element name (`AUX_1`, `AUX_2`) is not affected by renaming them.
 
 **USB hub** reports the downstream ports: whether each is powered, and — on generation 3 — whether it has
 tripped. A port fault lights red and is also recorded in the fault store. A generation 4 hub has six ports
 and no separate fault lamps: it reports a tripped port by dropping that port's power, which the lamp
 beside it already says.
 
-![The Power tab on a generation 3 unit](./images/power.webp)
+![The Power tab on a generation 4 controller on interface 1.3: output 1, named Main scope, is a dew heater under automatic control, output 2 is a switch](./images/power.webp)
 
 ## Parameters
 
 Every configuration value the connected controller holds, grouped the way the firmware groups them:
 one group per motor, then the focuser, the rotator and the front flap, each of the two fans, temperature
-processing, the sensor supply, smart switch monitoring, the controller's own temperature, and the
-positions the unit has learnt. Values are read when the driver connects. Which groups appear depends on
+processing, the sensor supply, smart switch monitoring, the controller's own temperature, the positions
+the unit has learnt, and — from interface 1.3 — **Power outputs**, which says what each output runs as, how it
+starts and how far automatic control may take it, and **Automatic dew control**, which holds its margins. Values are read when the driver
+connects. Which groups appear depends on
 the unit — a value a controller does not hold is not offered, so a two motor controller has no **Motor
 3**, and the **Focuser**, **Rotator** and **Front flap** groups appear only on a controller that holds the
 motor assignment.
@@ -534,6 +564,18 @@ seeing this at all usually means the configuration came from a unit with more mo
 even though the Parameters tab plainly says one is. The controller has not restarted since you changed
 it, so the assignment it is driving from is still the old one. Press **Restart controller** on the
 Parameters tab.
+
+**There are no dew heater rows on the Power tab.** The output is still a switch as far as the running
+controller is concerned. An output's mode is read when the controller starts, so after setting it to *Dew
+heater* on the Parameters tab press **Restart controller**. A controller older than interface 1.3 has no
+dew heaters at all.
+
+**A dew heater on automatic sits at its power-up duty, with Following dew amber.** Automatic control has no
+dew point to work from: the sensor module has no humidity sensor, or it has stopped answering — the
+Telemetry tab shows which. The heater runs at its power-up duty until a dew point comes back.
+
+**A dew heater on automatic stays at 0 %.** The air is further above the dew point than the start margin,
+so there is nothing to do yet. The margins are on the Parameters tab, under *Automatic dew control*.
 
 **A move comes back refused.** The controller checks a move against its own idea of the mechanism, and
 the driver reports what it said rather than a generic failure: no motor assigned, no calibration to move
