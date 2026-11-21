@@ -104,6 +104,7 @@ The mount accelerates at about 2.2°/s² and reaches 5°/s only after about 2 se
 
 ## Operation
 
+- After a GoTo, the driver reports the slew complete only once the mount has reported moving, or after 3 s if it never did (a short slew between two status polls). Ekos therefore does not take its next image before the mount has moved.
 - Set the mount type before the first GoTo. The driver remembers it and sets the pier side capability accordingly when it starts.
 - Store a park position once: move the mount to it and select **Park Options → Current** on the **Site Management** tab.
 - For autoguiding, use pulse guiding and select the guide rate on the **Settings** tab.

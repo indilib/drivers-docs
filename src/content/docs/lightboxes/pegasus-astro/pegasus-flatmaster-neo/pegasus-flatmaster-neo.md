@@ -18,7 +18,7 @@ Implemented INDI interfaces:
 - `DUSTCAP_INTERFACE`
 - `WEATHER_INTERFACE`
 
-The FlatMaster Neo communicates over USB serial. The driver exposes lightbox on/off and dimming, cap open/close and angle control, dew heater and auto dew, temperature/humidity/dew point monitoring, and WiFi/hotspot management. It was tested with firmware 1.4.
+The FlatMaster Neo communicates over USB serial or, when it is connected to a WiFi network, over TCP. The driver exposes lightbox on/off and dimming, cap open/close and angle control, dew heater and auto dew, temperature/humidity/dew point monitoring, and WiFi/hotspot management. It was tested with firmware 1.4.
 
 ## Supported Hardware
 
@@ -31,7 +31,7 @@ The FlatMaster Neo communicates over USB serial. The driver exposes lightbox on/
 - Family: Lightbox, Dustcap
 - Manufacturer: Pegasus Astro
 - Platforms: Linux, BSD, macOS
-- Version: 1.3
+- Version: 1.4
 
 ## Installing & Running
 
@@ -52,7 +52,13 @@ If you build only this driver from the INDI source tree, the build target is als
 The FlatMaster Neo uses a USB serial connection. The driver prefers serial ports whose system name contains `FlatMaster`.
 
 - Default baud rate: `9600`
-- Supported connection: USB serial
+- Supported connections: USB serial, TCP over WiFi
+
+### WiFi (TCP)
+
+Once the FlatMaster Neo has joined a WiFi network (see [Network](#network)), it takes the same commands on TCP port 9999 and announces itself as `fmneo.local`. Choose **Network** on the **Connection** tab; the defaults are `fmneo.local` and `9999`. If the name does not resolve on your network, enter the IP address shown in **Current WiFi**.
+
+The driver first sends the **TCP Password** from the **Connection** tab. The FlatMaster Neo (firmware 1.4) accepts commands without it, so anyone on the network can control the device; the driver logs a warning about this.
 
 ### First Time Connection
 
@@ -185,7 +191,7 @@ The `Overview` tab shows:
 - Uptime
 - `Reboot`
 
-`Reboot` (`FQ`) restarts the device. Its USB port goes away for a moment, so the driver disconnects; connect again after a few seconds.
+`Reboot` (`FQ`) restarts the device. Its USB port goes away for a moment and a TCP connection drops, so the driver disconnects; connect again after a few seconds.
 
 ![Overview tab of the Pegasus FlatMaster Neo driver](./images/overview.webp)
 
@@ -196,12 +202,17 @@ The `Network` tab includes WiFi and hotspot controls:
 - `AC` / `AC:<channel>` — read/write the hotspot channel (1–11)
 - `A?` / `AE:0` / `AE:1` — hotspot status and enable/disable
 - `AL` / `AN:<ssid>` / `AP:<password>` — hotspot credentials (SSID up to 32, password 8–63 characters)
-- `WI` — current WiFi connection, shown as SSID, IP address and signal strength
+- `WA` — current WiFi connection, shown as SSID, IP address and signal strength; read again on every poll
 - `WS` — WiFi network scan, listing each network once with its best signal
-- `WN:<ssid>` / `WP:<password>` — connect to a 2.4 GHz WiFi network
+- `WN:<ssid>` / `WP:<password>` — connect to a 2.4 GHz WiFi network; leave the password empty for an open network
 - `WZ` — WiFi factory reset: clears the WiFi connection and switches the hotspot on again
 
+The hotspot password is also the login for TCP and the web dashboard. After a change the driver reads the hotspot credentials back and copies the password the device reports to **TCP Password**; if the device did not take the change, **Hotspot Credentials** turns red and the driver logs a warning.
+
 The scan needs the WiFi radio, which is on while the hotspot is enabled or the device is connected to a network. Passwords are not written to the driver log.
+
+> [!WARNING]
+> `WZ` makes the device leave the WiFi network at once. Over a TCP connection the driver gets no more replies; disconnect, then set up WiFi again over USB or the hotspot.
 
 > [!CAUTION]
 > The hotspot is on by default and uses the factory password `12345678`. Switch it off, or change its password, if you do not use it.
@@ -227,3 +238,4 @@ The scan needs the WiFi radio, which is on while the hotspot is enabled or the d
 - If values do not update, reconnect and ensure the device responds to `FA`, `ES`, and `CR`.
 - If the WiFi scan finds no networks, enable the hotspot or connect to a network first, then scan again.
 - For network issues, check SSID, password, and that the network uses 2.4 GHz.
+- **No connection over WiFi:** check **Current WiFi** over USB, and that the computer resolves `fmneo.local`; otherwise enter the IP address shown there.

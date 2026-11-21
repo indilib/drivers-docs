@@ -50,6 +50,8 @@ indiserver -v indi_avalon_upas
 | Abort Motion | Stop both axes (GRBL jog cancel) |
 | Position | Position in degrees, from the GRBL machine position since power-on |
 | Feed Rate | Speed per axis in mm/min, 10 to 1000. Default: azimuth 1000, altitude 700 |
+| Speed | Upper limit for both axes in mm/min, 100 to 1000. Default 1000, which leaves the feed rates unchanged; 500 limits both axes to 500 mm/min |
+| Min. Move | An axis whose move is smaller than this, in arcminutes, is skipped. Default 0.1; 0 switches the check off |
 | Gear Ratio | mm of GRBL travel per arcminute of correction. Default: azimuth 2, altitude 22 |
 | Azimuth / Altitude Reverse | Invert an axis if it moves the wrong way |
 | Backlash | Enable or disable the backlash compensation |
@@ -65,7 +67,9 @@ A correction in degrees is converted to GRBL travel with the gear ratio:
 travel [mm] = correction [deg] × 60 × gear ratio [mm/arcmin]
 ```
 
-With the default gear ratios, 1 arcminute is 2 mm in azimuth and 22 mm in altitude. The driver sends one relative jog for both axes, for example `$J=G91G21X2.0000Y22.0000 F703`. GRBL has a single feed rate per jog, so the driver picks the highest feed rate at which neither axis exceeds its own **Feed Rate**. A move is complete when GRBL reports that it is idle again.
+With the default gear ratios, 1 arcminute is 2 mm in azimuth and 22 mm in altitude. The driver sends one relative jog for both axes, for example `$J=G91G21X2.0000Y22.0000 F703`. GRBL has a single feed rate per jog, so the driver picks the highest feed rate at which neither axis exceeds its own **Feed Rate** or the **Speed** limit. A move is complete when GRBL reports that it is idle again.
+
+A client can send corrections far below what the UPAS can resolve, for example 0.02 arcminutes in altitude. With backlash compensation, such a move against the approach direction would run the full overshoot and return, about 2 minutes in altitude, and is lost in the backlash anyway. An axis below **Min. Move** is therefore skipped and the skip is logged; if no axis is left, the move is complete at once.
 
 ## Backlash compensation
 
