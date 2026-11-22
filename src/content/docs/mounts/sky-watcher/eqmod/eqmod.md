@@ -17,6 +17,7 @@ This INDI driver interacts with a mount controller using the Skywatcher Protocol
 * Custom horizon limits.
 * PEC training.
 * Configurable custom parking positions.
+* Custom gearing for mounts with modified axis gearing (driver v1.5+).
 * Pulse-guiding.
 * ST4 Guiding.
 * Full joystick support.
@@ -138,6 +139,30 @@ Time, Location, and Park settings are configured in the Site Management tab.
 The Firmware tab displays information on the detected mount type and firmware version. Furthermore, the RA/DE steps, frequencies, and gear ratios are displayed.
 
 ![EQMod Firmware Diagram](./images/eqmod-firmware.webp)
+
+#### Custom Gearing
+
+The driver reads the RA/DE steps per revolution (**Stepper/Gear**) from the motor controller, and uses them for tracking, guiding, and GoTo. If the axis gearing of your mount has been modified, for example by an aftermarket belt or worm gear upgrade, the firmware still reports the stock values, so tracking, guiding, and GoTo will all be wrong.
+
+Starting with driver v1.5, you can enter the actual steps per revolution in the **Custom Gearing** property of the Firmware tab. Leave both values at **0** to use the firmware values, which is the default and correct for unmodified mounts.
+
+To set custom gearing:
+
+1. Start the driver but do **not** connect to the mount yet.
+2. In the **Firmware** tab, enter **RA Steps/360** and **DE Steps/360** under **Custom Gearing**, then click **Set**. Get these values from whoever modified the mount.
+3. Put the mount in its home position (counterweights down, pointing at the celestial pole), then connect.
+4. Check that **Stepper/Gear** now shows your custom values as **RA Steps (Total)** and **DE Steps (Total)**.
+5. Set the parking position again: click "Default", then "Write Data". Parking positions saved with the old gearing are no longer valid.
+6. Redo your guiding calibration.
+
+The values are saved in the driver configuration, so they stay in place after driver updates. If you change them while connected, they take effect the next time you connect.
+
+For example, an EQ8 or EQ8-R whose 1:1 motor-to-worm belt has been changed to 1.5:1 goes from 11,136,000 to **16,704,000** steps per revolution on each axis.
+
+> [!WARNING]
+> The motor controller's own PEC (PPEC) assumes the stock gearing. Keep PPEC off on a re-geared mount unless whoever modified it confirms that PPEC still works.
+
+Fast slews on a mount geared down this way are slower than before, because each motor step moves the axis a smaller distance.
 
 ### Motor Status
 
