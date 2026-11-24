@@ -47,7 +47,7 @@ The driver enables the ARCO when it connects. If the ARCO was disabled before, t
 
 ### Options
 
-- **Calibrate:** **Start** sets a new zero position of the focuser at its inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active and the focuser is not moving. Moves are refused until it is done. The ARCO is calibrated separately on the **Rotator** tab.
+- **Calibrate:** **Start** sets a new zero position of the focuser at its inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active, the focuser is in the inner half of its travel and not moving. Moves are refused until it is done. The calibration shows **Ok** only if the focuser counted it as complete, otherwise it shows an error. **Abort** stops the motor, but the zero position is no longer valid afterwards: calibrate again before moving. The ARCO is calibrated separately on the **Rotator** tab.
 
 ### Environment
 
@@ -57,9 +57,10 @@ The driver enables the ARCO when it connects. If the ARCO was disabled before, t
 ## Operation
 
 - Calibrate the ARCO after enabling it, and again if it was rotated mechanically relative to the focuser. The calibration makes a full 360° rotation, so make sure the cables can follow it before you start.
-- The ARCO has a resolution of one arc second per step.
+- On an ARCO 2, 10000 steps are about 1.76° (about 5689 steps per degree, measured).
 
 ## Troubleshooting
 
+- **Moves are refused with "The focuser reports a running calibration":** a calibration started from the web interface or the hand pad is still running, or one was aborted: the focuser keeps reporting it for about a minute. Wait, then calibrate again if it was aborted.
 - **The rotator does not move or clicks:** check the 12 V supply first. If the power is fine, the manual describes how to adjust the worm gear.
 - **A warning that the ARCO has to be calibrated:** run **Calibrate** on the **Rotator** tab.

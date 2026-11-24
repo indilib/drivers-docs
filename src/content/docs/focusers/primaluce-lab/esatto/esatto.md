@@ -40,7 +40,7 @@ Connect the focuser by USB and select its port on the **Connection** tab. The de
 
 ### Options
 
-- **Calibrate:** **Start** sets a new zero position at the focuser's inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active and the focuser is not moving. It takes a few seconds; moves are refused until it is done.
+- **Calibrate:** **Start** sets a new zero position at the focuser's inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active, the focuser is in the inner half of its travel and not moving. It takes a few seconds; moves are refused until it is done. The calibration shows **Ok** only if the focuser counted it as complete, otherwise it shows an error. **Abort** stops the motor, but the zero position is no longer valid afterwards: calibrate again before moving.
 
 ### Environment
 
@@ -54,5 +54,6 @@ Connect the focuser by USB and select its port on the **Connection** tab. The de
 
 ## Troubleshooting
 
+- **Moves are refused with "The focuser reports a running calibration":** a calibration started from the web interface or the hand pad is still running, or one was aborted: the focuser keeps reporting it for about a minute. Wait, then calibrate again if it was aborted.
 - **A warning about the 12 V supply:** check the 12 V power supply (at least 1 A). Without it the focuser does not work correctly, even if USB is connected.
 - **The external temperature stays at -273.15:** the optional probe is not connected or not detected.
