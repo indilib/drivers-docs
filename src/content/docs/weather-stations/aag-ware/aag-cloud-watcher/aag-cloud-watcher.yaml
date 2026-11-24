@@ -9,4 +9,4 @@ executable: indi_aagcloudwatcher
 platforms: GNU/Linux
 tags: cloud, temperature, rain, wind, anemometer
 author: Zerjillo (S. Alonso)
-version: 1.01
+version: 1.10

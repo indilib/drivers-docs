@@ -38,6 +38,19 @@ The current **indi_aagcloudwatcher** driver has the following features:
 
 - And some more options...
 
+## Ambient temperature source
+
+Units with firmware 5.6 or later may have an RH (humidity) sensor that also measures temperature, more accurately
+than the infrared sensor's own thermometer. **Options → Ambient Temp. Source** selects where the driver takes the
+ambient temperature from:
+
+- **Probe / IR sensor** (default): the external ambient probe if one is fitted, otherwise the infrared sensor's temperature.
+- **RH sensor**: the RH sensor's temperature. If the unit has no RH sensor or it reports an invalid value, the driver
+  falls back to the probe / IR sensor and logs a warning.
+
+The selected temperature is shown as *Ambient Temp. Sensor* and is used for the sky temperature correction and the
+rain sensor heater. Save the configuration to keep the choice.
+
 ## Operation
 
 Just connect the driver and watch the sensor information.
