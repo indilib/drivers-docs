@@ -47,7 +47,7 @@ The driver enables the ARCO when it connects. If the ARCO was disabled before, t
 
 ### Options
 
-- **Calibrate:** **Start** sets a new zero position of the focuser at its inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active, the focuser is in the inner half of its travel and not moving. Moves are refused until it is done. The calibration shows **Ok** only if the focuser counted it as complete, otherwise it shows an error. **Abort** stops the motor, but the zero position is no longer valid afterwards: calibrate again before moving. The ARCO is calibrated separately on the **Rotator** tab.
+- **Calibrate:** **Start** sets a new zero position of the focuser at its inner sensor, as the ESATTO web interface does. Move the focuser fully in first: the driver only starts the calibration while the sensor is active, the focuser is in the inner half of its travel and not moving. Moves are refused until it is done. The calibration shows **Ok** only if the focuser counted it as complete, otherwise it shows an error. **Abort** stops the motor, but the zero position is no longer valid afterwards. Moves are then refused until a calibration has completed, started here or from the ESATTO web interface. The ARCO is calibrated separately on the **Rotator** tab.
 
 ### Environment
 
@@ -62,5 +62,7 @@ The driver enables the ARCO when it connects. If the ARCO was disabled before, t
 ## Troubleshooting
 
 - **Moves are refused with "The focuser reports a running calibration":** a calibration started from the web interface or the hand pad is still running, or one was aborted: the focuser keeps reporting it for about a minute. Wait, then calibrate again if it was aborted.
+- **Moves are refused with "The position is not valid after an incomplete calibration":** a calibration was aborted or did not complete. Calibrate the focuser again; afterwards it moves normally.
+- **A move in to a position close to the inner end stops at 0:** when moving in, the firmware first moves past the target by its backlash and then back. For a target closer to the inner end than that (about 816 steps on an ESATTO 2" LP, about 1900 on an ESATTO 2"), it goes to 0 instead. Approach such positions from 0 outward.
 - **The rotator does not move or clicks:** check the 12 V supply first. If the power is fine, the manual describes how to adjust the worm gear.
 - **A warning that the ARCO has to be calibrated:** run **Calibrate** on the **Rotator** tab.
