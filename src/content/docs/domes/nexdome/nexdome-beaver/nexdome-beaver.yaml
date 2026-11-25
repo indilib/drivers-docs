@@ -7,5 +7,5 @@ manufacturer_name: NexDome
 executable: indi_nexdome_beaver
 Platforms: Linux, BSD, MacOS
 Author: Sifan Kahale
-version: 1.1
+version: 1.2
 
