@@ -1,11 +1,10 @@
 # Display Names (Human-Friendly)
-driver_name: Armadillo/Platypus
+driver_name: Esatto
 categories: ["focusers"]
 manufacturer_name: Primaluce Lab
 
 # Additional Metadata
-executable: indi_esatto
+executable: indi_esatto_focus
 Platforms: Linux, MacOS, BSD
-Author: Jaime Alemany
-version: 1.0
-
+Author: Jasem Mutlaq
+version: 1.1
