@@ -105,7 +105,7 @@ Absolute Position will move the dome AZ relative to what you set the Home Offset
 
 Dome and Shutter Status fields will display any errors, idle, moving, etc.
 
-Sync sets the current dome azimuth without moving the dome, for example after the dome was pushed by hand or slipped. It is refused while the rotator is moving.
+Sync tells the controller the dome's actual azimuth without moving the dome, for example after the dome was pushed by hand or slipped. Enter the azimuth in the Sync field and click Set; Absolute Position then shows the new value. Sync is refused while the rotator is moving. Other INDI clients, such as a script reading an external encoder, can set the same `DOME_SYNC` property to correct the position.
 
 The Shutter Volts field displays the current voltage of the shutter battery. In combination with the Safe Voltage on the Shutter tab, this can trigger the rotator controller to go into safety mode and call for the shutter to close.
 
