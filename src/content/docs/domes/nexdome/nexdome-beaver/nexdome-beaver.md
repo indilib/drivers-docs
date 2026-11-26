@@ -32,6 +32,8 @@ NexDome is a fully automatic observatory dome control system. Link your dome to 
 -   Rotation-only and full shutter-and-rotation available
 -   Dome and Shutter status
 -   Rotator homing and park
+-   Sync the rotator position without moving the dome (driver 1.2)
+-   Rotator moving and holding power, with the holding power switched off while parked (driver 1.2)
 -   Motor control (Mmx/min speeds, acceleration and timeouts)
 -   Direct confirmation of shutter open/closed state
 -   Slave dome rotation to your telescope
@@ -103,6 +105,8 @@ Absolute Position will move the dome AZ relative to what you set the Home Offset
 
 Dome and Shutter Status fields will display any errors, idle, moving, etc.
 
+Sync tells the controller the dome's actual azimuth without moving the dome, for example after the dome was pushed by hand or slipped. Enter the azimuth in the Sync field and click Set; Absolute Position then shows the new value. Sync is refused while the rotator is moving. Other INDI clients, such as a script reading an external encoder, can set the same `DOME_SYNC` property to correct the position.
+
 The Shutter Volts field displays the current voltage of the shutter battery. In combination with the Safe Voltage on the Shutter tab, this can trigger the rotator controller to go into safety mode and call for the shutter to close.
 
 -   Shutter Volts and Status fields will not show if the shutter controller is off or not in communication.
@@ -164,6 +168,20 @@ See this [Reference] ([https://www.nexdome.com/_files/ugd/8a866a_9cd260bfa6de414
     -   You should not change these unless you know what you are doing!
     -   To reset the rotator parameters back to defaults, click the 'Measure Home' button
 -   To Park or unPark the dome or goto Home, see the Main tab
+
+**Motor Power** (driver 1.2, controllers that report motor power):
+
+-   Moving (%) is the motor current while the dome rotates.
+-   Holding (%) is the motor current while the dome stands still, from 0 to 30 % (the controller's limit).
+    With 0 the motor is unpowered at rest and the dome can drift or roll back a little after a move.
+    A low holding power such as 10 % keeps the dome in place; the motor may hum faintly.
+-   A change applies at once when the dome is idle, or at the end of the current move.
+-   The values are stored in the controller and in the driver configuration.
+
+**Hold Off on Park** (default Enabled): switches the holding power off while the dome is parked, so the motor
+is silent and unpowered. Unpark restores the holding power. Set it to Disabled to keep holding while parked.
+
+Connecting to the driver or loading its configuration never switches the motor on or off.
 
 After settings the parameters above, go to Options tab and click Save in Configurations so that the parameters are used in future sessions.
 
