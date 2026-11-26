@@ -55,7 +55,8 @@ Connect the focuser by USB and select its port on the **Connection** tab. The de
 ## Troubleshooting
 
 - **Moves are refused with "The focuser reports a running calibration":** a calibration started from the web interface or the hand pad is still running, or one was aborted: the focuser keeps reporting it for about a minute. Wait, then calibrate again if it was aborted.
-- **Moves are refused with "The position is not valid after an incomplete calibration":** a calibration was aborted or did not complete. Calibrate the focuser again; afterwards it moves normally.
+- **Moves are refused with "The position is not valid after an incomplete calibration":** a calibration was aborted or did not complete, so the zero position is off. Calibrate the focuser from the ESATTO web interface, which also works away from the sensor, or with **Calibrate** on the **Options** tab if the focuser is still fully in at its sensor. Afterwards it moves normally. The lock is kept only while the driver runs: restarting the driver lifts it, but does not correct the position.
+- **Calibrate is refused with "moves are locked after an incomplete calibration":** the focuser is not at its sensor and cannot be moved there from the driver. Calibrate it from the ESATTO web interface.
 - **A move in to a position close to the inner end stops at 0:** when moving in, the firmware first moves past the target by its backlash and then back. For a target closer to the inner end than that (about 816 steps on an ESATTO 2" LP, about 1900 on an ESATTO 2"), it goes to 0 instead. Approach such positions from 0 outward.
 - **A warning about the 12 V supply:** check the 12 V power supply (at least 1 A). Without it the focuser does not work correctly, even if USB is connected.
 - **The external temperature stays at -273.15:** the optional probe is not connected or not detected.
