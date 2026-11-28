@@ -162,9 +162,6 @@ Two options are worth setting before the first connection, on the **Options** ta
   driver connects, so changing it while connected has no effect until you reconnect. On a controller
   from interface 1.1 the multiplier is held in the controller instead and this setting is ignored; see
   the Focuser tab below.
-- **Controller diagnostics** — off by default. Turning it on adds the controller's own die temperature,
-  supply rail, CPU and stack load and I²C error counter to the Telemetry tab. These are for
-  fault-finding, not for observing.
 - **Simulated hardware** — which controller the driver imitates while **Simulation** is on. Ignored
   otherwise. Four entries for three generations, because a generation is not a frame layout: the same
   generation 3 board runs interface 1.0 and 1.1, and 1.1 is a different layout rather than a different
@@ -254,9 +251,11 @@ reach is decided by its calibrated travel, which is measured rather than typed i
 The flap is published as a dust cap, so Ekos opens and closes it as part of a sequence without being
 asked each time.
 
-**Park** closes the flap, **Unpark** opens it. The raw motor position and the fraction of travel are
-shown alongside, which is useful while calibrating; on a flap of several parts they are the first part's,
-and **Flap state** is what describes the flap as a whole.
+**Park** closes the flap, **Unpark** opens it, and **Stop** under it stops the flap where it is,
+abandoning the rest of the sequence. The raw motor position and the fraction of travel are shown
+alongside, which is useful while calibrating; on a flap of several parts they are the first part's, and
+**Flap state** is what describes the flap as a whole. A flap stopped part way says so, and opens or closes
+again from there.
 
 If the driver connects and finds the flap stopped somewhere between its end stops — after a power cut
 mid-travel, for instance — it reports the state as unknown and **does not move it**. Close or open it
@@ -265,7 +264,7 @@ once to re-establish where it is.
 A flap made of more than one part needs every part calibrated before it is offered as a dust cap: a flap
 with one calibrated half cannot be opened any more than one with none can.
 
-![The Main Control tab, with the front flap opening and the flat panel below it](./images/main-control.webp)
+![The Main Control tab, with the front flap opening, Stop under it, and the flat panel below](./images/main-control.webp)
 
 ## Flat panel (light box)
 
@@ -279,7 +278,9 @@ the panel on with the brightness at zero produces no light, and the driver says 
 ## Telemetry
 
 Read-only. Supply, rear fan and side fan rail voltages; ambient and mirror temperature and the
-difference between them; and the load on each motor.
+difference between them; and, for each motor, its load, its position in its own steps, and whether it is
+turning clockwise, counterclockwise or halted. The motors are numbered as the controller numbers them,
+whatever they drive, so a move made from the Calibration tab shows here too.
 
 What the sensor module measures decides which of these appear. Every module measures the air, so the
 focuser's temperature is there on all of them; the mirror and the difference need the infrared sensor,
@@ -325,11 +326,11 @@ the module is not fitted with Z along the tube at all. It is kept in the driver'
 controller, and is shown beside the switch as the direction the accelerometer read as up; all zeros means
 there is no reference.
 
-With **Controller diagnostics** enabled in Options, a second group appears with the sensor module
-supply, the controller's own supply and die temperature, CPU and peak CPU load, stack usage and the I²C
-error counter.
+At the bottom, **Controller** shows the sensor module supply, the controller's own supply and die
+temperature, CPU and peak CPU load, stack usage and the I²C error counter. These are for fault-finding, not
+for observing.
 
-![The bottom of the Telemetry tab, with controller diagnostics enabled](./images/telemetry-diagnostics.webp)
+![The bottom of the Telemetry tab, with the motors and the controller's own readings](./images/telemetry-diagnostics.webp)
 
 ## Fans
 
@@ -440,10 +441,16 @@ generation 2 one; values that generation does not hold are skipped.
   present reappears immediately, which is the point of reading it back.
 - **Read EEPROM counters** — the wear counters for the controller's configuration memory.
 
+**Fault details** carries the same faults as the store, each as one line of JSON for a program to read:
+the number the controller sends for it, its name, whether it is active, how often it has been seen, its
+additional data, its timestamp, and the whole freeze frame. **Clear one fault** clears the one stored code
+whose number is typed into it, leaves the rest, and reads the store back; a number the store does not hold
+is refused.
+
 **Link health** shows the transaction, retry and failure counts for the serial link, and how old the
 most recent status sample is. Retries are normal on a busy USB bus; a rising failure count is not.
 
-![The Diagnostics tab, with an empty fault store and the EEPROM wear counters](./images/diagnostics.webp)
+![The Diagnostics tab with three faults stored, their details, and fault 35 about to be cleared on its own](./images/diagnostics.webp)
 
 ## Calibration
 
@@ -542,6 +549,11 @@ health readout on the Diagnostics tab shows whether the link was struggling befo
 **No temperature readings.** Either the unit has no infrared sensor fitted — in which case the
 properties are not offered at all — or the sensor has stopped answering, in which case they go to alert
 and a fault is stored. Read the fault store to tell the two apart.
+
+**"The fault store could not be read: No valid response to command 0x05".** The driver is older than 1.4
+and the controller is holding at least one fault. Firmware from August 2026 on answers the way those
+drivers ask for the fault store with nothing. Update the driver: an older one still counts the stored
+faults on the Diagnostics tab, but can neither list nor clear them.
 
 **The flap state is reported as unknown.** It stopped between its end stops, most likely because power
 was lost mid-travel. Close or open it once to re-establish where it is.
